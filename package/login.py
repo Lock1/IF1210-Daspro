@@ -10,6 +10,7 @@ def login():
         print()
         print("Masukkan password: ", end="")
         inputpassword = xinput()
+        # CLS untuk keamanan
         print("\n")
 
 
@@ -22,8 +23,14 @@ def login():
 
         #// if found then notlogged false and pull user information
 
-
-        # Flag set // pull every information about user, may few or everything
-
+        # Validator
+        if (password benar) # tambah kondisi
+            break
+        else
+            print("Ups, password salah atau kamu tidak terdaftar dalam sistem kami. Silakan coba lagi!")
         ##### End of Sequence #####
+
+    # Flag set // pull every information about user, may few or everything
+
+    print("Selamat bersenang-senang, {}!".format(isi variabel username disini))
     # End of function

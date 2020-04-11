@@ -4,7 +4,7 @@
 
 def useTiket():
     # pull user information
-
+        # DONT FORGET GOLD
     # variabel
     playID = ""
     playtime = ""
