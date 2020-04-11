@@ -1,11 +1,11 @@
 # add wahana
 
-# pre defined xinput()
+# pre defined xinput() and update()
 
 def addWahana():
     # no restriction, filter admin / non admin at main loop
     # variables
-    newID = 0
+    newID = ""
     newname = ""
     newcost = 0
     newage = ""
@@ -30,4 +30,9 @@ def addWahana():
     newheight = xinput()
     print("\n")
     print("Info wahana telah ditambahkan!")
+
+    # update
+    # call update()
+
+
     # end of function
