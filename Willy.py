@@ -20,6 +20,10 @@ from package import readwahana
 from package import readtiket
 from package import exit
 
+from package import goldenaccount
+from package import bestwahana
+from package import kehilangan
+
 # Fungsi utama
 load()
 login() # Terdapat loop pada fungsi login
