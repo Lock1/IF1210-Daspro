@@ -1,21 +1,17 @@
-# Login
+from package.base import *
+from hashlib import *
 
-# pre defined xinput()
-# req system.os
-
-def login():
+def login(user):
     notlogged = True
-    While notlogged:
+    passwordbenar = False
+    while notlogged:
         print("Masukkan username: ", end="")
-        inputusername = xinput()
-        print()
+        inputusername = input()
         print("Masukkan password: ", end="")
-        inputpassword = xinput()
-        # CLS untuk keamanan
-        print("\n")
+        inputpassword = input()
+        print()
 
-
-        ##### Checking Sequence #####
+        ##### Pengecekan Password #####
         # Salt & Hash
         # Random number generator sederhana dengan definisi fungsi
         def lcg(m,a,b,s):
@@ -37,17 +33,19 @@ def login():
             return hashed
 
         # Database find
-
-        #// if found then notlogged false and pull user information
+        inputpassword = hash(inputusername,inputpassword)
+        for i in range(99):
+            if inputusername == user[i][3] and inputpassword == user[i][4]:
+                notlogged = False
+                passwordbenar = True
+                username = user[i][3]
+                break
 
         # Validator
-        if (password benar) # tambah kondisi
-            notlogged = False
-        else
+        if not passwordbenar:
             print("Ups, password salah atau kamu tidak terdaftar dalam sistem kami. Silakan coba lagi!")
-        ##### End of Sequence #####
+        ##### Akhir bagian pengecekan #####
 
-    # Flag set // pull every information about user, may few or everything
-
-    print("Selamat bersenang-senang, {}!".format(isi variabel username disini))
+    print("Selamat bersenang-senang, {}!".format(username))
+    return username
     # End of function
