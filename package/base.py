@@ -18,3 +18,13 @@ def xinput(str1=""):
     return n
 
 # fungsi konversi tanggal
+
+
+# Fungsi input untuk integer
+def intinput(str1=""):
+    while True:
+        n = input(str1)
+        try:
+            return int(n)
+        except ValueError:
+            print("Masukan tidak diketahui")

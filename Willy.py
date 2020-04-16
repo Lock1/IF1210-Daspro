@@ -5,13 +5,13 @@ from package import *
 wait = xinput()
 if wait == "load":
     (user, wahana, pembelian, penggunaan, tiket, refund, kritiksaran, kehilangan) = load()
-    (username, role, status) = login(user)
+    (nama, username, role, status) = login(user)
+    admin, gold = False, False
     if role == "Admin":
         admin = True
     if status == "1":
         gold = True
-    else:
-        gold = False
+
     while True:
         print("Menu")
         print("Ketik angka atau tuliskan menu yang diinginkan")
@@ -34,7 +34,7 @@ if wait == "load":
         elif pilih in ["2", "beli_tiket"]:
             print("TBA")
         elif pilih in ["3", "main"]:
-            print("TBA")
+            (tiket,penggunaan) = bermain(nama,tiket,penggunaan)
         elif pilih in ["4", "refund"]:
             print("TBA")
         elif pilih in ["5", "kritik_saran"]:
