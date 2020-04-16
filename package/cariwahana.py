@@ -1,100 +1,78 @@
-#Program cari wahana
-#Hizkia R. 16519515, 12 April 2020
+# Modul fungsi cariwahana()
+# Hizkia R. 16519515, 12 April 2020
 
-#Kamus
-#batsTinggi {Batas tinggi}: integer
-#batasUmur {Batas umur}: integer
+# Kamus
+# btsTinggi {Batas tinggi}: integer
+# btsUmur {Batas umur}: integer
 
-#General interface agar pengguna tahu apa yang harus di input
-import csv
-print ("Jenis batasan umur:")
-print("1. Anak-anak (<17 tahun)")
-print("2. Dewasa (>=17 tahun)")
-print("3. Semua umur")
-print("")
-print("Jenis batasan tinggi badan:")
-print("1. Lebih dari 170 cm")
-print("2. Tanpa batasan")
+# General interface agar pengguna tahu apa yang harus diinput
+from package.base import *
 
+def wahanaprint(id,nama,harga):
+    print("{:6} | {:30} | {:10}".format(id,nama,harga))
 
-#Algoritma pemilihan utama
-batsUmur=input("Batasan umur pemain:")
-if (batsUmur!="1" and batsUmur!="2" and batsUmur!="3"):
-    while (batsUmur!="2" and batsUmur!="1"):
-        print("Batasan umur tidak valid!")
-        batsUmur=input("Batasan umur pemain:")
-        if batsUmur=="3" or batsUmur=="2" or batsUmur=="1":
-            break
-    
-batsTinggi=input("Batasan tinggi badan:")
-if(batsTinggi!="1" and batsTinggi!="2"):
-    while (batsTinggi!="2" and batsTinggi!="1"):
-        print("Batasan tinggi tidak valid!")
-        batsTinggi=input("Batasan tinggi pemain:")
-        if batsTinggi=="2" or batsTinggi=="1":
-            break
+def cariwahana(wahana):
+    # Menuliskan tampilan menu pencarian
+    print("Jenis batasan umur : ")
+    print("1. {:9} (<17 tahun)".format("Anak-anak"))
+    print("2. {:9} (>=17 tahun)".format("Dewasa"))
+    print("3. Semua umur")
+    print()
+    print("Jenis batasan tinggi badan :")
+    print("1. Lebih dari 170 cm")
+    print("2. Tanpa batasan")
+    print()
 
 
+    # Algoritma menyaring input
+    btsUmur = xinput("Batasan umur pemain :")
+    if (btsUmur not in ["1","2","3"]):
+        while (btsUmur not in ["1","2","3"]):
+            print("Batasan umur tidak valid!")
+            btsUmur = xinput("Batasan umur pemain:")
 
-#algoritma untuk menghasilkan hasil search sesuai pilihan kategori
-with open('Wahana.csv', 'r') as f:
-    reader=csv.reader(f,delimiter=',')
-    row=next(reader)
-    i=0
-    for row in reader:
-        if batsUmur=="1" and batsTinggi=="1":
-            if int(row[4])>=170 and row[3]=="anak-anak":
-                print(row[0],end="")
-                print("|",end="")
-                print(row[1],end="")
-                print("|",end="")
-                print(row[2])
-                i+=1
-        elif batsUmur=="1" and batsTinggi=="2":
-            if row[3]=="anak-anak":
-                print(row[0],end="")
-                print("|",end="")
-                print(row[1],end="")
-                print("|",end="")
-                print(row[2])
-                i+=1
-        elif batsUmur=="2" and batsTinggi=="1":
-            if int(row[4])>=170 and row[3]=="dewasa":
-                print(row[0],end="")
-                print("|",end="")
-                print(row[1],end="")
-                print("|",end="")
-                print(row[2])
-                i+=1
-        elif batsUmur=="2" and batsTinggi=="2":
-            if row[3]=="dewasa":
-                print(row[0],end="")
-                print("|",end="")
-                print(row[1],end="")
-                print("|",end="")
-                print(row[2])
-                i+=1
-        elif batsUmur=="3" and batsTinggi=="1":
-            if int(row[4])>=170 and row[3]=="semua umur":
-                print(row[0],end="")
-                print("|",end="")
-                print(row[1],end="")
-                print("|",end="")
-                print(row[2])
-                i+=1
-        elif batsUmur=="3" and batsTinggi=="2":
-            if row[3]=="semua umur":
-                print(row[0],end="")
-                print("|",end="")
-                print(row[1],end="")
-                print("|",end="")
-                print(row[2])
-                i+=1
+    btsTinggi = xinput("Batasan tinggi badan :")
+    if (btsTinggi not in ["1","2"]):
+        while (btsTinggi not in ["1","2"]):
+            print("Batasan tinggi tidak valid!")
+            btsTinggi=xinput("Batasan tinggi pemain:")
+    print()
 
-            
-    if i==0:
+    # Algoritma untuk menghasilkan hasil search sesuai pilihan kategori
+    print("Hasil pencarian:")
+    ketemu = False
+    # Loop pencarian
+    for i in range(99):
+        if (btsUmur,btsTinggi) == ("1","1"):
+            if wahana[i][3] == "anak-anak" and int(wahana[i][4]) >= 170:
+                wahanaprint(wahana[i][0],wahana[i][1],wahana[i][2])
+                ketemu = True
+
+        elif (btsUmur,btsTinggi) == ("1","2"):
+            if wahana[i][3] == "anak-anak":
+                wahanaprint(wahana[i][0],wahana[i][1],wahana[i][2])
+                ketemu = True
+
+        elif (btsUmur,btsTinggi) == ("2","1"):
+            if wahana[i][3] == "dewasa" and int(wahana[i][4]) >= 170:
+                wahanaprint(wahana[i][0],wahana[i][1],wahana[i][2])
+                ketemu = True
+
+        elif (btsUmur,btsTinggi) == ("2","2"):
+            if wahana[i][3] == "dewasa":
+                wahanaprint(wahana[i][0],wahana[i][1],wahana[i][2])
+                ketemu = True
+
+        elif (btsUmur,btsTinggi) == ("3","1"):
+            if wahana[i][3] == "semua umur" and int(wahana[i][4]) >= 170:
+                wahanaprint(wahana[i][0],wahana[i][1],wahana[i][2])
+                ketemu = True
+
+        elif (btsUmur,btsTinggi) == ("3","2"):
+            if wahana[i][3] == "semua umur":
+                wahanaprint(wahana[i][0],wahana[i][1],wahana[i][2])
+                ketemu = True
+    # Penulisan ketika tidak ada data yang ditemukan
+    if not ketemu:
         print("Tidak ada wahana yang sesuai dengan pencarian anda.")
-        
-        
-
-   
+        print()
