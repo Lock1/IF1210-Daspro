@@ -1,8 +1,17 @@
-# usetiket
+# Modul usetiket
+# Desainer
+# Tanur Rizaldi Rahardjo / 16519525 / 17 April 2020
 
-# pre defined xinput()
+# Coder
+# Tanur Rizaldi Rahardjo / 16519525 / 17 April 2020
 
-def useTiket():
+# Tester
+#
+
+####### Algoritma #######
+from package.base import *
+
+def useTiket(status):
     # pull user information
         # DONT FORGET GOLD
     # variabel

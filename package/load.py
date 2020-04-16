@@ -1,38 +1,52 @@
-import csv
+# Modul load
+# Desainer
+# Tanur Rizaldi Rahardjo / 16519525 / 17 April 2020
 
+# Coder
+# Tanur Rizaldi Rahardjo / 16519525 / 17 April 2020
+
+# Tester
+#
+
+
+####### Algoritma #######
+import csv
 def load():
+    ##### Inisiasi array penyimpanan #####
     # Database user.csv
     user = [["" for j in range(7)] for i in range(100)]
-    #[nama,tanggal,tinggi,username,pwd,role,saldo]
+    # [nama, tanggal, tinggi, username, pwd, role, saldo]
 
     # Database wahana.csv
     wahana = [["" for j in range(5)] for i in range(100)]
-    #[id wahana,nama wahana,harga wahana,batas umur, batas tinggi]
+    # [id wahana, nama wahana, harga wahana, batas umur, batas tinggi]
 
     # Database pembelian.csv
     pembelian = [["" for j in range(4)] for i in range(100)]
-    #[username,tanggal beli,id wahana, jumlah tiket]
+    # [username, tanggal beli, id wahana, jumlah tiket]
 
     # Database penggunaan.csv
     penggunaan = [["" for j in range(4)] for i in range(100)]
-    #[username,tanggal beli,id wahana, jumlah tiket]
+    # [username, tanggal beli, id wahana, jumlah tiket]
 
     # Database tiket.csv
     tiket = [["" for j in range(3)] for i in range(100)]
-    #[username,id wahana,jumlah tiket]
+    # [username, id wahana, jumlah tiket]
 
     # Database refund.csv
     refund = [["" for j in range(4)] for i in range(100)]
-    #[username,tanggalrefund,id wahana,jumlah tiket]
+    # [username, tanggalrefund, id wahana, jumlah tiket]
 
     # Database kritiksaran.csv
     kritiksaran = [["" for j in range(4)] for i in range(100)]
-    #[username,tanggalkritik,idwahana,isikritik]
+    # [username, tanggalkritik, idwahana, isikritik]
 
     # Database kehilangan.csv
     kehilangan = [["" for j in range(4)] for i in range(100)]
-    #[username,tanggalkehilangan,idwahana,jumlahtiket]
+    # [username, tanggalkehilangan, idwahana, jumlahtiket]
+    ######################################
 
+    ##### Input nama file #####
     print("Masukkan nama File {:18}: ".format("User"),end="")
     usdb = input()
     with open(usdb) as f:
@@ -128,6 +142,6 @@ def load():
                 break
             else:
                 kehilangan[i] = tp
-
+    ###########################
     print("File perusahaan Willy Wangky’s Chocolate Factory telah di-load.\n")
     return (user,wahana,pembelian,penggunaan,tiket,refund,kritiksaran,kehilangan)
