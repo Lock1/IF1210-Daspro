@@ -59,4 +59,4 @@ def login(user):
         ##### Akhir bagian pengecekan #####
 
     print("Selamat bersenang-senang, {}!\n".format(nama))
-    return (username, role, status)
+    return (nama, username, role, status)
