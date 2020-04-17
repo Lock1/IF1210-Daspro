@@ -11,6 +11,8 @@ def addWahana():
     newage = ""
     newheight = ""
 
+
+def tambahWahana(wahana,N):
     # Meminta input user
     print("Masukkan Informasi Wahana yang ditambahkan:")
 
@@ -31,8 +33,11 @@ def addWahana():
     print("\n")
     print("Info wahana telah ditambahkan!")
 
-    # update
-    # call update()
-
-
-    # end of function
+    # Update
+    for i in range(N):
+        if wahana[i][0] == "~~~":
+            wahana[i] = [newID,newName,newCost,newAge,newHeight]
+            wahana[i+1][0] = "~~~"
+            break
+    return wahana
+    # End of function

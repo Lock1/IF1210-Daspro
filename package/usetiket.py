@@ -11,7 +11,7 @@
 ####### Algoritma #######
 from package.base import *
 
-def bermain(nama,tiket,penggunaan):
+def bermain(nama,tiket,penggunaan,N):
     # Penulisan interface
     print()
     print("Masukkan ID wahana: ", end="")
@@ -25,7 +25,7 @@ def bermain(nama,tiket,penggunaan):
     # Pengecekan tiket pada tiket.csv
     valid = False
 
-    for i in range(99):
+    for i in range(N):
         if (tiket[i][0], tiket[i][1]) == (nama, playID):
             if int(tiket[i][2]) >= playticket:
                 valid = True
@@ -37,7 +37,7 @@ def bermain(nama,tiket,penggunaan):
     # Penulisan informasi baru
     if valid:
         print("Terima kasih telah bermain.")
-        for i in range(99):
+        for i in range(N):
             if penggunaan[i][0] == "~~~":
                 penggunaan[i] = [username, playtime, playID, playticket]
                 penggunaan[i+1][0] = "~~~"

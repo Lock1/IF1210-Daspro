@@ -20,7 +20,7 @@ from package.base import *
 def wahanaprint(id,nama,harga):
     print("{:6} | {:20} | {:10}".format(id,nama,harga))
 
-def cariwahana(wahana):
+def cariwahana(wahana,N):
     # Menuliskan tampilan menu pencarian
     print()
     print("Jenis batasan umur : ")
@@ -52,7 +52,7 @@ def cariwahana(wahana):
     print("Hasil pencarian:")
     ketemu = False
     # Loop pencarian
-    for i in range(99):
+    for i in range(N):
         if (btsUmur,btsTinggi) == ("1","1"):
             if wahana[i][3] == "anak-anak" and int(wahana[i][4]) >= 170:
                 wahanaprint(wahana[i][0],wahana[i][1],wahana[i][2])

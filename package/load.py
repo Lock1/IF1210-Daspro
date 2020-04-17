@@ -11,38 +11,39 @@
 
 ####### Algoritma #######
 import csv
-def load():
+# Load membaca dari baris ke 1 hingga N+1 (Baris pertama adalah informasi tabel)
+def load(N):
     ##### Inisiasi array penyimpanan #####
     # Database user.csv
-    user = [["" for j in range(7)] for i in range(100)]
+    user = [["" for j in range(7)] for i in range(N+1)]
     # [nama, tanggal, tinggi, username, pwd, role, saldo]
 
     # Database wahana.csv
-    wahana = [["" for j in range(5)] for i in range(100)]
+    wahana = [["" for j in range(5)] for i in range(N+1)]
     # [id wahana, nama wahana, harga wahana, batas umur, batas tinggi]
 
     # Database pembelian.csv
-    pembelian = [["" for j in range(4)] for i in range(100)]
+    pembelian = [["" for j in range(4)] for i in range(N+1)]
     # [username, tanggal beli, id wahana, jumlah tiket]
 
     # Database penggunaan.csv
-    penggunaan = [["" for j in range(4)] for i in range(100)]
+    penggunaan = [["" for j in range(4)] for i in range(N+1)]
     # [username, tanggal beli, id wahana, jumlah tiket]
 
     # Database tiket.csv
-    tiket = [["" for j in range(3)] for i in range(100)]
+    tiket = [["" for j in range(3)] for i in range(N+1)]
     # [username, id wahana, jumlah tiket]
 
     # Database refund.csv
-    refund = [["" for j in range(4)] for i in range(100)]
+    refund = [["" for j in range(4)] for i in range(N+1)]
     # [username, tanggalrefund, id wahana, jumlah tiket]
 
     # Database kritiksaran.csv
-    kritiksaran = [["" for j in range(4)] for i in range(100)]
+    kritiksaran = [["" for j in range(4)] for i in range(N+1)]
     # [username, tanggalkritik, idwahana, isikritik]
 
     # Database kehilangan.csv
-    kehilangan = [["" for j in range(4)] for i in range(100)]
+    kehilangan = [["" for j in range(4)] for i in range(N+1)]
     # [username, tanggalkehilangan, idwahana, jumlahtiket]
     ######################################
 
@@ -52,7 +53,7 @@ def load():
     with open(usdb) as f:
         s = csv.reader(f)
         s.__next__() # Skip baris teratas
-        for i in range(99):
+        for i in range(N):
             tp = s.__next__()
             if tp[0] == "~~~":
                 break
@@ -64,7 +65,7 @@ def load():
     with open(wadb) as f:
         s = csv.reader(f)
         s.__next__() # Skip baris teratas
-        for i in range(99):
+        for i in range(N):
             tp = s.__next__()
             if tp[0] == "~~~":
                 break
@@ -76,7 +77,7 @@ def load():
     with open(bedb) as f:
         s = csv.reader(f)
         s.__next__() # Skip baris teratas
-        for i in range(99):
+        for i in range(N):
             tp = s.__next__()
             if tp[0] == "~~~":
                 break
@@ -88,7 +89,7 @@ def load():
     with open(gudb) as f:
         s = csv.reader(f)
         s.__next__() # Skip baris teratas
-        for i in range(99):
+        for i in range(N):
             tp = s.__next__()
             if tp[0] == "~~~":
                 break
@@ -100,7 +101,7 @@ def load():
     with open(tidb) as f:
         s = csv.reader(f)
         s.__next__() # Skip baris teratas
-        for i in range(99):
+        for i in range(N):
             tp = s.__next__()
             if tp[0] == "~~~":
                 break
@@ -112,7 +113,7 @@ def load():
     with open(redb) as f:
         s = csv.reader(f)
         s.__next__() # Skip baris teratas
-        for i in range(99):
+        for i in range(N):
             tp = s.__next__()
             if tp[0] == "~~~":
                 break
@@ -124,7 +125,7 @@ def load():
     with open(krdb) as f:
         s = csv.reader(f)
         s.__next__() # Skip baris teratas
-        for i in range(99):
+        for i in range(N):
             tp = s.__next__()
             if tp[0] == "~~~":
                 break
@@ -136,7 +137,7 @@ def load():
     with open(hidb) as f:
         s = csv.reader(f)
         s.__next__() # Skip baris teratas
-        for i in range(99):
+        for i in range(N):
             tp = s.__next__()
             if tp[0] == "~~~":
                 break

@@ -1,11 +1,20 @@
 # Program utama
 from package import *
 
+# List Variabel
+
+
+
+
+# Inisiasi Variabel
+Nmax = 100
+
+
 # Fungsi utama
 wait = xinput()
 if wait == "load":
-    (user, wahana, pembelian, penggunaan, tiket, refund, kritiksaran, kehilangan) = load()
-    (nama, username, role, status) = login(user)
+    (user, wahana, pembelian, penggunaan, tiket, refund, kritiksaran, kehilangan) = load(Nmax)
+    (nama, username, role, status) = login(user,Nmax)
     admin, gold = False, False
     if role == "Admin":
         admin = True
@@ -30,11 +39,11 @@ if wait == "load":
 
         # Switch untuk pemain
         if pilih in ["1", "cari"]:
-            cariwahana(wahana)
+            cariwahana(wahana,Nmax)
         elif pilih in ["2", "beli_tiket"]:
             print("TBA")
         elif pilih in ["3", "main"]:
-            (tiket,penggunaan) = bermain(nama,tiket,penggunaan)
+            (tiket,penggunaan) = bermain(nama,tiket,penggunaan,Nmax)
         elif pilih in ["4", "refund"]:
             print("TBA")
         elif pilih in ["5", "kritik_saran"]:
@@ -53,7 +62,7 @@ if wait == "load":
                 elif pilih in ["B","cari_pemain"]:
                     print("TBA")
                 elif pilih in ["C","tambah_wahana"]:
-                    print("TBA")
+                    wahana = tambahWahana(wahana,Nmax)
                 elif pilih in ["D","lihat_laporan"]:
                     print("TBA")
                 elif pilih in ["E","tiket_pemain"]:

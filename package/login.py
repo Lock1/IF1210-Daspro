@@ -36,7 +36,7 @@ def hash(st1,st2):
     return hashed
 #######################
 
-def login(user):
+def login(user,N):
     notlogged, passwordbenar = True, False
     while notlogged:
         print("Masukkan username: ", end="")
@@ -47,7 +47,7 @@ def login(user):
         ##### Pengecekan Password #####
         # Pencarian informasi pada database
         inputpassword = hash(inputusername,inputpassword)
-        for i in range(99):
+        for i in range(N):
             if (inputusername, inputpassword) == (user[i][3], user[i][4]):
                 notlogged, passwordbenar = False, True
                 nama, username, role, status = user[i][0], user[i][3], user[i][5], user[i][7]
