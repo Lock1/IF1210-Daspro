@@ -18,7 +18,7 @@
 from package.base import *
 
 def wahanaprint(id,nama,harga):
-    print("{:6} | {:20} | {:10}".format(id,nama,harga))
+    print("{:6} | {:30} | {:10}".format(id,nama,harga))
 
 def cariwahana(wahana,N):
     # Menuliskan tampilan menu pencarian

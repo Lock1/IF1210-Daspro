@@ -1,4 +1,6 @@
 TBA
+dokumentasi modul eksternal digunakan
+mark
 
 > Modul
 Load
@@ -18,7 +20,7 @@ Baca Riwayat
 Baca tiket
 Exit
 + Bonus
-Upgrade gold
+Upgrade Gold
 Best Wahana
 Laporan Kehilangan
 
@@ -28,4 +30,6 @@ Login + Hash
 Pencarian Wahana
 Menggunakan Tiket
 Tambah Wahana
-5 / 19
+Best Wahana
+Laporan Kehilangan
+7 / 19
