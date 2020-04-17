@@ -2,7 +2,7 @@
 from package import *
 
 # List Variabel
-
+# tba
 
 
 
@@ -49,7 +49,7 @@ if wait == "load":
         elif pilih in ["5", "kritik_saran"]:
             print("TBA")
         elif pilih in ["6", "best_wahana"]:
-            print("TBA")
+            cariBestWahana(pembelian,wahana,Nmax)
         elif pilih in ["7", "tiket_hilang"]:
             (tiket,kehilangan) = hilang(tiket,kehilangan,Nmax)
         elif pilih in ["8", "exit"]:
@@ -69,7 +69,7 @@ if wait == "load":
                     print("TBA")
                 elif pilih in ["F","riwayat_wahana"]:
                     print("TBA")
-                elif pilih  ["G","upgrade_gold"]:
+                elif pilih in ["G","upgrade_gold"]:
                     print("TBA")
                 elif pilih in ["H"]:
                     print("TBA")
