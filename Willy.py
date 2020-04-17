@@ -51,7 +51,7 @@ if wait == "load":
         elif pilih in ["6", "best_wahana"]:
             print("TBA")
         elif pilih in ["7", "tiket_hilang"]:
-            print("TBA")
+            (tiket,kehilangan) = hilang(tiket,kehilangan,Nmax)
         elif pilih in ["8", "exit"]:
             print("TBA")
         else:
