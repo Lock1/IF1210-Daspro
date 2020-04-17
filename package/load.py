@@ -49,7 +49,7 @@ def load(N):
 
     ##### Input nama file #####
     print("Masukkan nama File {:18}: ".format("User"),end="")
-    usdb = input()
+    usdb = "database/" + input()
     with open(usdb) as f:
         s = csv.reader(f)
         s.__next__() # Skip baris teratas
@@ -62,7 +62,7 @@ def load(N):
                 user[i] = tp
 
     print("Masukkan nama File {:18}: ".format("Daftar Wahana"),end="")
-    wadb = input()
+    wadb = "database/" + input()
     with open(wadb) as f:
         s = csv.reader(f)
         s.__next__() # Skip baris teratas
@@ -75,7 +75,7 @@ def load(N):
                 wahana[i] = tp
 
     print("Masukkan nama File {:18}: ".format("Pembelian Tiket"),end="")
-    bedb = input()
+    bedb = "database/" + input()
     with open(bedb) as f:
         s = csv.reader(f)
         s.__next__() # Skip baris teratas
@@ -88,7 +88,7 @@ def load(N):
                 pembelian[i] = tp
 
     print("Masukkan nama File {:18}: ".format("Penggunaan Tiket"),end="")
-    gudb = input()
+    gudb = "database/" + input()
     with open(gudb) as f:
         s = csv.reader(f)
         s.__next__() # Skip baris teratas
@@ -101,7 +101,7 @@ def load(N):
                 penggunaan[i] = tp
 
     print("Masukkan nama File {:18}: ".format("Kepemilikan Tiket"),end="")
-    tidb = input()
+    tidb = "database/" + input()
     with open(tidb) as f:
         s = csv.reader(f)
         s.__next__() # Skip baris teratas
@@ -114,7 +114,7 @@ def load(N):
                 tiket[i] = tp
 
     print("Masukkan nama File {:18}: ".format("Refund Tiket"),end="")
-    redb = input()
+    redb = "database/" + input()
     with open(redb) as f:
         s = csv.reader(f)
         s.__next__() # Skip baris teratas
@@ -127,7 +127,7 @@ def load(N):
                 refund[i] = tp
 
     print("Masukkan nama File {:18}: ".format("Kritik dan Saran"),end="")
-    krdb = input()
+    krdb = "database/" + input()
     with open(krdb) as f:
         s = csv.reader(f)
         s.__next__() # Skip baris teratas
@@ -140,7 +140,7 @@ def load(N):
                 kritiksaran[i] = tp
 
     print("Masukkan nama File {:18}: ".format("Kehilangan Tiket"),end="")
-    hidb = input()
+    hidb = "database/" + input()
     with open(hidb) as f:
         s = csv.reader(f)
         s.__next__() # Skip baris teratas
