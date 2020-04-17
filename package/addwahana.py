@@ -1,38 +1,35 @@
-# add wahana
+# Modul addwahana
+# Desainer
+# Tanur Rizaldi Rahardjo / 16519525 / 17 April 2020
 
-# pre defined xinput() and update()
+# Coder
+# Tanur Rizaldi Rahardjo / 16519525 / 17 April 2020
 
-def addWahana():
-    # no restriction, filter admin / non admin at main loop
-    # variables
-    newID = ""
-    newname = ""
-    newcost = 0
-    newage = ""
-    newheight = ""
+# Tester
+#
 
+
+def tambahWahana(wahana):
     # Meminta input user
     print("Masukkan Informasi Wahana yang ditambahkan:")
-
     print("Masukkan ID Wahana: ", end="")
-    newID = xinput()
-    print()     # newline
+    newID = input()
     print("Masukkan Nama Wahana: ", end="")
-    newName = xinput()
-    print()
+    newName = input()
     print("Masukkan Harga Tiket: ", end="")
-    newcost = xinput()
-    print()
+    newCost = input()
     print("Batasan umur: ", end="")
-    newage = xinput()
-    print()
+    newAge = input()
     print("Batasan tinggi badan: ", end="")
-    newheight = xinput()
-    print("\n")
+    newHeight = input()
+    print()
     print("Info wahana telah ditambahkan!")
 
-    # update
-    # call update()
-
-
-    # end of function
+    # Update
+    for i in range(99):
+        if wahana[i][0] == "~~~":
+            wahana[i] = [newID,newName,newCost,newAge,newHeight]
+            wahana[i+1][0] = "~~~"
+            break
+    return wahana
+    # End of function

@@ -55,6 +55,7 @@ def load():
         for i in range(99):
             tp = s.__next__()
             if tp[0] == "~~~":
+                user[i] = tp
                 break
             else:
                 user[i] = tp
@@ -67,6 +68,7 @@ def load():
         for i in range(99):
             tp = s.__next__()
             if tp[0] == "~~~":
+                wahana[i] = tp
                 break
             else:
                 wahana[i] = tp
@@ -79,6 +81,7 @@ def load():
         for i in range(99):
             tp = s.__next__()
             if tp[0] == "~~~":
+                pembelian[i] = tp
                 break
             else:
                 pembelian[i] = tp
@@ -91,6 +94,7 @@ def load():
         for i in range(99):
             tp = s.__next__()
             if tp[0] == "~~~":
+                penggunaan[i] = tp
                 break
             else:
                 penggunaan[i] = tp
@@ -103,6 +107,7 @@ def load():
         for i in range(99):
             tp = s.__next__()
             if tp[0] == "~~~":
+                tiket[i] = tp
                 break
             else:
                 tiket[i] = tp
@@ -115,6 +120,7 @@ def load():
         for i in range(99):
             tp = s.__next__()
             if tp[0] == "~~~":
+                refund[i] = tp
                 break
             else:
                 refund[i] = tp
@@ -127,6 +133,7 @@ def load():
         for i in range(99):
             tp = s.__next__()
             if tp[0] == "~~~":
+                kritiksaran[i] = tp
                 break
             else:
                 kritiksaran[i] = tp
@@ -139,6 +146,7 @@ def load():
         for i in range(99):
             tp = s.__next__()
             if tp[0] == "~~~":
+                kehilangan[i] = tp
                 break
             else:
                 kehilangan[i] = tp

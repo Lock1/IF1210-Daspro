@@ -1,6 +1,10 @@
 # Program utama
 from package import *
 
+# List Variabel
+
+
+
 # Fungsi utama
 wait = xinput()
 if wait == "load":
@@ -53,7 +57,7 @@ if wait == "load":
                 elif pilih in ["B","cari_pemain"]:
                     print("TBA")
                 elif pilih in ["C","tambah_wahana"]:
-                    print("TBA")
+                    wahana = tambahWahana(wahana)
                 elif pilih in ["D","lihat_laporan"]:
                     print("TBA")
                 elif pilih in ["E","tiket_pemain"]:
