@@ -3,3 +3,4 @@ from package.load import *
 from package.login import *
 from package.cariwahana import *
 from package.usetiket import *
+from package.addwahana import *
