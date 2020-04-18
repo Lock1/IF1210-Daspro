@@ -1,8 +1,8 @@
-TBA
+# TBA
 dokumentasi modul eksternal digunakan
 mark
 
-> Modul
+## Modul
 Load
 Login
 Save
@@ -24,7 +24,7 @@ Upgrade Gold
 Best Wahana
 Laporan Kehilangan
 
-> Progress
+## Progress
 Load
 Login + Hash
 Pencarian Wahana
