@@ -40,11 +40,12 @@ while not loaded:
 # Menu utama
 while loaded:
     print("Menu")
-    print("Ketik angka atau tuliskan menu yang diinginkan")
+    print("Ketik angka atau tulis menu yang diinginkan")
     printMenu(menuRow,menuColumn,menuPlayerCount,menuVarName,menuName)
     if admin:
         print()
         print("Admin")
+        print("Ketik menu yang diinginkan")
         printMenu(menuRow,menuColumn,menuAdminCount,menuAdminVarName,menuAdminName)
     pilih = xinput()
 
