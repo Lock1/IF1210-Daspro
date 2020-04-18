@@ -71,7 +71,6 @@ while loaded:
         if admin:
             if pilih in ["A","signup"]:
                 user = signUpUser(user,Nmax)
-                print(user)
             elif pilih in ["B","cari_pemain"]:
                 print("TBA")
             elif pilih in ["C","tambah_wahana"]:
