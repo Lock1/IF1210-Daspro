@@ -30,6 +30,7 @@ Login + Hash
 Pencarian Wahana
 Menggunakan Tiket
 Tambah Wahana
+Upgrade Gold
 Best Wahana
 Laporan Kehilangan
-7 / 19
+8 / 19
