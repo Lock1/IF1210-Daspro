@@ -28,11 +28,12 @@ dokumentasi modul eksternal digunakan
 ## Progress
 1. Load
 2. Login + Hash
-3. Pencarian Wahana
-4. Menggunakan Tiket
-5. Tambah Wahana
-6. Upgrade Gold
-7. Best Wahana
-8. Laporan Kehilangan
+3. Sign Up
+4. Pencarian Wahana
+5. Menggunakan Tiket
+6. Tambah Wahana
+7. Upgrade Gold
+8. Best Wahana
+9. Laporan Kehilangan
 
-**8 / 19**
+**9 / 19**
