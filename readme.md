@@ -1,6 +1,6 @@
 # TBA
 dokumentasi modul eksternal digunakan
-mark
+\ mark
 
 ## Modul
 1. Load
@@ -19,6 +19,7 @@ mark
 14. Baca Riwayat
 15. Baca tiket
 16. Exit
+
 ### Bonus
 1. Upgrade Gold
 2. Best Wahana
@@ -34,4 +35,4 @@ mark
 7. Best Wahana
 8. Laporan Kehilangan
 
-8 / 19
+**8 / 19**
