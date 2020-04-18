@@ -28,3 +28,7 @@ def intinput(str1=""):
             return int(n)
         except ValueError:
             print("Masukan tidak diketahui")
+
+# Prosedur rawPrint
+def rawPrint(str1):
+    print(str1,end="")

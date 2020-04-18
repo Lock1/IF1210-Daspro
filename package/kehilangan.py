@@ -14,34 +14,34 @@
 from package.base import *
 
 def hilang(tiket,kehilangan,N):
-    # Inteface
-    print("Masukkan username: ",end="")
+    # Interface
+    rawPrint("Masukkan username: ")
     lostUsername = input()
-    print("Tanggal kehilangan tiket: ",end="")
+    rawPrint("Tanggal kehilangan tiket: ")
     lostTime = input()
-    print("ID wahana: ",end="")
+    rawPrint("ID wahana: ")
     lostID = input()
-    print("Jumlah tiket yang dihilangkan: ",end="")
+    rawPrint("Jumlah tiket yang dihilangkan: ")
     lostTicket = intinput()
-
-    # Pencarian database
-    valid = False
-
+    print()
+    # Pencarian informasi database pada tiket.csv dan pengecekan kevalidan
+    isTicketValid = False
     for i in range(N):
+        if (tiket[i][0] == "~~~"):
+            break
         if (tiket[i][0], tiket[i][1]) == (lostUsername, lostID):
-            if int(tiket[i][2]) >= lostTicket:
-                valid = True
+            if (int(tiket[i][2]) >= lostTicket):
+                isTicketValid = True
                 tiket[i][2] = str(int(tiket[i][2]) - lostTicket)
                 break
-        if tiket[i][0] == "~~~":
-            break
-
-    # Penulisan informasi baru
-    if valid:
+    # Penulisan informasi baru pada kehilangan.csv
+    if isTicketValid:
         print("Laporan kehilangan tiket Anda telah direkam.")
         for i in range(N):
-            if kehilangan[i][0] == "~~~":
+            if (kehilangan[i][0] == "~~~"):
                 kehilangan[i] = [lostUsername, lostTime, lostID, lostTicket]
-                kehilangan[i+1][0] = "~~~"
+                if (i != N):
+                    kehilangan[i+1][0] = "~~~"
                 break
+    print()
     return (tiket,kehilangan)

@@ -8,28 +8,30 @@
 # Tester
 #
 
+####### Algoritma #######
+from package.base import *
 
 def tambahWahana(wahana,N):
     # Meminta input user
     print("Masukkan Informasi Wahana yang ditambahkan:")
-    print("Masukkan ID Wahana: ", end="")
+    rawPrint("Masukkan ID Wahana: ")
     newID = input()
-    print("Masukkan Nama Wahana: ", end="")
+    rawPrint("Masukkan Nama Wahana: ")
     newName = input()
-    print("Masukkan Harga Tiket: ", end="")
+    rawPrint("Masukkan Harga Tiket: ")
     newCost = input()
-    print("Batasan umur: ", end="")
+    rawPrint("Batasan umur: ")
     newAge = input()
-    print("Batasan tinggi badan: ", end="")
+    rawPrint("Batasan tinggi badan: ")
     newHeight = input()
     print()
     print("Info wahana telah ditambahkan!")
-
-    # Update
+    # Update array wahana dengan wahana baru
     for i in range(N):
-        if wahana[i][0] == "~~~":
+        if (wahana[i][0] == "~~~"):
             wahana[i] = [newID,newName,newCost,newAge,newHeight]
-            wahana[i+1][0] = "~~~"
+            if (i != N):
+                wahana[i+1][0] = "~~~"
             break
     return wahana
     # End of function
