@@ -40,11 +40,12 @@ while not loaded:
 # Menu utama
 while loaded:
     print("Menu")
-    print("Ketik angka atau tuliskan menu yang diinginkan")
+    print("Ketik angka atau tulis menu yang diinginkan")
     printMenu(menuRow,menuColumn,menuPlayerCount,menuVarName,menuName)
     if admin:
         print()
         print("Admin")
+        print("Ketik menu yang diinginkan")
         printMenu(menuRow,menuColumn,menuAdminCount,menuAdminVarName,menuAdminName)
     pilih = xinput()
 
@@ -69,7 +70,7 @@ while loaded:
         # Switch tambahan untuk admin
         if admin:
             if pilih in ["A","signup"]:
-                print("TBA")
+                user = signUpUser(user,Nmax)
             elif pilih in ["B","cari_pemain"]:
                 print("TBA")
             elif pilih in ["C","tambah_wahana"]:

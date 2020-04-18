@@ -7,3 +7,4 @@ from package.addwahana import *
 from package.kehilangan import *
 from package.bestwahana import *
 from package.upgradegold import *
+from package.signup import *
