@@ -28,7 +28,7 @@ def lcg(m,a,b,s):
 def hash(st1,st2):
     hashedst1 = sha512(str(st1).encode('utf-8')).hexdigest()
     s = lcg(16,50,1,ord(str(st1)[0])) # Digunakan char pertama st1 sebagai seed pseudo rng
-    if s % 2:
+    if (s % 2):
         salted = hashedst1 + st2
     else:
         salted = st2 + hashedst1
@@ -37,26 +37,26 @@ def hash(st1,st2):
 #######################
 
 def login(user,N):
-    notlogged, passwordbenar = True, False
+    notlogged, passwordBenar = True, False
     while notlogged:
-        print("Masukkan username: ", end="")
-        inputusername = input()
-        print("Masukkan password: ", end="")
-        inputpassword = input()
+        rawPrint("Masukkan username: ")
+        inputUsername = input()
+        rawPrint("Masukkan password: ")
+        inputPassword = input()
         print()
         ##### Pengecekan Password #####
         # Pencarian informasi pada database
-        inputpassword = hash(inputusername,inputpassword)
+        inputPassword = hash(inputUsername, inputPassword)
         for i in range(N):
-            if (inputusername, inputpassword) == (user[i][3], user[i][4]):
-                notlogged, passwordbenar = False, True
+            if (inputUsername, inputPassword) == (user[i][3], user[i][4]):
+                notlogged, passwordBenar = False, True
                 nama, username, role, status = user[i][0], user[i][3], user[i][5], user[i][7]
                 break
-
         # Penulisan pada layar ketika password salah
-        if not passwordbenar:
+        if not passwordBenar:
             print("Ups, password salah atau kamu tidak terdaftar dalam sistem kami. Silakan coba lagi!")
         ##### Akhir bagian pengecekan #####
 
-    print("Selamat bersenang-senang, {}!\n".format(nama))
+    print("Selamat bersenang-senang, {}!".format(nama))
+    print()
     return (nama, username, role, status)
