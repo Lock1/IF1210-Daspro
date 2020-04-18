@@ -33,4 +33,5 @@ mark
 6. Upgrade Gold
 7. Best Wahana
 8. Laporan Kehilangan
-\8 / 19
+
+8 / 19
