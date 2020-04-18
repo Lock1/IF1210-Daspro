@@ -8,7 +8,7 @@ from package import *
 
 # Inisiasi Variabel
 Nmax = 100
-
+toGoldCost = 15000
 
 # Fungsi utama
 wait = xinput()
@@ -70,7 +70,7 @@ if wait == "load":
                 elif pilih in ["F","riwayat_wahana"]:
                     print("TBA")
                 elif pilih in ["G","upgrade_gold"]:
-                    print("TBA")
+                    user = upgradeToGold(user,toGoldCost,Nmax)
                 elif pilih in ["H"]:
                     print("TBA")
                 else:
