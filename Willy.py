@@ -14,9 +14,9 @@ menuColumn = int(config[6])
 menuRow = int(config[7])
 
 menuVarName = stringConfigToArray(config[8],menuPlayerCount)
-menuName = stringConfigToArray(config[8],menuPlayerCount)
-menuAdminVarName = stringConfigToArray(config[8],menuAdminCount)
-menuAdminName = stringConfigToArray(config[8],menuAdminCount)
+menuName = stringConfigToArray(config[9],menuPlayerCount)
+menuAdminVarName = stringConfigToArray(config[10],menuAdminCount)
+menuAdminName = stringConfigToArray(config[11],menuAdminCount)
 
 # Fungsi utama
 # Pengecekan apakah variabel global menu* valid
