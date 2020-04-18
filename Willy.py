@@ -9,11 +9,13 @@ from package import *
 # Inisiasi Variabel
 Nmax = 100
 toGoldCost = 15000
+databaseFolderPath = "database/"
+databaseFileCount = 8
 
 # Fungsi utama
 wait = xinput()
 if wait == "load":
-    (user, wahana, pembelian, penggunaan, tiket, refund, kritiksaran, kehilangan) = load(Nmax)
+    (user, wahana, pembelian, penggunaan, tiket, refund, kritiksaran, kehilangan) = load(databaseFolderPath,databaseFileCount,Nmax)
     (nama, username, role, status) = login(user,Nmax)
     admin, gold = False, False
     if role == "Admin":
@@ -43,7 +45,7 @@ if wait == "load":
         elif pilih in ["2", "beli_tiket"]:
             print("TBA")
         elif pilih in ["3", "main"]:
-            (tiket,penggunaan) = bermain(nama,tiket,penggunaan,Nmax)
+            (tiket,penggunaan) = bermain(username,tiket,penggunaan,Nmax)
         elif pilih in ["4", "refund"]:
             print("TBA")
         elif pilih in ["5", "kritik_saran"]:
