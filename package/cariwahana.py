@@ -90,7 +90,7 @@ def cariwahana(wahana,N):
             if (wahana[i][3] == "semua umur"):
                 wahanaprint(wahana[i][0],wahana[i][1],wahana[i][2])
                 pencarianDitemukan = True
-
+            
     # Penulisan ketika tidak ada data yang ditemukan
     if not pencarianDitemukan:
         print("Tidak ada wahana yang sesuai dengan pencarian anda.")

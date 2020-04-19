@@ -2,6 +2,12 @@
 # Kelas             : Dasar Pemrograman 05
 # Kelompok          : 13
 
+# Anggota
+# Finna Alivia Nabila               / 16519125
+# Kevin Domenico Tantiyo            / 16519205
+# Hizkia Raditya Pratama Roosadi    / 16519515
+# Tanur Rizaldi Rahardjo            / 16519525
+
 # Kamus
 ### Variabel tersedia pada program utama
 ## Database
