@@ -80,7 +80,7 @@ while loaded:
     pilih = xinput()
     # Switch untuk pemain
     if pilih in ["1", "cari"]:
-        cariwahana(wahana,Nmax)
+        searchWahana(wahana,Nmax)
     elif pilih in ["2", "beli_tiket"]:
         print("TBA")
     elif pilih in ["3", "main"]:

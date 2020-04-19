@@ -53,10 +53,6 @@ def printMenu(row,column,maxMenuIndex,varArray,nameArray):
                 rawPrint("{}. {:20} {:17} ".format((i+1+row*j),nameArray[i+row*j],addBracket(varArray[i+row*j])))
         print()
 
-## Prosedur printWahana
-# Untuk mengeprint wahana dengan sintaks tertentu
-def printWahana(i,ID,namaWahana,tiketJual):
-    print("{:1} | {:6} | {:30} | {}".format(i, ID, namaWahana, tiketJual))
 
 ########### Fungsi database ###########
 ## Fungsi appendDatabase

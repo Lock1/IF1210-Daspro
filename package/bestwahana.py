@@ -20,6 +20,11 @@
 ####### Algoritma #######
 from package.base import *
 
+## Prosedur printWahana
+# Untuk mengeprint wahana dengan sintaks bestwahana
+def printWahana(i,ID,namaWahana,tiketJual):
+    print("{:1} | {:6} | {:30} | {}".format(i, ID, namaWahana, tiketJual))
+
 def insertNewID(array,newID,newTicket,N):
     for i in range(N):
         if (array[i] == ["",0]):
@@ -55,5 +60,5 @@ def cariBestWahana(pembelian,wahana,N):
         cariWahanaID = tiketTerjual[i][0]
         isExistOnWahana, wahanaIndex = isExistOnDatabase(wahana,0,cariWahanaID,N,False,True)
         if isExistOnWahana:
-            printWahana(i+1,cariWahanaID,wahana[wahanaIndex][1],tiketTerjual[wahanaIndex][1])
+            printWahana(i+1,cariWahanaID,wahana[wahanaIndex][1],tiketTerjual[i][1])
     print()

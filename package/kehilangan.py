@@ -43,6 +43,8 @@ def hilang(tiket,kehilangan,N):
     if isTicketValid:
         print("Laporan kehilangan tiket Anda telah direkam.")
         kehilanganBaru = [lostUsername, lostTime, lostID, lostTicket]
-        kehilangan = appendDatabase(kehilangan,laporanKehilangan,N)
+        kehilangan = appendDatabase(kehilangan,kehilanganBaru,N)
+    else:
+        print("{} tidak memiliki tiket sebanyak {}".format(lostUsername,lostTicket))
     print()
     return (tiket,kehilangan)
