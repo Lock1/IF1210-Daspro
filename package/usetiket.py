@@ -1,3 +1,4 @@
+############################## Informasi Modul ##############################
 # Modul usetiket
 # Desainer
 # Tanur Rizaldi Rahardjo / 16519525 / 17 April 2020
@@ -8,6 +9,14 @@
 # Tester
 #
 
+
+## Kamus
+
+
+## Spesifikasi
+
+
+#############################################################################
 ####### Algoritma #######
 from package.base import *
 

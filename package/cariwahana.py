@@ -1,4 +1,5 @@
-# Modul cariwahana
+############################## Informasi Modul ##############################
+## Modul cariwahana
 # Desainer
 # Hizkia R. / 16519515 / 12 April 2020
 
@@ -9,11 +10,17 @@
 # Tanur Rizaldi Rahardjo / 16519525 / 17 April 2020
 
 
-# Kamus
+## Kamus
 # batasTinggi {Batas tinggi}: integer
 # batasUmur {Batas umur}: integer
 
 
+## Spesifikasi
+
+
+#############################################################################
+
+####### Algoritma #######
 # General interface agar pengguna tahu apa yang harus diinput
 from package.base import *
 

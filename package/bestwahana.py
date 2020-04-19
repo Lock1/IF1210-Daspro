@@ -1,3 +1,4 @@
+############################## Informasi Modul ##############################
 # Modul login
 # Desainer
 # Tanur Rizaldi Rahardjo / 16519525 / 18 April 2020
@@ -9,6 +10,13 @@
 #
 
 
+## Kamus
+
+
+## Spesifikasi
+
+
+#############################################################################
 ####### Algoritma #######
 from package.base import *
 

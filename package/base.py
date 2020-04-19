@@ -1,3 +1,4 @@
+############################## Informasi Modul ##############################
 # Modul base
 # Desainer
 # Tanur Rizaldi Rahardjo / 16519525 / 17 April 2020
@@ -6,8 +7,40 @@
 # Tanur Rizaldi Rahardjo / 16519525 / 17 April 2020
 
 
+## Kamus
+
+
+## Spesifikasi
+
+
+#############################################################################
 ####### Algoritma #######
 ### Modul dasar untuk fungsi umum ###
+from hashlib import *
+
+##### Fungsi Hash #####
+# Fungsi rng menggunakan sistem linear congruence generator sederhana
+# Fungsi hash menggunakan rng untuk membuat salt
+# Random number generator sederhana dengan definisi fungsi
+def lcg(m,a,b,s):
+    if a:
+        s = (a * s + b) % m
+    else:
+        return s
+    return lcg(m,a-1,b,s)
+
+# !!! st1 dan st2 tidak komutatif
+def hash(st1,st2):
+    hashedst1 = sha512(str(st1).encode('utf-8')).hexdigest()
+    s = lcg(16,50,1,ord(str(st1)[0])) # Digunakan char pertama st1 sebagai seed pseudo rng
+    if (s % 2):
+        salted = hashedst1 + st2
+    else:
+        salted = st2 + hashedst1
+    hashed = sha512(salted.encode('utf-8')).hexdigest()
+    return hashed
+#######################
+
 # Fungsi xinput()
 # xinput digunakan untuk input user dengan penambahan sebuah string >>> didepannya
 def xinput(str1=""):
@@ -90,3 +123,16 @@ def stringConfigToArray(str1,maxCount):
     for i in range(maxCount):
          array[i] = str1[indexArray[2*i]:indexArray[2*i+1]]
     return array
+
+# Fungsi appendDatabase
+def appendDatabase(database,insertArray,N):
+    for i in range(N):
+        if (database[i][0] == "~~~"):
+            database[i] = insertArray
+            if (i != N):
+                database[i+1][0] = "~~~"
+            break
+    return database
+
+# FUNGSI INPUT SEARCH 2 LAPIS (+LAMBDA)
+#def databaseSearch(database,indexTuple,searchTuple,checkCondition,replaceTuple=[],flagToBeToggled="~"):

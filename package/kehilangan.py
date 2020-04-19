@@ -1,3 +1,4 @@
+############################## Informasi Modul ##############################
 # Modul kehilangan
 # Desainer
 # Tanur Rizaldi Rahardjo / 16519525 / 17 April 2020
@@ -9,6 +10,13 @@
 #
 
 
+## Kamus
+
+
+## Spesifikasi
+
+
+#############################################################################
 ####### Algoritma #######
 # Digunakan Algoritma yang tidak jauh berbeda pada modul usetiket
 from package.base import *

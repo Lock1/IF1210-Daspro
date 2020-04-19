@@ -13,7 +13,7 @@ def lcg(m,a,b,s):
 def hash(st1,st2):
     hashedst1 = sha512(str(st1).encode('utf-8')).hexdigest()
     s = lcg(16,50,1,ord(str(st1)[0])) # Digunakan char pertama st1 sebagai seed pseudo rng
-    if s % 2:
+    if (s % 2):
         salted = hashedst1 + st2
     else:
         salted = st2 + hashedst1
@@ -21,17 +21,28 @@ def hash(st1,st2):
     return hashed
 
 # Main
-usr, pwd = [], []
-print("File database user : ", end="")
-st = input()
-fl = read_csv(st)
+username, password = [], []
 
-for i in range(len(fl)):
-    usr.append(fl.loc[i,"Username"])
-    pwd.append(fl.loc[i,"Password"])
+isFileExist = False
+while not isFileExist:
+    print("File database user : ", end="")
+    st = input()
+    try:
+        fl = read_csv(st)
+        isFileExist = True
+    except FileNotFoundError:
+        print("Error: File Not Found ({})".format(st))
 
-for i in range(len(fl)):
-    fl.loc[i,"Username"] = usr[i]
-    fl.loc[i,"Password"] = hash(usr[i],pwd[i])
+if (len(fl.loc[0,"Password"]) == 128):
+    print("File sudah dihash")
+else:
+    for i in range(len(fl)):
+        username.append(fl.loc[i,"Username"])
+        password.append(fl.loc[i,"Password"])
 
-fl.to_csv(st)
+    for i in range(len(fl)):
+        fl.loc[i,"Username"] = username[i]
+        fl.loc[i,"Password"] = hash(username[i],password[i])
+    fl.to_csv(st)
+
+input("Press any key to continue")

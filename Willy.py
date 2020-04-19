@@ -1,9 +1,37 @@
-# Program utama
+################ Tugas Besar - IF1210 - Dasar Pemrograman ################
+# Kelas             : Dasar Pemrograman 05
+# Kelompok          : 13
+
+# Kamus
+### Variabel tersedia pada program utama
+## Database
+# user              : Array of strings
+# wahana            : Array of strings
+# pembelian         : Array of strings
+# penggunaan        : Array of strings
+# tiket             : Array of strings
+# refund            : Array of strings
+# kritiksaran       : Array of strings
+# kehilangan        : Array of strings
+# Nmax              : Integer
+               # {Nmax Digunakan jika diperlukan membaca database sebagai}
+               # {Batas maksimum informasi yang dibaca. Untuk batas efektif}
+               # {gunakan mark ~~~ pada kolom pertama dan baris akhir} <<< Potensial ganti
+
+## Variabel menyangkut user yang terlogin
+# nama     : String      {Nama pemain yang terlogin}
+# username : String      {Username pemain yang terlogin}
+# admin    : Boolean     {Status akses user}
+# gold     : Boolean     {Status account user, apakah gold atau standard}
+
+##########################################################################
+#### Program utama
 from package import *
 
+### Pembacaan konfigurasi
 # Inisiasi variabel konfigurasi dengan membaca config.ini
 config = loadConfig()
-
+# Konfigurasi umum
 databaseFolderPath = config[0].replace("\"","")
 databaseFileCount = int(config[1])
 Nmax = int(config[2])
@@ -12,32 +40,28 @@ menuPlayerCount = int(config[4])
 menuAdminCount = int(config[5])
 menuColumn = int(config[6])
 menuRow = int(config[7])
-
+# Konfigurasi array
 menuVarName = stringConfigToArray(config[8],menuPlayerCount)
 menuName = stringConfigToArray(config[9],menuPlayerCount)
 menuAdminVarName = stringConfigToArray(config[10],menuAdminCount)
 menuAdminName = stringConfigToArray(config[11],menuAdminCount)
-
-# Fungsi utama
-# Pengecekan apakah variabel global menu* valid
+# Pengecekan apakah konfigurasi menu* valid
 if (menuRow*menuColumn < menuPlayerCount) and (menuRow*menuColumn < menuAdminCount):
     print("Error, Konfigurasi menu tidak valid")
     exit()
+
+### Game loop
 # Menunggu hingga user load file utama dan login
 loaded = False
+print("Selamat Datang!")
 while not loaded:
     wait = xinput()
     if (wait == "load"):
         # Pemanggilan fungsi load & login dan inisiasi variabel yang akan digunakan lagi
         (user, wahana, pembelian, penggunaan, tiket, refund, kritiksaran, kehilangan) = load(databaseFolderPath,databaseFileCount,Nmax)
-        (nama, username, role, status) = login(user,Nmax)
-        admin, gold = False, False
-        if (role == "Admin"):
-            admin = True
-        if (status == "1"):
-            gold = True
+        (nama, username, admin, gold) = login(user,Nmax)
         loaded = True
-# Menu utama
+## Menu utama
 while loaded:
     print("Menu")
     print("Ketik angka atau tulis menu yang diinginkan")
@@ -48,7 +72,6 @@ while loaded:
         print("Ketik menu yang diinginkan")
         printMenu(menuRow,menuColumn,menuAdminCount,menuAdminVarName,menuAdminName)
     pilih = xinput()
-
     # Switch untuk pemain
     if pilih in ["1", "cari"]:
         cariwahana(wahana,Nmax)

@@ -1,3 +1,4 @@
+############################## Informasi Modul ##############################
 # Modul load
 # Desainer
 # Tanur Rizaldi Rahardjo / 16519525 / 17 April 2020
@@ -9,6 +10,13 @@
 #
 
 
+## Kamus
+
+
+## Spesifikasi
+
+
+#############################################################################
 ####### Algoritma #######
 import csv
 from package.base import *
@@ -73,8 +81,15 @@ def load(databaseFolderPath,databaseFileCount,N):
     for i in range(databaseFileCount):
         rawPrint("Masukkan nama File {:18}: ".format(containerName[i]))
         namaPathDatabase = databaseFilePath(databaseFolderPath)
-        containerArray[i] = loadCSV(namaPathDatabase,containerArray[i],N)
-
+        loadFileSukses = False
+        while not loadFileSukses:
+            try:
+                containerArray[i] = loadCSV(namaPathDatabase,containerArray[i],N)
+                loadFileSukses = True
+            except FileNotFoundError:
+                print("File tidak ada atau direktori tidak ada ({})".format(namaPathDatabase))
+                rawPrint("Masukkan nama File {:18}: ".format(containerName[i]))
+                namaPathDatabase = databaseFilePath(databaseFolderPath)
     ###########################
 
     # Insersi ke array database
