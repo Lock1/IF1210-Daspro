@@ -27,8 +27,8 @@ def upgradeToGold(user,upgradeGoldCost,N):
     print()
     # Pencarian pada database dan penggantian status gold
     # jika memenuhi persyaratan saldo username >= upgradeGoldCost
-    if isExistOnDatabase(user,3,upgradeUsername,N):
-        upgradeIndex = isExistOnDatabase(user,3,upgradeUsername,N,False,True)
+    isUsernameExist, upgradeIndex = isExistOnDatabase(user,3,upgradeUsername,N,False,True)
+    if isUsernameExist:
         if (int(user[upgradeIndex][6]) >= upgradeGoldCost):
             user[upgradeIndex][7] = "1"
             print("Akun anda telah diupgrade.")

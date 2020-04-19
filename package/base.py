@@ -80,11 +80,14 @@ def isExistOnDatabase(database,index,search,N,flagToBeToggled=False,indexReturn=
         if (checkFunction(database[i][index],search)):
             flagToBeToggled = not flagToBeToggled
             if indexReturn:
-                return i
+                return (flagToBeToggled,i)
             if (replace != "Null"):
                 database[i][index] = replace
                 return (flagToBeToggledFlag,database)
             break
+    if indexReturn:
+        # Failure to find index
+        return (False,"Null")
     return flagToBeToggled
 
 ############ Fungsi Config ###########

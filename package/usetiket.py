@@ -32,9 +32,9 @@ def bermain(username,tiket,penggunaan,N):
     print()
     # Pengecekan tiket pada tiket.csv
     isTicketValid = False
-    if isExistOnDatabase(tiket,0,username,N) and isExistOnDatabase(tiket,1,playID,N):
-        playTicketIndex = isExistOnDatabase(tiket,0,username,N,False,True)
-        if (int(tiket[playTicketIndex][2]) >= playTicket):
+    isUsernameExist, playTicketIndex = isExistOnDatabase(tiket,0,lostUsername,N,False,True)
+    if isUsernameExist:
+        if (tiket[playTicketIndex][1] == playID) and (int(tiket[playTicketIndex][2]) >= playTicket):
             isTicketValid = True
             tiket[playTicketIndex][2] = str(int(tiket[playTicketIndex][2]) - playTicket)
     # Penulisan informasi baru
