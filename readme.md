@@ -1,6 +1,6 @@
 # Tugas Besar - Dasar Pemrograman
-TBA
-Modul yang digunakan : hashlib, csv
+TBA \
+Modul yang digunakan : hashlib, csv \
 Mark yang digunakan  : "\~\~\~"
 
 ## Modul
