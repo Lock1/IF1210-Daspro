@@ -2,6 +2,12 @@
 # Kelas             : Dasar Pemrograman 05
 # Kelompok          : 13
 
+# Anggota
+# Finna Alivia Nabila               / 16519125
+# Kevin Domenico Tantiyo            / 16519205
+# Hizkia Raditya Pratama Roosadi    / 16519515
+# Tanur Rizaldi Rahardjo            / 16519525
+
 # Kamus
 ### Variabel tersedia pada program utama
 ## Database
@@ -58,8 +64,8 @@ while not loaded:
     wait = xinput()
     if (wait == "load"):
         # Pemanggilan fungsi load & login dan inisiasi variabel yang akan digunakan lagi
-        (user, wahana, pembelian, penggunaan, tiket, refund, kritiksaran, kehilangan) = load(databaseFolderPath,databaseFileCount,Nmax)
-        (nama, username, admin, gold) = login(user,Nmax)
+        (user, wahana, pembelian, penggunaan, tiket, refund, kritiksaran, kehilangan) = requestLoad(databaseFolderPath,databaseFileCount,Nmax)
+        (nama, username, admin, gold) = requestLogin(user,Nmax)
         loaded = True
 ## Menu utama
 while loaded:
@@ -74,7 +80,7 @@ while loaded:
     pilih = xinput()
     # Switch untuk pemain
     if pilih in ["1", "cari"]:
-        cariwahana(wahana,Nmax)
+        searchWahana(wahana,Nmax)
     elif pilih in ["2", "beli_tiket"]:
         print("TBA")
     elif pilih in ["3", "main"]:

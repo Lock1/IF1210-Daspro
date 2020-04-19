@@ -20,15 +20,13 @@
 ####### Algoritma #######
 from package.base import *
 
-def cekUsername(user,username,N):
-    isUsernameValid = True
-    for i in range(N):
-        if (user[i][0] == "~~~"):
-            break
-        if (user[i][3] == username):
-            isUsernameValid = False
-            break
-    return isUsernameValid
+## Fungsi isUsernameValid
+# Digunakan untuk mengecek apakah username sudah ada didatabase
+# Jika sudah ada, return False
+def isUsernameValid(user,username,N):
+    isValid = True
+    isValid = isExistOnDatabase(user,3,username,N,isValid)
+    return isValid
 
 def signUpUser(user,N):
     # Penulisan interface
@@ -42,11 +40,9 @@ def signUpUser(user,N):
     rawPrint("Masukkan username pemain: ")
     playerUsername = input()                                    # Username
     # Pengecekan username
-    isUsernameValid = cekUsername(user,playerUsername,N)
-    while not isUsernameValid:
+    while not isUsernameValid(user,playerUsername,N):
         rawPrint("Username sudah digunakan, masukan username lain: ")
         playerUsername = input()
-        isUsernameValid = cekUsername(user,playerUsername,N)
     # Penulisan interface lanjutan
     rawPrint("Masukkan password pemain: ")
     playerPassword = input()                                    # Password
@@ -57,11 +53,7 @@ def signUpUser(user,N):
     # Penulisan informasi baru
     print()
     print("Selamat menjadi pemain, {}. Selamat bermain.".format(playerName))
-    for i in range(N):
-        if (user[i][0] == "~~~"):
-            user[i] = [playerName, playerBornDay, playerHeight, playerUsername, playerPassword, playerRole, playerSaldo, playerGold]
-            if (i != N):
-                user[i+1][0] = "~~~"
-            break
+    newPlayer = [playerName, playerBornDay, playerHeight, playerUsername, playerPassword, playerRole, playerSaldo, playerGold]
+    user = appendDatabase(user,newPlayer,N)
     print()
-    return(user)
+    return user

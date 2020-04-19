@@ -24,10 +24,18 @@
 # General interface agar pengguna tahu apa yang harus diinput
 from package.base import *
 
-def wahanaprint(id,nama,harga):
+def wahanaPrint(id,nama,harga):
     print("{:6} | {:30} | {:10}".format(id,nama,harga))
 
-def cariwahana(wahana,N):
+def cariDanPrintWahana(wahana,umurFind,fungsiCek,N):
+    pencarianDitemukan = False
+    for i in range(N):
+        if (wahana[i][3] == umurFind) and fungsiCek(int(wahana[i][4]),170):
+            wahanaPrint(wahana[i][0],wahana[i][1],wahana[i][2])
+            pencarianDitemukan = True
+    return pencarianDitemukan
+
+def searchWahana(wahana,N):
     # Menuliskan tampilan menu pencarian
     print()
     print("Jenis batasan umur : ")
@@ -57,39 +65,18 @@ def cariwahana(wahana,N):
 
     # Algoritma untuk menghasilkan hasil search sesuai pilihan kategori
     print("Hasil pencarian:")
-    pencarianDitemukan = False
-    # Loop pencarian
+    # Pencarian
+    if (batasUmur == 1):
+        umurFind = "anak-anak"
+    elif (batasUmur == 2):
+        umurFind = "dewasa"
+    else:
+        umurFind = "semua umur"
 
-    for i in range(N):
-        if (batasUmur,batasTinggi) == (1,1):
-            if (wahana[i][3] == "anak-anak") and (int(wahana[i][4]) >= 170):
-                wahanaprint(wahana[i][0],wahana[i][1],wahana[i][2])
-                pencarianDitemukan = True
-
-        elif (batasUmur,batasTinggi) == (1,2):
-            if (wahana[i][3] == "anak-anak"):
-                wahanaprint(wahana[i][0],wahana[i][1],wahana[i][2])
-                pencarianDitemukan = True
-
-        elif (batasUmur,batasTinggi) == (2,1):
-            if (wahana[i][3] == "dewasa") and (int(wahana[i][4]) >= 170):
-                wahanaprint(wahana[i][0],wahana[i][1],wahana[i][2])
-                pencarianDitemukan = True
-
-        elif (batasUmur,batasTinggi) == (2,2):
-            if (wahana[i][3] == "dewasa"):
-                wahanaprint(wahana[i][0],wahana[i][1],wahana[i][2])
-                pencarianDitemukan = True
-
-        elif (batasUmur,batasTinggi) == (3,1):
-            if (wahana[i][3] == "semua umur") and (int(wahana[i][4]) >= 170):
-                wahanaprint(wahana[i][0],wahana[i][1],wahana[i][2])
-                pencarianDitemukan = True
-
-        elif (batasUmur,batasTinggi) == (3,2):
-            if (wahana[i][3] == "semua umur"):
-                wahanaprint(wahana[i][0],wahana[i][1],wahana[i][2])
-                pencarianDitemukan = True
+    if (batasTinggi == 1):
+        pencarianDitemukan = cariDanPrintWahana(wahana,umurFind,(lambda a, b: a >= b),N)
+    else:
+        pencarianDitemukan = cariDanPrintWahana(wahana,umurFind,(lambda a, b: True),N)
 
     # Penulisan ketika tidak ada data yang ditemukan
     if not pencarianDitemukan:

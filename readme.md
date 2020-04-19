@@ -1,6 +1,7 @@
-# TBA
-dokumentasi modul eksternal digunakan
-\ mark
+# Tugas Besar - Dasar Pemrograman
+TBA \
+Modul yang digunakan : hashlib, csv \
+Mark yang digunakan  : "\~\~\~"
 
 ## Modul
 1. Load

@@ -20,7 +20,7 @@
 ####### Algoritma #######
 from package.base import *
 
-def login(user,N):
+def requestLogin(user,N):
     isPasswordBenar = False
     while not isPasswordBenar:
         rawPrint("Masukkan username: ")
@@ -31,11 +31,11 @@ def login(user,N):
         ##### Pengecekan Password #####
         # Pencarian informasi pada database
         inputPassword = hash(inputUsername, inputPassword)
-        for i in range(N):
-            if (inputUsername, inputPassword) == (user[i][3], user[i][4]):
+        isUsernameExist, userInformationIndex = isExistOnDatabase(user,3,inputUsername,N,False,True)
+        if isUsernameExist:
+            if (user[userInformationIndex][4] == inputPassword):
                 isPasswordBenar = True
-                nama, username, role, status = user[i][0], user[i][3], user[i][5], user[i][7]
-                break
+                nama, username, role, status = user[userInformationIndex][0], user[userInformationIndex][3], user[userInformationIndex][5], user[userInformationIndex][7]
         # Penulisan pada layar ketika password salah
         if not isPasswordBenar:
             print("Ups, password salah atau kamu tidak terdaftar dalam sistem kami. Silakan coba lagi!")

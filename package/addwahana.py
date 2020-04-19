@@ -36,11 +36,7 @@ def tambahWahana(wahana,N):
     print()
     print("Info wahana telah ditambahkan!")
     # Update array wahana dengan wahana baru
-    for i in range(N):
-        if (wahana[i][0] == "~~~"):
-            wahana[i] = [newID,newName,newCost,newAge,newHeight]
-            if (i != N):
-                wahana[i+1][0] = "~~~"
-            break
+    wahanaBaru = [newID,newName,newCost,newAge,newHeight]
+    wahana = appendDatabase(wahana,wahanaBaru,N)
     return wahana
     # End of function
