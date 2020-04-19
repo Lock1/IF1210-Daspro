@@ -34,22 +34,15 @@ def hilang(tiket,kehilangan,N):
     print()
     # Pencarian informasi database pada tiket.csv dan pengecekan kevalidan
     isTicketValid = False
-    for i in range(N):
-        if (tiket[i][0] == "~~~"):
-            break
-        if (tiket[i][0], tiket[i][1]) == (lostUsername, lostID):
-            if (int(tiket[i][2]) >= lostTicket):
-                isTicketValid = True
-                tiket[i][2] = str(int(tiket[i][2]) - lostTicket)
-                break
+    if isExistOnDatabase(tiket,0,lostUsername,N) and isExistOnDatabase(tiket,1,lostID,N):
+        lostTicketIndex = isExistOnDatabase(tiket,0,lostUsername,N,False,True)
+        if (int(tiket[lostTicketIndex][2]) >= lostTicket):
+            isTicketValid = True
+            tiket[lostTicketIndex][2] = str(int(tiket[lostTicketIndex][2]) - lostTicket)
     # Penulisan informasi baru pada kehilangan.csv
     if isTicketValid:
         print("Laporan kehilangan tiket Anda telah direkam.")
-        for i in range(N):
-            if (kehilangan[i][0] == "~~~"):
-                kehilangan[i] = [lostUsername, lostTime, lostID, lostTicket]
-                if (i != N):
-                    kehilangan[i+1][0] = "~~~"
-                break
+        kehilanganBaru = [lostUsername, lostTime, lostID, lostTicket]
+        kehilangan = appendDatabase(kehilangan,laporanKehilangan,N)
     print()
     return (tiket,kehilangan)

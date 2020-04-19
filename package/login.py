@@ -31,11 +31,10 @@ def login(user,N):
         ##### Pengecekan Password #####
         # Pencarian informasi pada database
         inputPassword = hash(inputUsername, inputPassword)
-        for i in range(N):
-            if (inputUsername, inputPassword) == (user[i][3], user[i][4]):
-                isPasswordBenar = True
-                nama, username, role, status = user[i][0], user[i][3], user[i][5], user[i][7]
-                break
+        if isExistOnDatabase(user,3,inputUsername,N) and isExistOnDatabase(user,4,inputPassword,N):
+            isPasswordBenar = True
+            userInformationIndex = isExistOnDatabase(user,3,inputUsername,N,False,True)
+            nama, username, role, status = user[userInformationIndex][0], user[userInformationIndex][3], user[userInformationIndex][5], user[userInformationIndex][7]
         # Penulisan pada layar ketika password salah
         if not isPasswordBenar:
             print("Ups, password salah atau kamu tidak terdaftar dalam sistem kami. Silakan coba lagi!")

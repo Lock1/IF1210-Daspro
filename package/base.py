@@ -41,6 +41,8 @@ def hash(st1,st2):
     return hashed
 #######################
 
+
+############ Fungsi I/O dan string operation
 # Fungsi xinput()
 # xinput digunakan untuk input user dengan penambahan sebuah string >>> didepannya
 def xinput(str1=""):
@@ -49,9 +51,6 @@ def xinput(str1=""):
     print(">>> ",end="")
     n = input()
     return n
-
-# fungsi konversi tanggal
-
 
 # Fungsi input untuk integer
 # Meminta input integer secara paksa
@@ -86,6 +85,11 @@ def printMenu(row,column,maxMenuIndex,varArray,nameArray):
                 rawPrint("{}. {:20} {:17} ".format((i+1+row*j),nameArray[i+row*j],addBracket(varArray[i+row*j])))
         print()
 
+def printWahana(i,ID,namaWahana,tiketJual):
+    print("{:1} | {:6} | {:30} | {}".format(i, ID, namaWahana, tiketJual))
+
+
+############ Fungsi Config
 # Fungsi loadConfig
 # Digunakan untuk membaca file config.ini dan mengganti informasi pada file tersebut
 # menjadi array of strings
@@ -124,6 +128,28 @@ def stringConfigToArray(str1,maxCount):
          array[i] = str1[indexArray[2*i]:indexArray[2*i+1]]
     return array
 
+############ Fungsi selectionSort
+# Sorter maksimum terdepan
+# Digunakan kembali Selection sort yang diimplementasikan pada NIM sort pada soal sortmhs.py
+def selectionSort(unsortedArray,N,secondIndex="Null"):
+    if (secondIndex == "Null"):
+        for i in range(N):
+            sortedArray = unsortedArray[i]
+            for j in range(i+1,N):
+                if (sortedArray < unsortedArray[j]):
+                    unsortedArray[i], unsortedArray[j] = unsortedArray[j], unsortedArray[i]
+        sortedArray = unsortedArray
+        return sortedArray
+    else:
+        for i in range(N):
+            sortedArray = unsortedArray[i][secondIndex]
+            for j in range(i+1,N):
+                if (sortedArray < unsortedArray[j][secondIndex]):
+                    unsortedArray[i], unsortedArray[j] = unsortedArray[j], unsortedArray[i]
+        sortedArray = unsortedArray
+        return sortedArray
+
+########### Fungsi database
 # Fungsi appendDatabase
 def appendDatabase(database,insertArray,N):
     for i in range(N):
@@ -134,5 +160,33 @@ def appendDatabase(database,insertArray,N):
             break
     return database
 
-# FUNGSI INPUT SEARCH 2 LAPIS (+LAMBDA)
-#def databaseSearch(database,indexTuple,searchTuple,checkCondition,replaceTuple=[],flagToBeToggled="~"):
+# Fungsi isExistOnDatabase
+# Digunakan untuk mengecek apakah relasi antara database[][index] dan search
+# dengan checkFunction benar, jika benar flagToBeToggled akan dinegasi dan direturn
+# Argumen tambahan replace digunakan untuk mengganti database
+def isExistOnDatabase(database,index,search,N,flagToBeToggled=False,indexReturn=False,checkFunction=(lambda a,b: a==b),replace="Null"):
+    for i in range(N):
+        if (database[i][0] == "~~~"):
+            break
+        if (checkFunction(database[i][index],search)):
+            flagToBeToggled = not flagToBeToggled
+            if indexReturn:
+                return i
+            if (replace != "Null"):
+                database[i][index] = replace
+                return (flagToBeToggledFlag,database)
+            break
+    return flagToBeToggled
+
+# FUNGSI KONVERSI TANGGAL
+
+
+
+############ Fungsi cek
+# Fungsi isUsernameValid
+# Digunakan untuk mengecek apakah username sudah ada didatabase
+# Jika sudah ada, return False
+def isUsernameValid(user,username,N):
+    isValid = True
+    isValid = isExistOnDatabase(user,3,username,N,isValid)
+    return isValid

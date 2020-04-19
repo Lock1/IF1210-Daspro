@@ -32,23 +32,16 @@ def bermain(username,tiket,penggunaan,N):
     print()
     # Pengecekan tiket pada tiket.csv
     isTicketValid = False
-    for i in range(N):
-        if (tiket[i][0] == "~~~"):
-            break
-        if (tiket[i][0], tiket[i][1]) == (username, playID):
-            if (int(tiket[i][2]) >= playTicket):
-                isTicketValid = True
-                tiket[i][2] = str(int(tiket[i][2]) - playTicket)
-                break
+    if isExistOnDatabase(tiket,0,username,N) and isExistOnDatabase(tiket,1,playID,N):
+        playTicketIndex = isExistOnDatabase(tiket,0,username,N,False,True)
+        if (int(tiket[playTicketIndex][2]) >= playTicket):
+            isTicketValid = True
+            tiket[playTicketIndex][2] = str(int(tiket[playTicketIndex][2]) - playTicket)
     # Penulisan informasi baru
     if isTicketValid:
         print("Terima kasih telah bermain.")
-        for i in range(N):
-            if (penggunaan[i][0] == "~~~"):
-                penggunaan[i] = [username, playTime, playID, playTicket]
-                if (i != N):
-                    penggunaan[i+1][0] = "~~~"
-                break
+        penggunaanBaru = [username, playTime, playID, playTicket]
+        penggunaan = appendDatabase(penggunaan,penggunaanBaru,N)
     else:
         print("Tiket Anda tidak valid dalam sistem kami")
     print()
