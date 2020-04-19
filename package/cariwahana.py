@@ -10,8 +10,8 @@
 
 
 # Kamus
-# btsTinggi {Batas tinggi}: integer
-# btsUmur {Batas umur}: integer
+# batasTinggi {Batas tinggi}: integer
+# batasUmur {Batas umur}: integer
 
 
 # General interface agar pengguna tahu apa yang harus diinput
@@ -35,54 +35,56 @@ def cariwahana(wahana,N):
 
 
     # Algoritma menyaring input
-    btsUmur = xinput("Batasan umur pemain :")
-    if (btsUmur not in ["1","2","3"]):
-        while (btsUmur not in ["1","2","3"]):
+    batasUmur = intinput("Batasan umur pemain :")
+    if (batasUmur not in [1,2,3]):
+        while (batasUmur not in [1,2,3]):
             print("Batasan umur tidak valid!")
-            btsUmur = xinput("Batasan umur pemain:")
+            batasUmur = intinput("Batasan umur pemain:")
 
-    btsTinggi = xinput("Batasan tinggi badan :")
-    if (btsTinggi not in ["1","2"]):
-        while (btsTinggi not in ["1","2"]):
+    batasTinggi = intinput("Batasan tinggi badan :")
+    if (batasTinggi not in [1,2]):
+        while (batasTinggi not in [1,2]):
             print("Batasan tinggi tidak valid!")
-            btsTinggi=xinput("Batasan tinggi pemain:")
+            batasTinggi = intinput("Batasan tinggi pemain:")
     print()
 
     # Algoritma untuk menghasilkan hasil search sesuai pilihan kategori
     print("Hasil pencarian:")
-    ketemu = False
+    pencarianDitemukan = False
     # Loop pencarian
+
     for i in range(N):
-        if (btsUmur,btsTinggi) == ("1","1"):
-            if wahana[i][3] == "anak-anak" and int(wahana[i][4]) >= 170:
+        if (batasUmur,batasTinggi) == (1,1):
+            if (wahana[i][3] == "anak-anak") and (int(wahana[i][4]) >= 170):
                 wahanaprint(wahana[i][0],wahana[i][1],wahana[i][2])
-                ketemu = True
+                pencarianDitemukan = True
 
-        elif (btsUmur,btsTinggi) == ("1","2"):
-            if wahana[i][3] == "anak-anak":
+        elif (batasUmur,batasTinggi) == (1,2):
+            if (wahana[i][3] == "anak-anak"):
                 wahanaprint(wahana[i][0],wahana[i][1],wahana[i][2])
-                ketemu = True
+                pencarianDitemukan = True
 
-        elif (btsUmur,btsTinggi) == ("2","1"):
-            if wahana[i][3] == "dewasa" and int(wahana[i][4]) >= 170:
+        elif (batasUmur,batasTinggi) == (2,1):
+            if (wahana[i][3] == "dewasa") and (int(wahana[i][4]) >= 170):
                 wahanaprint(wahana[i][0],wahana[i][1],wahana[i][2])
-                ketemu = True
+                pencarianDitemukan = True
 
-        elif (btsUmur,btsTinggi) == ("2","2"):
-            if wahana[i][3] == "dewasa":
+        elif (batasUmur,batasTinggi) == (2,2):
+            if (wahana[i][3] == "dewasa"):
                 wahanaprint(wahana[i][0],wahana[i][1],wahana[i][2])
-                ketemu = True
+                pencarianDitemukan = True
 
-        elif (btsUmur,btsTinggi) == ("3","1"):
-            if wahana[i][3] == "semua umur" and int(wahana[i][4]) >= 170:
+        elif (batasUmur,batasTinggi) == (3,1):
+            if (wahana[i][3] == "semua umur") and (int(wahana[i][4]) >= 170):
                 wahanaprint(wahana[i][0],wahana[i][1],wahana[i][2])
-                ketemu = True
+                pencarianDitemukan = True
 
-        elif (btsUmur,btsTinggi) == ("3","2"):
-            if wahana[i][3] == "semua umur":
+        elif (batasUmur,batasTinggi) == (3,2):
+            if (wahana[i][3] == "semua umur"):
                 wahanaprint(wahana[i][0],wahana[i][1],wahana[i][2])
-                ketemu = True
+                pencarianDitemukan = True
+
     # Penulisan ketika tidak ada data yang ditemukan
-    if not ketemu:
+    if not pencarianDitemukan:
         print("Tidak ada wahana yang sesuai dengan pencarian anda.")
     print()
