@@ -27,7 +27,7 @@ if (menuRow*menuColumn < menuPlayerCount) and (menuRow*menuColumn < menuAdminCou
 loaded = False
 while not loaded:
     wait = xinput()
-    if wait == "load":
+    if (wait == "load"):
         # Pemanggilan fungsi load & login dan inisiasi variabel yang akan digunakan lagi
         (user, wahana, pembelian, penggunaan, tiket, refund, kritiksaran, kehilangan) = load(databaseFolderPath,databaseFileCount,Nmax)
         (nama, username, role, status) = login(user,Nmax)

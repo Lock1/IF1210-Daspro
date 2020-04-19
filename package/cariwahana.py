@@ -28,24 +28,24 @@ def cariwahana(wahana,N):
     print("2. {:9} (>=17 tahun)".format("Dewasa"))
     print("3. Semua umur")
     print()
-    print("Jenis batasan tinggi badan :")
+    print("Jenis batasan tinggi badan : ")
     print("1. Lebih dari 170 cm")
     print("2. Tanpa batasan")
     print()
 
 
     # Algoritma menyaring input
-    batasUmur = intinput("Batasan umur pemain :")
+    batasUmur = intinput("Batasan umur pemain : ")
     if (batasUmur not in [1,2,3]):
         while (batasUmur not in [1,2,3]):
             print("Batasan umur tidak valid!")
-            batasUmur = intinput("Batasan umur pemain:")
+            batasUmur = intinput("Batasan umur pemain: ")
 
-    batasTinggi = intinput("Batasan tinggi badan :")
+    batasTinggi = intinput("Batasan tinggi badan : ")
     if (batasTinggi not in [1,2]):
         while (batasTinggi not in [1,2]):
-            print("Batasan tinggi tidak valid!")
-            batasTinggi = intinput("Batasan tinggi pemain:")
+            print("Batasan tinggi tidak valid! ")
+            batasTinggi = intinput("Batasan tinggi pemain: ")
     print()
 
     # Algoritma untuk menghasilkan hasil search sesuai pilihan kategori
