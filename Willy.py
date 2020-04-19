@@ -64,8 +64,8 @@ while not loaded:
     wait = xinput()
     if (wait == "load"):
         # Pemanggilan fungsi load & login dan inisiasi variabel yang akan digunakan lagi
-        (user, wahana, pembelian, penggunaan, tiket, refund, kritiksaran, kehilangan) = load(databaseFolderPath,databaseFileCount,Nmax)
-        (nama, username, admin, gold) = login(user,Nmax)
+        (user, wahana, pembelian, penggunaan, tiket, refund, kritiksaran, kehilangan) = requestLoad(databaseFolderPath,databaseFileCount,Nmax)
+        (nama, username, admin, gold) = requestLogin(user,Nmax)
         loaded = True
 ## Menu utama
 while loaded:
