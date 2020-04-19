@@ -20,6 +20,14 @@
 ####### Algoritma #######
 from package.base import *
 
+## Fungsi isUsernameValid
+# Digunakan untuk mengecek apakah username sudah ada didatabase
+# Jika sudah ada, return False
+def isUsernameValid(user,username,N):
+    isValid = True
+    isValid = isExistOnDatabase(user,3,username,N,isValid)
+    return isValid
+
 def signUpUser(user,N):
     # Penulisan interface
     print()

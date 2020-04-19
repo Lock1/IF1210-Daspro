@@ -129,7 +129,7 @@ def stringConfigToArray(str1,maxCount):
 # FUNGSI KONVERSI TANGGAL
 ############################################################################
 
-######################## Fungsi per modul digunakan ########################
+############################# Fungsi spesifik ##############################
 ###### Modul login & signup ######
 ## Fungsi hash dan lcg
 # >> Desainer & Koder : Tanur Rizaldi Rahardjo / 16519525
@@ -180,16 +180,4 @@ def selectionSort(unsortedArray,N,secondIndex="Null"):
                     unsortedArray[i], unsortedArray[j] = unsortedArray[j], unsortedArray[i]
         sortedArray = unsortedArray
         return sortedArray
-#################################
-
-
-######### Modul signup ##########
-# >> Kevin Domenico Tantiyo / 16519205
-# >> Digunakan pada modul signup
-# Digunakan untuk mengecek apakah username sudah ada didatabase
-# Jika sudah ada, return False
-def isUsernameValid(user,username,N):
-    isValid = True
-    isValid = isExistOnDatabase(user,3,username,N,isValid)
-    return isValid
 #################################
