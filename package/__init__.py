@@ -52,3 +52,8 @@ try:
     from package.signup import *
 except ModuleNotFoundError:
     notExistPrint("signup")
+
+try:
+    from package.readwahana import *
+except ModuleNotFoundError:
+    notExistPrint("readwahana")
