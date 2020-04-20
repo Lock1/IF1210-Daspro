@@ -20,7 +20,7 @@
 ####### Algoritma #######
 from package.base import *
 
-def requestLogin(user,N):
+def requestLogin(user,N=Nmax):
     isPasswordBenar = False
     while not isPasswordBenar:
         rawPrint("Masukkan username: ")

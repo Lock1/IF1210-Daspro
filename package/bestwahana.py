@@ -40,7 +40,7 @@ def isIDNotInArray(pembelian,index,arr,N): # POSSIBLY REPLACED WITH NEW DATABASE
             break
     return (not isInArray)
 
-def cariBestWahana(pembelian,wahana,N):
+def cariBestWahana(pembelian,wahana,N=Nmax):
     # Penghitungan tiket berdasarkan ID wahana
     tiketTerjual = [["",0] for i in range(N)]     # Array mengandung [ID Wahana, Tiket]
     for i in range(N):

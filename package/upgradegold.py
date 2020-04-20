@@ -20,7 +20,7 @@
 ####### Algoritma #######
 from package.base import *
 
-def upgradeToGold(user,upgradeGoldCost,N):
+def upgradeToGold(user,upgradeGoldCost,N=Nmax):
     # Interface
     rawPrint("Masukkan username yang ingin di-upgrade: ")
     upgradeUsername = input()

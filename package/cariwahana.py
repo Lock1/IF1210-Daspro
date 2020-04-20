@@ -32,7 +32,7 @@ def cariDanPrintWahana(wahana,umurFind,fungsiCek,N):
             pencarianDitemukan = True
     return pencarianDitemukan
 
-def searchWahana(wahana,N):
+def searchWahana(wahana,N=Nmax):
     # Menuliskan tampilan menu pencarian
     print()
     print("Jenis batasan umur : ")

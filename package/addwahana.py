@@ -20,7 +20,7 @@
 ####### Algoritma #######
 from package.base import *
 
-def tambahWahana(wahana,N):
+def tambahWahana(wahana,N=Nmax):
     # Meminta input user
     print("Masukkan Informasi Wahana yang ditambahkan:")
     rawPrint("Masukkan ID Wahana: ")
