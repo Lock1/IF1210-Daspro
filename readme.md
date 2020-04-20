@@ -1,9 +1,9 @@
 # Tugas Besar - Dasar Pemrograman
-**TBA**
+**TBA** \
 Semua Array yang digunakan statis dengan panjang maksimum Nmax pada config.ini \
 Program utama bernama **willy.py** \
 Semua modul selain base, load, dan login pada package bersifat **opsional**. \
-Jika salah satu modul dihapus program utama tetap akan berjalan secara normal untuk fungsi lain. \
+Jika salah satu modul dihapus program utama tetap akan berjalan secara normal untuk fungsi lain.
 
 ![Load File](/package/images/loadfile.gif)
 
