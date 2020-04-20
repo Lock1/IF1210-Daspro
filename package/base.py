@@ -77,7 +77,7 @@ def isExistOnDatabase(database,index,search,N,flagToBeToggled=False,indexReturn=
             flagToBeToggled = not flagToBeToggled
             if indexReturn:
                 return (flagToBeToggled,i)
-            if (replace != "Null"):
+            if (replace != "Null"): # To be fixed
                 database[i][index] = replace
                 return (flagToBeToggledFlag,database)
             break
@@ -92,7 +92,7 @@ def isExistOnDatabase(database,index,search,N,flagToBeToggled=False,indexReturn=
 # menjadi array of strings
 def loadConfig():
     config = ["" for i in range(12)]
-    with open("config.ini") as configFile:
+    with open("tools/config.ini") as configFile:
         for i in range(12):
             strCheck = configFile.readline().rstrip()
             for j in range(200): # 200 bisa di konfig
