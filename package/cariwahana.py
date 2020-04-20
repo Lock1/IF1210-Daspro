@@ -24,14 +24,11 @@
 # General interface agar pengguna tahu apa yang harus diinput
 from package.base import *
 
-def wahanaPrint(id,nama,harga):
-    print("{:6} | {:30} | {:10}".format(id,nama,harga))
-
 def cariDanPrintWahana(wahana,umurFind,fungsiCek,N):
     pencarianDitemukan = False
     for i in range(N):
         if (wahana[i][3] == umurFind) and fungsiCek(int(wahana[i][4]),170):
-            wahanaPrint(wahana[i][0],wahana[i][1],wahana[i][2])
+            print("{:6} | {:30} | {:10}".format(wahana[i][0],wahana[i][1],wahana[i][2]))
             pencarianDitemukan = True
     return pencarianDitemukan
 

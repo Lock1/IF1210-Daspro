@@ -1,29 +1,40 @@
-#Program Read riwayat wahana
-#Hizkia R. 16519515, 20 April 2020
+############################## Informasi Modul ##############################
+## Modul readwahana
+# Desainer
+# Hizkia R. / 16519515 / 20 April 2020
 
-#Kamus
-#i=int
-#N=string
+# Coder
+# Hizkia R. / 16519515 / 20 April 2020
+
+# Tester
+# Tanur Rizaldi Rahardjo / 16519525 / 20 April 2020
 
 
-#Algoritma
+## Kamus
+# pencarianDitemukan {Status apakah ada wahana didatabase}: boolean
+# riwayatWahanaID {ID Wahana yang akan dicari}: string
 
 
-#pertama input id wahana
-import csv
+## Spesifikasi
 
-N=input("Masukkkan ID Wahana: ")
-with open('Penggunaan.csv','r') as f:
-    reader=csv.reader(f,delimiter=',')
-    row=next(reader)
-    i=0
-    for row in reader:
-        if row[2]==N: #menyocokan hasil input dengan data yang ada
-            print(row[1],end="")
-            print("|",end="")
-            print(row[0],end="")
-            print("|",end="")
-            print(row[3])
-            i+=1
-    if i==0:
-        print("Maaf, ID yang anda masukkan salah")
+
+#############################################################################
+
+####### Algoritma #######
+from package.base import *
+
+def cariDanPrintRiwayatWahana(penggunaan,riwayatWahanaID,N):
+    pencarianDitemukan = False
+    for i in range(N):
+        if (penggunaan[i][2] == riwayatWahanaID):
+            print("{:10} | {:17} | {:3}".format(penggunaan[i][1],penggunaan[i][0],penggunaan[i][2]))
+            pencarianDitemukan = True
+    return pencarianDitemukan
+
+def riwayatWahana(penggunaan,N=Nmax):
+    rawPrint("Masukkkan ID Wahana: ")
+    riwayatWahanaID = input()
+    pencarianDitemukan = cariDanPrintRiwayatWahana(penggunaan,riwayatWahanaID,N)
+    if not pencarianDitemukan:
+        print("Maaf, ID yang anda masukkan salah atau riwayat kosong")
+    print()

@@ -109,7 +109,7 @@ while loaded:
             elif pilih in ["E","tiket_pemain"]:
                 print("TBA")
             elif pilih in ["F","riwayat_wahana"]:
-                print("TBA")
+                riwayatWahana(penggunaan)
             elif pilih in ["G","upgrade_gold"]:
                 user = upgradeToGold(user,toGoldCost,Nmax)
             elif pilih in ["H"]:
