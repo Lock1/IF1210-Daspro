@@ -1,6 +1,6 @@
 # Tugas Besar - Dasar Pemrograman
 **TBA** \
-Semua Array yang digunakan statis dengan panjang maksimum Nmax pada config.ini \
+Semua Array yang digunakan statis dengan panjang maksimum **Nmax** pada config.ini \
 Program utama bernama **willy.py** \
 Semua modul selain base, load, dan login pada package bersifat **opsional**. \
 Jika salah satu modul dihapus program utama tetap akan berjalan secara normal untuk fungsi lain.
@@ -35,7 +35,7 @@ Komponen | Menggunakan
 Python   | 3.7.2
 Modul    | hashlib, csv
 
-**Database**
+**Database (Default)**
 Database | Menggunakan
 -------- | -----------
 Nmax     | 100
@@ -44,7 +44,7 @@ Mark     | "\~\~\~"
 
 ## Modul
 **Status : Progress** \
-**6 / 16**
+**7 / 16**
 Modul | Status
 ----- | ------
 Load               | :white_check_mark:
@@ -60,7 +60,7 @@ Kritik Saran       | :x:
 Baca Kritik        | :x:
 Tambah Wahana      | :white_check_mark:
 Top Up             | :x:
-Baca Riwayat       | :x:
+Baca Riwayat       | :white_check_mark:
 Baca Tiket         | :x:
 Exit               | :x:
 
