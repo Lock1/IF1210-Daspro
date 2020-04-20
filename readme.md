@@ -4,26 +4,36 @@
 ## Informasi Dasar
 Data | Isi
 ---- | ---
-Tahun Ajaran  | 2019
-Kelas         | Dasar Pemrograman - 05
-Dosen         | Dicky Prima Satya
-Asisten       | Yoel Susanto - 13517014
-Kelompok      | 13
+Tahun Ajaran    | 2019
+Tanggal Mulai   | 4 April 2020
+Tanggal Selesai | 27 April 2020
+Kelas           | Dasar Pemrograman - 05
+Dosen           | Dicky Prima Satya
+Asisten         | Yoel Susanto - 13517014
+Kelompok        | 13
+
 
 **Anggota Kelompok**
-- 16519125 - Finna Alivia Nabila
-- 16519205 - Kevin Domenico Tantiyo
-- 16519515 - Hizkia Raditya Pratama Roosadi
-- 16519525 - Tanur Rizaldi Rahardjo
+NIM      | Nama
+---      | ----
+16519125 | Finna Alivia Nabila
+16519205 | Kevin Domenico Tantiyo
+16519515 | Hizkia Raditya Pratama Roosadi
+16519525 | Tanur Rizaldi Rahardjo
 
 
+**Dependencies**
+Komponen | Menggunakan
+-------- | -----------
+Python   | 3.7.2
+Modul    | hashlib, csv
 
-Komponen  | Menggunakan
---------  | -----------
-Python    | 3.7.2
-Modul     | hashlib, csv
-Mark      | "\~\~\~"
-Nmax      | 100
+**Database**
+Database | Menggunakan
+-------- | -----------
+Nmax     | 100
+Mark     | "\~\~\~"
+
 
 ## Modul
 **Status : Progress** \
