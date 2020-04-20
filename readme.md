@@ -1,5 +1,7 @@
 # Tugas Besar - Dasar Pemrograman
 **TBA**
+![Load File](/package/images/loadfile.gif)
+
 
 ## Informasi Dasar
 Data | Isi
@@ -53,9 +55,9 @@ Kritik Saran       | :x:
 Baca Kritik        | :x:
 Tambah Wahana      | :white_check_mark:
 Top Up             | :x:
-Baca Riwayat       | :x: 
+Baca Riwayat       | :x:
 Baca Tiket         | :x:
-Exit               | :x: 
+Exit               | :x:
 
 ### Bonus
 **Status : Done** :white_check_mark: \
