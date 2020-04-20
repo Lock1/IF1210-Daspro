@@ -34,28 +34,6 @@
 #### Program utama
 from package import *
 
-### Pembacaan konfigurasi
-# Inisiasi variabel konfigurasi dengan membaca config.ini
-config = loadConfig()
-# Konfigurasi umum
-databaseFolderPath = config[0].replace("\"","")
-databaseFileCount = int(config[1])
-Nmax = int(config[2])
-toGoldCost = int(config[3])
-menuPlayerCount = int(config[4])
-menuAdminCount = int(config[5])
-menuColumn = int(config[6])
-menuRow = int(config[7])
-# Konfigurasi array
-menuVarName = stringConfigToArray(config[8],menuPlayerCount)
-menuName = stringConfigToArray(config[9],menuPlayerCount)
-menuAdminVarName = stringConfigToArray(config[10],menuAdminCount)
-menuAdminName = stringConfigToArray(config[11],menuAdminCount)
-# Pengecekan apakah konfigurasi menu* valid
-if (menuRow*menuColumn < menuPlayerCount) and (menuRow*menuColumn < menuAdminCount):
-    print("Error, Konfigurasi menu tidak valid")
-    exit()
-
 ### Game loop
 # Menunggu hingga user load file utama dan login
 loaded = False
@@ -64,8 +42,8 @@ while not loaded:
     wait = xinput()
     if (wait == "load"):
         # Pemanggilan fungsi load & login dan inisiasi variabel yang akan digunakan lagi
-        (user, wahana, pembelian, penggunaan, tiket, refund, kritiksaran, kehilangan) = requestLoad(databaseFolderPath,databaseFileCount,Nmax)
-        (nama, username, admin, gold) = requestLogin(user,Nmax)
+        (user, wahana, pembelian, penggunaan, tiket, refund, kritiksaran, kehilangan) = requestLoad(databaseFolderPath,databaseFileCount)
+        (nama, username, admin, gold) = requestLogin(user)
         loaded = True
 ## Menu utama
 while loaded:
@@ -80,30 +58,30 @@ while loaded:
     pilih = xinput()
     # Switch untuk pemain
     if pilih in ["1", "cari"]:
-        searchWahana(wahana,Nmax)
+        searchWahana(wahana)
     elif pilih in ["2", "beli_tiket"]:
         print("TBA")
     elif pilih in ["3", "main"]:
-        (tiket,penggunaan) = bermain(username,tiket,penggunaan,Nmax)
+        (tiket,penggunaan) = bermain(username,tiket,penggunaan)
     elif pilih in ["4", "refund"]:
         print("TBA")
     elif pilih in ["5", "kritik_saran"]:
         print("TBA")
     elif pilih in ["6", "best_wahana"]:
-        cariBestWahana(pembelian,wahana,Nmax)
+        cariBestWahana(pembelian,wahana)
     elif pilih in ["7", "tiket_hilang"]:
-        (tiket,kehilangan) = hilang(tiket,kehilangan,Nmax)
+        (tiket,kehilangan) = hilang(tiket,kehilangan)
     elif pilih in ["8", "exit"]:
         print("TBA")
     else:
         # Switch tambahan untuk admin
         if admin:
             if pilih in ["A","signup"]:
-                user = signUpUser(user,Nmax)
+                user = signUpUser(user)
             elif pilih in ["B","cari_pemain"]:
                 print("TBA")
             elif pilih in ["C","tambah_wahana"]:
-                wahana = tambahWahana(wahana,Nmax)
+                wahana = tambahWahana(wahana)
             elif pilih in ["D","lihat_laporan"]:
                 print("TBA")
             elif pilih in ["E","tiket_pemain"]:
@@ -111,7 +89,7 @@ while loaded:
             elif pilih in ["F","riwayat_wahana"]:
                 print("TBA")
             elif pilih in ["G","upgrade_gold"]:
-                user = upgradeToGold(user,toGoldCost,Nmax)
+                user = upgradeToGold(user,toGoldCost)
             elif pilih in ["H"]:
                 print("TBA")
             else:

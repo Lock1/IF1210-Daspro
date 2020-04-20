@@ -21,7 +21,7 @@
 # Digunakan Algoritma yang tidak jauh berbeda pada modul usetiket
 from package.base import *
 
-def hilang(tiket,kehilangan,N):
+def hilang(tiket,kehilangan,N=Nmax):
     # Interface
     rawPrint("Masukkan username: ")
     lostUsername = input()

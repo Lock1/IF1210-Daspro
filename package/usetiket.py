@@ -20,7 +20,7 @@
 ####### Algoritma #######
 from package.base import *
 
-def bermain(username,tiket,penggunaan,N):
+def bermain(username,tiket,penggunaan,N=Nmax):
     # Penulisan interface
     print()
     rawPrint("Masukkan ID wahana: ")

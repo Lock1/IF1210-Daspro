@@ -180,3 +180,28 @@ def selectionSort(unsortedArray,N,secondIndex="Null"):
         sortedArray = unsortedArray
         return sortedArray
 #################################
+
+############################################################################
+
+############################ Load config ###################################
+### Pembacaan konfigurasi
+# Inisiasi variabel konfigurasi dengan membaca config.ini
+config = loadConfig()
+# Konfigurasi umum
+databaseFolderPath = config[0].replace("\"","")
+databaseFileCount = int(config[1])
+Nmax = int(config[2])
+toGoldCost = int(config[3])
+menuPlayerCount = int(config[4])
+menuAdminCount = int(config[5])
+menuColumn = int(config[6])
+menuRow = int(config[7])
+# Konfigurasi array
+menuVarName = stringConfigToArray(config[8],menuPlayerCount)
+menuName = stringConfigToArray(config[9],menuPlayerCount)
+menuAdminVarName = stringConfigToArray(config[10],menuAdminCount)
+menuAdminName = stringConfigToArray(config[11],menuAdminCount)
+# Pengecekan apakah konfigurasi menu* valid
+if (menuRow*menuColumn < menuPlayerCount) and (menuRow*menuColumn < menuAdminCount):
+    print("Error, Konfigurasi menu tidak valid")
+    exit()
