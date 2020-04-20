@@ -28,7 +28,7 @@ def isUsernameValid(user,username,N):
     isValid = isExistOnDatabase(user,3,username,N,isValid)
     return isValid
 
-def signUpUser(user,N):
+def signUpUser(user,N=Nmax):
     # Penulisan interface
     print()
     rawPrint("Masukkan nama pemain: ")

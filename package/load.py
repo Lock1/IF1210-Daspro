@@ -40,7 +40,7 @@ def loadCSV(file,array,N):
     return array
 
 # Load membaca dari baris ke 1 hingga N+1 (Baris pertama adalah informasi tabel)
-def requestLoad(databaseFolderPath,databaseFileCount,N):
+def requestLoad(databaseFolderPath,databaseFileCount,N=Nmax):
     ##### Inisiasi array penyimpanan #####
     user = [["" for j in range(7)] for i in range(N)]
     # Database user.csv
