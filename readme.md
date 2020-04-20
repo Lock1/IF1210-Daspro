@@ -1,5 +1,10 @@
 # Tugas Besar - Dasar Pemrograman
 **TBA**
+Semua Array yang digunakan statis dengan panjang maksimum Nmax pada config.ini \
+Program utama bernama **willy.py** \
+Semua modul selain base, load, dan login pada package bersifat **opsional**. \
+Jika salah satu modul dihapus program utama tetap akan berjalan secara normal untuk fungsi lain. \
+
 ![Load File](/package/images/loadfile.gif)
 
 
@@ -9,7 +14,7 @@ Data | Isi
 Tahun Ajaran    | 2019
 Tanggal Mulai   | 4 April 2020
 Tanggal Selesai | 27 April 2020
-Kelas           | Dasar Pemrograman - 05
+Kelas           | 05
 Dosen           | Dicky Prima Satya
 Asisten         | Yoel Susanto - 13517014
 Kelompok        | 13
