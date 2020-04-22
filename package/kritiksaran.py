@@ -27,6 +27,7 @@ from package.base import *
 
 def tulisKritikSaran(kritiksaran,N=Nmax):
     # Input ketiga parameter kritik dan saran baru
+    # Asumsi semua input valid
     rawPrint("Masukkan ID Wahana: ")
     kritikID = input()
     rawPrint("Masukkan tanggal pelaporan: ")
