@@ -12,11 +12,15 @@ try:
     from package.load import *
 except ModuleNotFoundError:
     notExistPrint("load")
+    print("Error, modul utama tidak ada.")
+    exit()
 
 try:
     from package.login import *
 except ModuleNotFoundError:
     notExistPrint("login")
+    print("Error, modul utama tidak ada.")
+    exit()
 
 try:
     from package.cariwahana import *
@@ -57,3 +61,8 @@ try:
     from package.readwahana import *
 except ModuleNotFoundError:
     notExistPrint("readwahana")
+
+try:
+    from package.kritiksaran import *
+except ModuleNotFoundError:
+    notExistPrint("kritiksaran")
