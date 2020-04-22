@@ -66,7 +66,7 @@ while loaded:
     elif pilih in ["4", "refund"]:
         print("TBA")
     elif pilih in ["5", "kritik_saran"]:
-        print("TBA")
+        kritiksaran =  tulisKritikSaran(kritiksaran)
     elif pilih in ["6", "best_wahana"]:
         cariBestWahana(pembelian,wahana)
     elif pilih in ["7", "tiket_hilang"]:
