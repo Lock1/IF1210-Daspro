@@ -3,7 +3,7 @@
 Semua Array yang digunakan statis dengan panjang maksimum **Nmax** pada config.ini \
 Program utama bernama **willy.py** \
 Semua modul selain base, load, dan login pada package bersifat **opsional**. \
-Jika salah satu modul dihapus program utama tetap akan berjalan secara normal untuk fungsi lain.
+Jika salah satu modul dihapus program utama tetap akan berjalan secara normal untuk fungsi lain. \
 Program ini tidak menggunakan **library CSV**.
 
 
@@ -37,7 +37,7 @@ NIM      | Nama
 Komponen | Menggunakan
 -------- | -----------
 Python   | 3.7.2
-Modul    | hashlib
+Library  | hashlib
 
 **Database (Default)**
 Database | Menggunakan
