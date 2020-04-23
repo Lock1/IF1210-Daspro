@@ -92,6 +92,25 @@ def isExistOnDatabase(database,index,search,N,flagToBeToggled=False,indexReturn=
 # menjadi array of strings
 def loadConfig():
     config = ["" for i in range(12)]
+    try:
+        checkExist = open("tools/config.ini")
+    except FileNotFoundError:
+        print("config.ini tidak ditemukan pada /tools/config.ini")
+        print("Konfigurasi default akan digunakan")
+        with open("tools/config.ini","w") as defaultConfig:
+            defaultConfig.write("databaseFolderPath=\"database/\"\n")
+            defaultConfig.write("databaseFileCount=8\n")
+            defaultConfig.write("Nmax=100\n")
+            defaultConfig.write("toGoldCost=15000\n")
+            defaultConfig.write("menuPlayerCount=8\n")
+            defaultConfig.write("menuAdminCount=8\n")
+            defaultConfig.write("menuColumn=2\n")
+            defaultConfig.write("menuRow=4\n")
+            defaultConfig.write("menuVarName=[\"cari\",\"beli_tiket\",\"main\",\"refund\",\"kritik_saran\",\"best_wahana\",\"tiket_hilang\",\"exit\"]\n")
+            defaultConfig.write("menuName=[\"Cari Wahana\",\"Beli Tiket\",\"Bermain\",\"Refund\",\"Kritik dan Saran\",\"Wahana Terbaik\",\"Laporan Kehilangan\",\"Keluar\"]\n")
+            defaultConfig.write("menuAdminVarName=[\"signup\",\"cari_pemain\",\"tambah_wahana\",\"lihat_laporan\",\"tiket_pemain\",\"riwayat_wahana\",\"upgrade_gold\",\"exit\"]\n")
+            defaultConfig.write("menuAdminName=[\"Sign Up\",\"Cari Pemain\",\"Wahana Baru\",\"Lihat Kritik Saran\",\"Lihat Tiket\",\"Riwayat Wahana\",\"Upgrade ke Gold\",\"Keluar\"]")
+
     with open("tools/config.ini") as configFile:
         for i in range(12):
             strCheck = configFile.readline().rstrip()
