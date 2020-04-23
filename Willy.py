@@ -22,75 +22,79 @@
 # Nmax              : Integer
                # {Nmax Digunakan jika diperlukan membaca database sebagai}
                # {Batas maksimum informasi yang dibaca. Untuk batas efektif}
-               # {gunakan mark ~~~ pada kolom pertama dan baris akhir} <<< Potensial ganti
+               # {gunakan mark ~~~ pada kolom pertama dan baris akhir}
 
 ## Variabel menyangkut user yang terlogin
 # nama     : String      {Nama pemain yang terlogin}
 # username : String      {Username pemain yang terlogin}
-# admin    : Boolean     {Status akses user}
+# isAdmin  : Boolean     {Status akses user}
 # gold     : Boolean     {Status account user, apakah gold atau standard}
 
+## Variabel sementara
+# isLoaded    : Boolean
+# pilihanMenu : String
 ##########################################################################
 #### Program utama
 from package import *
 
 ### Game loop
 # Menunggu hingga user load file utama dan login
-loaded = False
+isLoaded = False
 print("Selamat Datang!")
-while not loaded:
+while not isLoaded:
     wait = xinput()
     if (wait == "load"):
         # Pemanggilan fungsi load & login dan inisiasi variabel yang akan digunakan lagi
         (user, wahana, pembelian, penggunaan, tiket, refund, kritiksaran, kehilangan) = requestLoad(databaseFolderPath,databaseFileCount)
-        (nama, username, admin, gold) = requestLogin(user)
-        loaded = True
+        (nama, username, isAdmin, gold) = requestLogin(user)
+        isLoaded = True
+
 ## Menu utama
-while loaded:
+while isLoaded:
     print("Menu")
     print("Ketik angka atau tulis menu yang diinginkan")
     printMenu(menuRow,menuColumn,menuPlayerCount,menuVarName,menuName)
-    if admin:
+    if isAdmin:
         print()
         print("Admin")
         print("Ketik menu yang diinginkan")
         printMenu(menuRow,menuColumn,menuAdminCount,menuAdminVarName,menuAdminName)
-    pilih = xinput()
+    pilihanMenu = xinput()
     # Switch untuk pemain
-    if pilih in ["1", "cari"]:
+    if pilihanMenu in ["1", "cari"]:
         searchWahana(wahana)
-    elif pilih in ["2", "beli_tiket"]:
+    elif pilihanMenu in ["2", "beli_tiket"]:
         print("TBA")
-    elif pilih in ["3", "main"]:
+    elif pilihanMenu in ["3", "main"]:
         (tiket,penggunaan) = bermain(username,tiket,penggunaan)
-    elif pilih in ["4", "refund"]:
+    elif pilihanMenu in ["4", "refund"]:
         print("TBA")
-    elif pilih in ["5", "kritik_saran"]:
+    elif pilihanMenu in ["5", "kritik_saran"]:
         kritiksaran =  tulisKritikSaran(kritiksaran)
-    elif pilih in ["6", "best_wahana"]:
+    elif pilihanMenu in ["6", "best_wahana"]:
         cariBestWahana(pembelian,wahana)
-    elif pilih in ["7", "tiket_hilang"]:
+    elif pilihanMenu in ["7", "tiket_hilang"]:
         (tiket,kehilangan) = hilang(tiket,kehilangan)
-    elif pilih in ["8", "exit"]:
+    elif pilihanMenu in ["8", "exit"]:
         print("TBA")
     else:
-        # Switch tambahan untuk admin
-        if admin:
-            if pilih in ["A","signup"]:
+        # Switch tambahan untuk isAdmin
+        if isAdmin:
+            if pilihanMenu in ["A","signup"]:
                 user = signUpUser(user)
-            elif pilih in ["B","cari_pemain"]:
+            elif pilihanMenu in ["B","cari_pemain"]:
                 print("TBA")
-            elif pilih in ["C","tambah_wahana"]:
+            elif pilihanMenu in ["C","tambah_wahana"]:
                 wahana = tambahWahana(wahana)
-            elif pilih in ["D","lihat_laporan"]:
+            elif pilihanMenu in ["D","lihat_laporan"]:
                 print("TBA")
-            elif pilih in ["E","tiket_pemain"]:
+            elif pilihanMenu in ["E","tiket_pemain"]:
                 print("TBA")
-            elif pilih in ["F","riwayat_wahana"]:
+            elif pilihanMenu in ["F","riwayat_wahana"]:
                 riwayatWahana(penggunaan)
-            elif pilih in ["G","upgrade_gold"]:
+            elif pilihanMenu in ["G","upgrade_gold"]:
                 user = upgradeToGold(user,toGoldCost)
-            elif pilih in ["H"]:
+            elif pilihanMenu in ["H"]:
                 print("TBA")
             else:
                 print("Masukkan tidak diketahui")

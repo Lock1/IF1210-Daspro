@@ -23,20 +23,18 @@ from package.base import *
 def tambahWahana(wahana,N=Nmax):
     # Meminta input user
     print("Masukkan Informasi Wahana yang ditambahkan:")
-    rawPrint("Masukkan ID Wahana: ")
-    newID = input()
-    rawPrint("Masukkan Nama Wahana: ")
-    newName = input()
-    rawPrint("Masukkan Harga Tiket: ")
-    newCost = input()
-    rawPrint("Batasan umur: ")
-    newAge = input()
-    rawPrint("Batasan tinggi badan: ")
-    newHeight = input()
-    print()
-    print("Info wahana telah ditambahkan!")
+    newID = input("Masukkan ID Wahana: ")
+    newName = input("Masukkan Nama Wahana: ")
+    newCost = str(intinput("Masukkan Harga Tiket: "))
+    newAge = input("Batasan umur: ")
+    newHeight = str(intinput("Batasan tinggi badan: "))
+
     # Update array wahana dengan wahana baru
     wahanaBaru = [newID,newName,newCost,newAge,newHeight]
     wahana = appendDatabase(wahana,wahanaBaru,N)
+    print()
+    
+    print("Info wahana telah ditambahkan!")
+    print()
     return wahana
     # End of function

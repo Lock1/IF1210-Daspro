@@ -28,16 +28,19 @@ def databaseFilePath(databaseFolderPath):
 
 # Fungsi loadCSV
 def loadCSV(file,array,N):
-    with open(file) as f:
-        s = csv.reader(f)
-        s.__next__() # Skip baris teratas
-        for i in range(N): # Iterasi dimulai dari baris ke 1 hingga N+1
-            tp = s.__next__()
-            array[i] = tp
-            # Mark akan diikutkan dalam insersi ke array
-            if (tp[0] == "~~~"):
-                break
-    return array
+    try:
+        with open(file) as f:
+            s = csv.reader(f)
+            s.__next__() # Skip baris teratas
+            for i in range(N): # Iterasi dimulai dari baris ke 1 hingga N+1
+                tp = s.__next__()
+                array[i] = tp
+                # Mark akan diikutkan dalam insersi ke array
+                if (tp[0] == "~~~"):
+                    break
+        return array
+    except OSError:
+        raise FileNotFoundError
 
 # Load membaca dari baris ke 1 hingga N+1 (Baris pertama adalah informasi tabel)
 def requestLoad(databaseFolderPath,databaseFileCount,N=Nmax):

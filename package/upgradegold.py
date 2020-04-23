@@ -22,9 +22,9 @@ from package.base import *
 
 def upgradeToGold(user,upgradeGoldCost,N=Nmax):
     # Interface
-    rawPrint("Masukkan username yang ingin di-upgrade: ")
-    upgradeUsername = input()
+    upgradeUsername = input("Masukkan username yang ingin di-upgrade: ")
     print()
+
     # Pencarian pada database dan penggantian status gold
     # jika memenuhi persyaratan saldo username >= upgradeGoldCost
     isUsernameExist, upgradeIndex = isExistOnDatabase(user,3,upgradeUsername,N,False,True)

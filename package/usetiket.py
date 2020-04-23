@@ -21,15 +21,13 @@
 from package.base import *
 
 def bermain(username,tiket,penggunaan,N=Nmax):
-    # Penulisan interface
+    # Penulisan interface dan meminta input
     print()
-    rawPrint("Masukkan ID wahana: ")
-    playID = input()
-    rawPrint("Masukkan tanggal hari ini: ")
-    playTime = input()
-    rawPrint("Jumlah tiket yang digunakan: ")
-    playTicket = intinput()
+    playID = input("Masukkan ID wahana: ")
+    playTime = input("Masukkan tanggal hari ini: ")
+    playTicket = intinput("Jumlah tiket yang digunakan: ")
     print()
+
     # Pengecekan tiket pada tiket.csv
     isTicketValid = False
     isUsernameExist, playTicketIndex = isExistOnDatabase(tiket,0,username,N,False,True)
@@ -37,6 +35,7 @@ def bermain(username,tiket,penggunaan,N=Nmax):
         if (tiket[playTicketIndex][1] == playID) and (int(tiket[playTicketIndex][2]) >= playTicket):
             isTicketValid = True
             tiket[playTicketIndex][2] = str(int(tiket[playTicketIndex][2]) - playTicket)
+
     # Penulisan informasi baru
     if isTicketValid:
         print("Terima kasih telah bermain.")
@@ -44,5 +43,6 @@ def bermain(username,tiket,penggunaan,N=Nmax):
         penggunaan = appendDatabase(penggunaan,penggunaanBaru,N)
     else:
         print("Tiket Anda tidak valid dalam sistem kami")
+    
     print()
     return (tiket,penggunaan)
