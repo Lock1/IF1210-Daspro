@@ -53,6 +53,11 @@ def printMenu(row,column,maxMenuIndex,varArray,nameArray):
                 rawPrint("{}. {:20} {:17} ".format((i+1+row*j),nameArray[i+row*j],addBracket(varArray[i+row*j])))
         print()
 
+## Fungsi databaseFilePath
+# Membuat string direktori database
+def databaseFilePath(databaseFolderPath,databaseFilename=""):
+    databasePath = databaseFolderPath + input(databaseFilename)
+    return databasePath
 
 ########### Fungsi database ###########
 ## Fungsi appendDatabase

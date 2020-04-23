@@ -75,7 +75,10 @@ while isLoaded:
         cariBestWahana(pembelian,wahana)
     elif pilihanMenu in ["7", "tiket_hilang"]:
         (tiket,kehilangan) = hilang(tiket,kehilangan)
-    elif pilihanMenu in ["8", "exit"]:
+    elif pilihanMenu in ["8","save"]:
+        saveArray = [user, wahana, pembelian, penggunaan, tiket, refund, kritiksaran, kehilangan]
+        databaseSave(saveArray,databaseFolderPath,databaseFileCount)
+    elif pilihanMenu in ["9", "exit"]:
         print("TBA")
     else:
         # Switch tambahan untuk isAdmin
