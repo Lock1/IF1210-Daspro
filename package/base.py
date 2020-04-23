@@ -128,11 +128,10 @@ def loadConfig():
 ## Fungsi stringConfigToArray
 # Merubah suatu string dengan cara tulis tertentu menjadi array of string
 def stringConfigToArray(str1,maxCount):
-    str1 += "\n" # Mark
     array = ["" for i in range(maxCount)]
     indexArray = [0 for i in range(2*maxCount)]
-    counter = 0
-    i = 0
+    str1 += "\n" # Mark
+    counter, i = 0, 0
     while True:
         if (str1[i] == "\n"):
             break
@@ -143,8 +142,8 @@ def stringConfigToArray(str1,maxCount):
                 indexArray[counter] = i + 1
             counter += 1
         i += 1
-    for i in range(maxCount):
-         array[i] = str1[indexArray[2*i]:indexArray[2*i+1]]
+    for j in range(maxCount):
+         array[j] = str1[indexArray[2*j]:indexArray[2*j+1]]
     return array
 
 # FUNGSI KONVERSI TANGGAL
@@ -223,6 +222,11 @@ menuVarName = stringConfigToArray(config[8],menuPlayerCount)
 menuName = stringConfigToArray(config[9],menuPlayerCount)
 menuAdminVarName = stringConfigToArray(config[10],menuAdminCount)
 menuAdminName = stringConfigToArray(config[11],menuAdminCount)
+
+# Hard coded configuration
+databaseColumn = [8,5,4,4,3,4,4,4]
+# [user, wahana, pembelian, penggunaan, tiket, refund, kritiksaran, kehilangan]
+
 # Pengecekan apakah konfigurasi menu* valid
 if (menuRow*menuColumn < menuPlayerCount) and (menuRow*menuColumn < menuAdminCount):
     print("Error, Konfigurasi menu tidak valid")
