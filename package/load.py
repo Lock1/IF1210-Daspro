@@ -18,13 +18,7 @@
 
 #############################################################################
 ####### Algoritma #######
-# import csv
 from package.base import *
-
-# Fungsi direktori database
-def databaseFilePath(databaseFolderPath):
-    n = databaseFolderPath + input()
-    return n
 
 # Fungsi loadCSV
 """def loadCSV(file,array,N):
@@ -44,6 +38,10 @@ def databaseFilePath(databaseFolderPath):
 
 # Load File tanpa library csv
 def stringCSVToArray(str1,maxCount):
+    if (str1 == "~~~"):
+        markArray = ["" for i in range(maxCount)]
+        markArray[0] = "~~~"
+        return markArray
     array = ["" for i in range(maxCount)]
     indexArray = [0 for i in range(2*maxCount)]
     counter, i = 1, 0
@@ -113,8 +111,7 @@ def requestLoad(databaseFolderPath,databaseFileCount,N=Nmax):
     containerArray = [user, wahana, pembelian, penggunaan, tiket, refund, kritiksaran, kehilangan]
     containerName = ["User", "Daftar Wahana", "Pembelian Tiket", "Penggunaan Tiket", "Kepemilikan Tiket", "Refund Tiket", "Kritik dan Saran", "Kehilangan Tiket"]
     for i in range(databaseFileCount):
-        rawPrint("Masukkan nama File {:18}: ".format(containerName[i]))
-        namaPathDatabase = databaseFilePath(databaseFolderPath)
+        namaPathDatabase = databaseFilePath(databaseFolderPath,"Masukkan nama File {:18}: ".format(containerName[i]))
         loadFileSukses = False
         while not loadFileSukses:
             try:
@@ -122,8 +119,7 @@ def requestLoad(databaseFolderPath,databaseFileCount,N=Nmax):
                 loadFileSukses = True
             except FileNotFoundError:
                 print("File tidak ada atau direktori tidak ada ({})".format(namaPathDatabase))
-                rawPrint("Masukkan nama File {:18}: ".format(containerName[i]))
-                namaPathDatabase = databaseFilePath(databaseFolderPath)
+                namaPathDatabase = databaseFilePath(databaseFolderPath,"Masukkan nama File {:18}: ".format(containerName[i]))
     ###########################
 
     # Insersi ke array database

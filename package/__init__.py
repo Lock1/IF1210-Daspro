@@ -66,3 +66,8 @@ try:
     from package.kritiksaran import *
 except ModuleNotFoundError:
     notExistPrint("kritiksaran")
+
+try:
+    from package.save import *
+except ModuleNotFoundError:
+    notExistPrint("save")

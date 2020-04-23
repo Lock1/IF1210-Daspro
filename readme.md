@@ -48,12 +48,12 @@ Mark     | "\~\~\~"
 
 ## Modul
 **Status : Progress** \
-**8 / 16**
+**9 / 16**
 Modul | Status
 ----- | ------
 Load               | :white_check_mark:
 Login              | :white_check_mark:
-Save               | :x:
+Save               | :white_check_mark
 Sign Up            | :white_check_mark:
 Pencarian Pemain   | :x:
 Pencarian Wahana   | :white_check_mark:
