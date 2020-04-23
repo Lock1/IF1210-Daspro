@@ -18,7 +18,7 @@
 
 #############################################################################
 ####### Algoritma #######
-import csv
+# import csv
 from package.base import *
 
 # Fungsi direktori database
@@ -27,7 +27,7 @@ def databaseFilePath(databaseFolderPath):
     return n
 
 # Fungsi loadCSV
-def loadCSV(file,array,N):
+"""def loadCSV(file,array,N):
     try:
         with open(file) as f:
             s = csv.reader(f)
@@ -37,6 +37,37 @@ def loadCSV(file,array,N):
                 array[i] = tp
                 # Mark akan diikutkan dalam insersi ke array
                 if (tp[0] == "~~~"):
+                    break
+        return array
+    except OSError:
+        raise FileNotFoundError"""
+
+# Load File tanpa library csv
+def stringCSVToArray(str1,maxCount):
+    array = ["" for i in range(maxCount)]
+    indexArray = [0 for i in range(2*maxCount)]
+    counter, i = 1, 0
+    while True:
+        if (str1[i] == "\n"):
+            indexArray[counter] = i
+            break
+        if (str1[i] == ","):
+            indexArray[counter] = i
+            counter += 1
+        i += 1
+    array[0] = str1[0:indexArray[1]]
+    for j in range(1,maxCount):
+         array[j] = str1[(indexArray[j]+1):indexArray[j+1]]
+    return array
+
+def loadCSV(file,array,fileColumn,N):
+    try:
+        with open(file) as database:
+            database.readline()
+            for i in range(N):
+                databaseString = database.readline()
+                array[i] = stringCSVToArray(databaseString,fileColumn)
+                if (array[i][0] == "~~~"):
                     break
         return array
     except OSError:
@@ -87,7 +118,7 @@ def requestLoad(databaseFolderPath,databaseFileCount,N=Nmax):
         loadFileSukses = False
         while not loadFileSukses:
             try:
-                containerArray[i] = loadCSV(namaPathDatabase,containerArray[i],N)
+                containerArray[i] = loadCSV(namaPathDatabase,containerArray[i],databaseColumn[i],N)
                 loadFileSukses = True
             except FileNotFoundError:
                 print("File tidak ada atau direktori tidak ada ({})".format(namaPathDatabase))

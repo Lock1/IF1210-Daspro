@@ -92,16 +92,36 @@ def isExistOnDatabase(database,index,search,N,flagToBeToggled=False,indexReturn=
 # menjadi array of strings
 def loadConfig():
     config = ["" for i in range(12)]
+    try:
+        checkExist = open("tools/config.ini")
+    except FileNotFoundError:
+        print("config.ini tidak ditemukan pada /tools/config.ini")
+        print("Konfigurasi default akan digunakan")
+        with open("tools/config.ini","w") as defaultConfig:
+            defaultConfig.write("databaseFolderPath=\"database/\"\n")
+            defaultConfig.write("databaseFileCount=8\n")
+            defaultConfig.write("Nmax=100\n")
+            defaultConfig.write("toGoldCost=15000\n")
+            defaultConfig.write("menuPlayerCount=8\n")
+            defaultConfig.write("menuAdminCount=8\n")
+            defaultConfig.write("menuColumn=2\n")
+            defaultConfig.write("menuRow=4\n")
+            defaultConfig.write("menuVarName=[\"cari\",\"beli_tiket\",\"main\",\"refund\",\"kritik_saran\",\"best_wahana\",\"tiket_hilang\",\"exit\"]\n")
+            defaultConfig.write("menuName=[\"Cari Wahana\",\"Beli Tiket\",\"Bermain\",\"Refund\",\"Kritik dan Saran\",\"Wahana Terbaik\",\"Laporan Kehilangan\",\"Keluar\"]\n")
+            defaultConfig.write("menuAdminVarName=[\"signup\",\"cari_pemain\",\"tambah_wahana\",\"lihat_laporan\",\"tiket_pemain\",\"riwayat_wahana\",\"upgrade_gold\",\"exit\"]\n")
+            defaultConfig.write("menuAdminName=[\"Sign Up\",\"Cari Pemain\",\"Wahana Baru\",\"Lihat Kritik Saran\",\"Lihat Tiket\",\"Riwayat Wahana\",\"Upgrade ke Gold\",\"Keluar\"]\n")
+
     with open("tools/config.ini") as configFile:
         for i in range(12):
-            strCheck = configFile.readline().rstrip()
-            for j in range(200): # 200 bisa di konfig
-                try:
-                    if (strCheck[j] == "="):
-                        startIndex =  j + 1
-                except IndexError:
+            strCheck = configFile.readline()
+            j = 0
+            while True:
+                if (strCheck[j] == "\n"):
                     endIndex = j
                     break
+                if (strCheck[j] == "="):
+                    startIndex =  j + 1
+                j += 1
             config[i] = strCheck[startIndex:endIndex]
     return config
 
@@ -110,19 +130,20 @@ def loadConfig():
 def stringConfigToArray(str1,maxCount):
     array = ["" for i in range(maxCount)]
     indexArray = [0 for i in range(2*maxCount)]
-    counter = 0
-    for i in range(200): # 200 bisa di konfig
-        try:
-            if (str1[i] == "\""):
-                if (counter % 2):
-                    indexArray[counter] = i
-                else:
-                    indexArray[counter] = i + 1
-                counter += 1
-        except IndexError:
+    str1 += "\n" # Mark
+    counter, i = 0, 0
+    while True:
+        if (str1[i] == "\n"):
             break
-    for i in range(maxCount):
-         array[i] = str1[indexArray[2*i]:indexArray[2*i+1]]
+        if (str1[i] == "\""):
+            if (counter % 2):
+                indexArray[counter] = i
+            else:
+                indexArray[counter] = i + 1
+            counter += 1
+        i += 1
+    for j in range(maxCount):
+         array[j] = str1[indexArray[2*j]:indexArray[2*j+1]]
     return array
 
 # FUNGSI KONVERSI TANGGAL
@@ -201,6 +222,11 @@ menuVarName = stringConfigToArray(config[8],menuPlayerCount)
 menuName = stringConfigToArray(config[9],menuPlayerCount)
 menuAdminVarName = stringConfigToArray(config[10],menuAdminCount)
 menuAdminName = stringConfigToArray(config[11],menuAdminCount)
+
+# Hard coded configuration
+databaseColumn = [8,5,4,4,3,4,4,4]
+# [user, wahana, pembelian, penggunaan, tiket, refund, kritiksaran, kehilangan]
+
 # Pengecekan apakah konfigurasi menu* valid
 if (menuRow*menuColumn < menuPlayerCount) and (menuRow*menuColumn < menuAdminCount):
     print("Error, Konfigurasi menu tidak valid")
