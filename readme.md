@@ -6,7 +6,7 @@ Semua modul selain base, load, dan login pada package bersifat **opsional**. \
 Jika salah satu modul dihapus program utama tetap akan berjalan secara normal untuk fungsi lain.
 
 ![Load File](/package/images/loadfile.gif)
-
+![Load File](/package/image/mainmenu.gif)
 
 ## Informasi Dasar
 Data | Isi
