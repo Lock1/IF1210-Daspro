@@ -29,31 +29,31 @@ def isUsernameValid(user,username,N):
     return isValid
 
 def signUpUser(user,N=Nmax):
-    # Penulisan interface
+    # Penulisan interface dan input data
     print()
-    rawPrint("Masukkan nama pemain: ")
-    playerName = input()                                        # INama
-    rawPrint("Masukkan tanggal lahir pemain (DD/MM/YYYY): ")
-    playerBornDay = input()                                     # Tanggal Lahir
-    rawPrint("Masukkan tinggi badan pemain (cm): ")
-    playerHeight = input()                                      # Tinggi
-    rawPrint("Masukkan username pemain: ")
-    playerUsername = input()                                    # Username
+    playerName = input("Masukkan nama pemain: ")                                   # Nama
+    playerBornDay = input("Masukkan tanggal lahir pemain (DD/MM/YYYY): ")          # Tanggal Lahir
+    playerHeight = input("Masukkan tinggi badan pemain (cm): ")                    # Tinggi
+    playerUsername = input("Masukkan username pemain: ")                           # Username
+
     # Pengecekan username
     while not isUsernameValid(user,playerUsername,N):
-        rawPrint("Username sudah digunakan, masukan username lain: ")
-        playerUsername = input()
+        playerUsername = input("Username sudah digunakan, masukan username lain: ")
+
     # Penulisan interface lanjutan
-    rawPrint("Masukkan password pemain: ")
-    playerPassword = input()                                    # Password
+    playerPassword = input("Masukkan password pemain: ")                           # Password
+
+    # Setting informasi default untuk pemain baru
     playerPassword = hash(playerUsername,playerPassword)
     playerRole = "Pemain"                                       # Role
     playerSaldo = "0"                                           # Saldo
     playerGold = "0"                                            # Status Gold
+
     # Penulisan informasi baru
-    print()
-    print("Selamat menjadi pemain, {}. Selamat bermain.".format(playerName))
     newPlayer = [playerName, playerBornDay, playerHeight, playerUsername, playerPassword, playerRole, playerSaldo, playerGold]
     user = appendDatabase(user,newPlayer,N)
+    print()
+    print("Selamat menjadi pemain, {}. Selamat bermain.".format(playerName))
+
     print()
     return user

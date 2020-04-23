@@ -23,15 +23,12 @@ from package.base import *
 
 def hilang(tiket,kehilangan,N=Nmax):
     # Interface
-    rawPrint("Masukkan username: ")
-    lostUsername = input()
-    rawPrint("Tanggal kehilangan tiket: ")
-    lostTime = input()
-    rawPrint("ID wahana: ")
-    lostID = input()
-    rawPrint("Jumlah tiket yang dihilangkan: ")
-    lostTicket = intinput()
+    lostUsername = input("Masukkan username: ")
+    lostTime = input("Tanggal kehilangan tiket: ")
+    lostID = input("ID wahana: ")
+    lostTicket = intinput("Jumlah tiket yang dihilangkan: ")
     print()
+
     # Pencarian informasi database pada tiket.csv dan pengecekan kevalidan
     isTicketValid = False
     isUsernameExist, lostTicketIndex = isExistOnDatabase(tiket,0,lostUsername,N,False,True)
@@ -39,6 +36,7 @@ def hilang(tiket,kehilangan,N=Nmax):
         if (tiket[lostTicketIndex][1] == lostID) and (int(tiket[lostTicketIndex][2]) >= lostTicket):
             isTicketValid = True
             tiket[lostTicketIndex][2] = str(int(tiket[lostTicketIndex][2]) - lostTicket)
+
     # Penulisan informasi baru pada kehilangan.csv
     if isTicketValid:
         print("Laporan kehilangan tiket Anda telah direkam.")
@@ -46,5 +44,6 @@ def hilang(tiket,kehilangan,N=Nmax):
         kehilangan = appendDatabase(kehilangan,kehilanganBaru,N)
     else:
         print("{} tidak memiliki tiket sebanyak {}".format(lostUsername,lostTicket))
+        
     print()
     return (tiket,kehilangan)

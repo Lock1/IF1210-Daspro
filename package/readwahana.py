@@ -32,8 +32,7 @@ def cariDanPrintRiwayatWahana(penggunaan,riwayatWahanaID,N):
     return pencarianDitemukan
 
 def riwayatWahana(penggunaan,N=Nmax):
-    rawPrint("Masukkkan ID Wahana: ")
-    riwayatWahanaID = input()
+    riwayatWahanaID = input("Masukkkan ID Wahana: ")
     pencarianDitemukan = cariDanPrintRiwayatWahana(penggunaan,riwayatWahanaID,N)
     if not pencarianDitemukan:
         print("Maaf, ID yang anda masukkan salah atau riwayat kosong")

@@ -53,8 +53,10 @@ def cariBestWahana(pembelian,wahana,N=Nmax):
                 if (tiketTerjual[j] == pembelian[i][2]):
                     tiketTerjual[j] += int(pembelian[i][3])
                     break
+
     # Sort array tiketTerjual untuk menentukan tiket terjual tertinggi
     selectionSort(tiketTerjual,N,1)
+
     # Pencarian Nama berdasarkan 3 ID teratas
     for i in range(3):
         cariWahanaID = tiketTerjual[i][0]

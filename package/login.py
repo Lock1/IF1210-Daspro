@@ -23,11 +23,10 @@ from package.base import *
 def requestLogin(user,N=Nmax):
     isPasswordBenar = False
     while not isPasswordBenar:
-        rawPrint("Masukkan username: ")
-        inputUsername = input()
-        rawPrint("Masukkan password: ")
-        inputPassword = input()
+        inputUsername = input("Masukkan username: ")
+        inputPassword = input("Masukkan password: ")
         print()
+        
         ##### Pengecekan Password #####
         # Pencarian informasi pada database
         inputPassword = hash(inputUsername, inputPassword)
