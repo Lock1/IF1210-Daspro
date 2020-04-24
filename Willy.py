@@ -86,7 +86,7 @@ while isLoaded:
             if pilihanMenu in ["A","signup"]:
                 user = signUpUser(user)
             elif pilihanMenu in ["B","cari_pemain"]:
-                print("TBA")
+                searchPemain(user)
             elif pilihanMenu in ["C","tambah_wahana"]:
                 wahana = tambahWahana(wahana)
             elif pilihanMenu in ["D","lihat_laporan"]:
