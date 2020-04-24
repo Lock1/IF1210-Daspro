@@ -71,3 +71,8 @@ try:
     from package.save import *
 except ModuleNotFoundError:
     notExistPrint("save")
+
+try:
+    from package.caripemain import *
+except ModuleNotFoundError:
+    notExistPrint("caripemain")
