@@ -37,13 +37,13 @@ def hilang(tiket,kehilangan,N=Nmax):
             isTicketValid = True
             tiket[lostTicketIndex][2] = str(int(tiket[lostTicketIndex][2]) - lostTicket)
 
-    # Penulisan informasi baru pada kehilangan.csv
+    # Penulisan informasi baru pada database kehilangan
     if isTicketValid:
-        print("Laporan kehilangan tiket Anda telah direkam.")
         kehilanganBaru = [lostUsername, lostTime, lostID, lostTicket]
         kehilangan = appendDatabase(kehilangan,kehilanganBaru,N)
+        print("Laporan kehilangan tiket Anda telah direkam.")
     else:
         print("{} tidak memiliki tiket sebanyak {}".format(lostUsername,lostTicket))
-        
+
     print()
     return (tiket,kehilangan)
