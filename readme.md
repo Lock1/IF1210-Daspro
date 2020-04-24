@@ -79,7 +79,7 @@ Best Wahana        | :white_check_mark:
 Laporan Kehilangan | :white_check_mark:
 
 ## Laporan
-**Status : Progress** \
+**Status : Progress**
 To Do | Status
 ----- | ------
 Debug            | :x:
