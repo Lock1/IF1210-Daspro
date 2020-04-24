@@ -48,7 +48,7 @@ Mark     | "\~\~\~"
 
 ## Modul
 **Status : Progress** \
-**11 / 16**
+**12 / 16**
 Modul | Status
 ----- | ------
 Load               | :white_check_mark:
@@ -63,7 +63,7 @@ Refund             | :x:
 Kritik & Saran     | :white_check_mark:
 Baca Kritik        | :x:
 Tambah Wahana      | :white_check_mark:
-Top Up             | :x:
+Top Up             | :white_check_mark:
 Baca Riwayat       | :white_check_mark:
 Baca Tiket         | :x:
 Exit               | :white_check_mark:

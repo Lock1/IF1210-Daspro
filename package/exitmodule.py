@@ -1,5 +1,5 @@
 ############################## Informasi Modul ##############################
-## Modul cariwahana
+## Modul exitmodule
 # Desainer
 # Finna Alivia Nabila  / 16519125 / 24 April 2020
 

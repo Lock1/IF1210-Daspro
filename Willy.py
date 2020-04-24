@@ -98,7 +98,9 @@ while isLoaded:
                 riwayatWahana(penggunaan)
             elif pilihanMenu in ["G","upgrade_gold"]:
                 user = upgradeToGold(user,toGoldCost)
-            elif pilihanMenu in ["H"]:
+            elif pilihanMenu in ["H","topup"]:
+                user = requestTopUp(user)
+            elif pilihanMenu in ["I"]:
                 saveArray = [user, wahana, pembelian, penggunaan, tiket, refund, kritiksaran, kehilangan]
                 exitSequence(saveArray,databaseFolderPath,databaseFileCount)
             else:
