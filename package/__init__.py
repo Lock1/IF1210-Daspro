@@ -81,3 +81,8 @@ try:
     from package.exitmodule import *
 except ModuleNotFoundError:
     notExistPrint("exitmodule")
+
+try:
+    from package.topup import *
+except ModuleNotFoundError:
+    notExistPrint("topup")
