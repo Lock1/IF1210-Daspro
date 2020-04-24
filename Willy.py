@@ -93,7 +93,7 @@ while isLoaded:
             elif pilihanMenu in ["D","lihat_laporan"]:
                 print("TBA")
             elif pilihanMenu in ["E","tiket_pemain"]:
-                print("TBA")
+                adminReadTicket(tiket,wahana)
             elif pilihanMenu in ["F","riwayat_wahana"]:
                 riwayatWahana(penggunaan)
             elif pilihanMenu in ["G","upgrade_gold"]:

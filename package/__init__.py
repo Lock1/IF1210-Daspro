@@ -91,3 +91,8 @@ try:
     from package.refund import *
 except ModuleNotFoundError:
     notExistPrint("refund")
+
+try:
+    from package.readtiket import *
+except ModuleNotFoundError:
+    notExistPrint("readtiket")
