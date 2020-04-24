@@ -70,7 +70,7 @@ while isLoaded:
     elif pilihanMenu in ["4", "refund"]:
         (user, tiket, refund) = requestRefund(username,user,tiket,refund,wahana)
     elif pilihanMenu in ["5", "kritik_saran"]:
-        kritiksaran =  tulisKritikSaran(kritiksaran)
+        kritiksaran =  tulisKritikSaran(username,kritiksaran)
     elif pilihanMenu in ["6", "best_wahana"]:
         cariBestWahana(pembelian,wahana)
     elif pilihanMenu in ["7", "tiket_hilang"]:

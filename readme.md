@@ -47,8 +47,8 @@ Mark     | "\~\~\~"
 
 
 ## Modul
-**Status : Progress** \
-**15 / 16**
+**Status : Done** :white_check_mark: \
+**16 / 16**
 Modul | Status
 ----- | ------
 Load               | :white_check_mark:
@@ -61,7 +61,7 @@ Pembelian Tiket    | :white_check_mark:
 Menggunakan Tiket  | :white_check_mark:
 Refund             | :white_check_mark:
 Kritik & Saran     | :white_check_mark:
-Baca Kritik        | :x:
+Baca Kritik        | :white_check_mark:
 Tambah Wahana      | :white_check_mark:
 Top Up             | :white_check_mark:
 Baca Riwayat       | :white_check_mark:
@@ -77,3 +77,12 @@ Hash & Salt        | :white_check_mark:
 Upgrade Gold       | :white_check_mark:
 Best Wahana        | :white_check_mark:
 Laporan Kehilangan | :white_check_mark:
+
+## Laporan
+**Status : Progress** \
+To Do | Status
+----- | ------
+Debug            | :x:
+Pembersihan kode | :x:
+Demonstrasi      | :x:
+Other            | :x:

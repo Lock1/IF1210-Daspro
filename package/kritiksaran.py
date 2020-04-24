@@ -25,7 +25,7 @@
 ####### Algoritma #######
 from package.base import *
 
-def tulisKritikSaran(kritiksaran,N=Nmax):
+def tulisKritikSaran(username,kritiksaran,N=Nmax):
     # Input ketiga parameter kritik dan saran baru
     # Asumsi semua input valid
     kritikID = input("Masukkan ID Wahana: ")
@@ -33,11 +33,11 @@ def tulisKritikSaran(kritiksaran,N=Nmax):
     isiKritik = input("Kritik/saran Anda: ")
 
     # Menyimpan ketiga parameter ke satu array
-    kritikBaru = [kritikID, tanggalKritik, isiKritik]
+    kritikBaru = [username, tanggalKritik, kritikID, isiKritik]
 
     # Menulis array tersebut ke row baru didatabase
     kritiksaran = appendDatabase(kritiksaran,kritikBaru,N)
     print("Kritik dan saran Anda kami terima")
-    
+
     print()
     return kritiksaran

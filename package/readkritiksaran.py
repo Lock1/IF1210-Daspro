@@ -2,42 +2,23 @@
 ## Modul readkritiksaran
 
 # Desainer
-
 # Hizkia R. / 16519515 / 24 April 2020
-
-
 
 # Coder
-
 # Hizkia R. / 16519515 / 24 April 2020
 
-
-
 # Tester
-
 # Tanur Rizaldi Rahardjo / 16519525 / 24 April 2020
 
 
-
-
-
 ## Kamus
-
 #N: integer
-
-
-
 
 
 ## Spesifikasi
 
 
-
-
-
 #############################################################################
-
-
 
 ####### Algoritma #######
 from package.base import *
