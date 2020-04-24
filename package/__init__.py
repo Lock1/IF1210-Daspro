@@ -76,3 +76,8 @@ try:
     from package.caripemain import *
 except ModuleNotFoundError:
     notExistPrint("caripemain")
+
+try:
+    from package.exitmodule import *
+except ModuleNotFoundError:
+    notExistPrint("exitmodule")

@@ -79,7 +79,8 @@ while isLoaded:
         saveArray = [user, wahana, pembelian, penggunaan, tiket, refund, kritiksaran, kehilangan]
         databaseSave(saveArray,databaseFolderPath,databaseFileCount)
     elif pilihanMenu in ["9", "exit"]:
-        print("TBA")
+        saveArray = [user, wahana, pembelian, penggunaan, tiket, refund, kritiksaran, kehilangan]
+        exitSequence(saveArray,databaseFolderPath,databaseFileCount)
     else:
         # Switch tambahan untuk isAdmin
         if isAdmin:
@@ -98,7 +99,8 @@ while isLoaded:
             elif pilihanMenu in ["G","upgrade_gold"]:
                 user = upgradeToGold(user,toGoldCost)
             elif pilihanMenu in ["H"]:
-                print("TBA")
+                saveArray = [user, wahana, pembelian, penggunaan, tiket, refund, kritiksaran, kehilangan]
+                exitSequence(saveArray,databaseFolderPath,databaseFileCount)
             else:
                 print("Masukkan tidak diketahui")
                 print("\n")
