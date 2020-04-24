@@ -1,10 +1,10 @@
 ############################## Informasi Modul ##############################
 # Modul readtiket
 # Desainer
-# Kevin Domenico Tantiyo / 16519205 / 18 April 2020
+# Kevin Domenico Tantiyo / 16519205 / 24 April 2020
 
 # Coder
-# Kevin Domenico Tantiyo / 16519205 / 18 April 2020
+# Kevin Domenico Tantiyo / 16519205 / 24 April 2020
 
 # Tester
 #

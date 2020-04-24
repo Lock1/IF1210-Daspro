@@ -48,7 +48,7 @@ Mark     | "\~\~\~"
 
 ## Modul
 **Status : Progress** \
-**14 / 16**
+**15 / 16**
 Modul | Status
 ----- | ------
 Load               | :white_check_mark:
@@ -57,7 +57,7 @@ Save               | :white_check_mark:
 Sign Up            | :white_check_mark:
 Pencarian Pemain   | :white_check_mark:
 Pencarian Wahana   | :white_check_mark:
-Pembelian Tiket    | :x:
+Pembelian Tiket    | :white_check_mark:
 Menggunakan Tiket  | :white_check_mark:
 Refund             | :white_check_mark:
 Kritik & Saran     | :white_check_mark:
