@@ -64,7 +64,7 @@ while isLoaded:
     if pilihanMenu in ["1", "cari"]:
         searchWahana(wahana)
     elif pilihanMenu in ["2", "beli_tiket"]:
-        print("TBA")
+        (user,tiket) = beliTiketUser(username,user,wahana,tiket)
     elif pilihanMenu in ["3", "main"]:
         (tiket,penggunaan) = bermain(username,tiket,penggunaan)
     elif pilihanMenu in ["4", "refund"]:

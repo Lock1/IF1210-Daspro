@@ -96,3 +96,8 @@ try:
     from package.readtiket import *
 except ModuleNotFoundError:
     notExistPrint("readtiket")
+
+try:
+    from package.buyticket import *
+except ModuleNotFoundError:
+    notExistPrint("buyticket")
