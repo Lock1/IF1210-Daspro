@@ -20,7 +20,6 @@
 #############################################################################
 
 ####### Algoritma #######
-# General interface agar pengguna tahu apa yang harus diinput
 from package.base import *
 
 def searchPemain(user,N=Nmax):

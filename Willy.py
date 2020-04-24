@@ -68,7 +68,7 @@ while isLoaded:
     elif pilihanMenu in ["3", "main"]:
         (tiket,penggunaan) = bermain(username,tiket,penggunaan)
     elif pilihanMenu in ["4", "refund"]:
-        print("TBA")
+        (user, tiket, refund) = requestRefund(username,user,tiket,refund,wahana)
     elif pilihanMenu in ["5", "kritik_saran"]:
         kritiksaran =  tulisKritikSaran(kritiksaran)
     elif pilihanMenu in ["6", "best_wahana"]:

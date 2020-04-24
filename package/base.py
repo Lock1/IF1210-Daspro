@@ -230,6 +230,7 @@ menuAdminName = stringConfigToArray(config[11],menuAdminCount)
 
 # Hard coded configuration
 databaseColumn = [8,5,4,4,3,4,4,4]
+refundMultiplier = 0.5
 # [user, wahana, pembelian, penggunaan, tiket, refund, kritiksaran, kehilangan]
 
 # Pengecekan apakah konfigurasi menu* valid
