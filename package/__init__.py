@@ -101,3 +101,8 @@ try:
     from package.buyticket import *
 except ModuleNotFoundError:
     notExistPrint("buyticket")
+
+try:
+    from package.readkritiksaran import *
+except ModuleNotFoundError:
+    notExistPrint("readkritiksaran")

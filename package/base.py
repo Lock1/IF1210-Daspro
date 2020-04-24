@@ -65,7 +65,7 @@ def appendDatabase(database,insertArray,N):
     for i in range(N):
         if (database[i][0] == "~~~"):
             database[i] = insertArray
-            if (i != N):
+            if (i != (N - 1)):
                 database[i+1][0] = "~~~"
             break
     return database
@@ -77,6 +77,8 @@ def appendDatabase(database,insertArray,N):
 def isExistOnDatabase(database,index,search,N,flagToBeToggled=False,indexReturn=False,checkFunction=(lambda a,b: a==b),replace="Null"):
     for i in range(N):
         if (database[i][0] == "~~~"):
+            if (search == "~~~") and indexReturn:
+                return (True,i)
             break
         if (checkFunction(database[i][index],search)):
             flagToBeToggled = not flagToBeToggled
