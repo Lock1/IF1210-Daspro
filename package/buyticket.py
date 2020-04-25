@@ -20,6 +20,23 @@
 ####### Algoritma #######
 from package.base import *
 
+# Pengecekan string untuk mencegah ketidakvalidan tanggal
+def isValidDateString(str1):
+    # Mark
+    str1 = str1 + "\n"
+    i = 0
+    j = 0
+    while True:
+        if (str1[i] == "\n"):
+            break
+        if (str1[i] == "/"):
+            j += 1
+        i += 1
+    if (j == 2):
+        return True
+    else:
+        return False
+
 def stringDateToArray(string):
     dateContainer = [0 for i in range(3)]
     indexArray = [0 for i in range(3)]
@@ -49,7 +66,13 @@ def dateArrayToInteger(array):
 def beliTiketUser(username,gold,user,wahana,tiket,discountFactor=goldDiscountMultiplier,N=Nmax):
     # Penulisan interface
     beliWahanaID = input("Masukkan ID wahana: ")
-    beliTanggal = stringDateToArray(input("Masukkan tanggal hari ini: "))
+    beliTanggal = input("Masukkan tanggal hari ini: ")
+    while not isValidDateString(beliTanggal):
+        print("Tanggal tidak valid.")
+        print()
+        beliTanggal = input("Masukkan tanggal hari ini: ")
+
+    beliTanggal = stringDateToArray(beliTanggal)
     beliTiket = intinput("Jumlah tiket yang dibeli: ")
 
     # Cek database user dan wahana
