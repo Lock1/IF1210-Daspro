@@ -20,7 +20,7 @@
 ####### Algoritma #######
 from package.base import *
 
-def upgradeToGold(user,upgradeGoldCost,N=Nmax):
+def upgradeToGold(gold,user,upgradeGoldCost,N=Nmax):
     # Interface
     upgradeUsername = input("Masukkan username yang ingin di-upgrade: ")
     print()
@@ -30,7 +30,9 @@ def upgradeToGold(user,upgradeGoldCost,N=Nmax):
     isUsernameExist, upgradeIndex = isExistOnDatabase(user,3,upgradeUsername,N,False,True)
     if isUsernameExist:
         if (int(user[upgradeIndex][6]) >= upgradeGoldCost):
+            user[upgradeIndex][6] = str(int(user[upgradeIndex][6]) - upgradeGoldCost) # SALDO DECREASE
             user[upgradeIndex][7] = "1"
+            gold = True
             print("Akun anda telah diupgrade.")
         elif (int(user[upgradeIndex][6]) >= upgradeGoldCost) and (user[upgradeIndex][7] == "1"):
             print("Username {} sudah memiliki Gold membership".format(upgradeUsername))
@@ -38,4 +40,4 @@ def upgradeToGold(user,upgradeGoldCost,N=Nmax):
             print("Username tidak ditemukan atau saldo tidak mencukupi.")
 
     print()
-    return user
+    return (user, gold)
