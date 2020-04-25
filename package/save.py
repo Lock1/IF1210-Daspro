@@ -35,6 +35,16 @@ def databaseSave(containerArray,databaseFolderPath,databaseFileCount,N=Nmax):
     containerName = ["User", "Daftar Wahana", "Pembelian Tiket", "Penggunaan Tiket", "Kepemilikan Tiket", "Refund Tiket", "Kritik dan Saran", "Kehilangan Tiket"]
     for i in range(databaseFileCount):
         databasePath = databaseFilePath(databaseFolderPath,"Masukkan nama File {:18}: ".format(containerName[i]))
+        openFileSuccess = False
+        while not openFileSuccess:
+            try:
+                open(databasePath,"w")
+                openFileSuccess = True
+            except PermissionError:
+                print()
+                print("Mohon untuk menutup program lain seperti excel ketika save.")
+                input("Tekan enter untuk mencoba lagi menyimpan pada {}".format(databasePath))
+
         with open(databasePath,"w") as database:
             database.write(containerLabel[i])
             for j in range(N):
