@@ -25,8 +25,15 @@ def requestLogin(user,N=Nmax):
     while not isPasswordBenar:
         inputUsername = input("Masukkan username: ")
         inputPassword = input("Masukkan password: ")
+        isUserInputNotValid, isPasswordInputNotValid = (inputUsername + " ").isspace(), (inputPassword + " ").isspace()
+        while (isUserInputNotValid) and (isPasswordInputNotValid):
+            print()
+            print("Masukkan tidak valid")
+            inputUsername = input("Masukkan username: ")
+            inputPassword = input("Masukkan password: ")
+            isUserInputNotValid, isPasswordInputNotValid = (inputUsername + " ").isspace(), (inputPassword + " ").isspace()
         print()
-        
+
         ##### Pengecekan Password #####
         # Pencarian informasi pada database
         inputPassword = hash(inputUsername, inputPassword)
