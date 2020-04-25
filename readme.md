@@ -4,7 +4,8 @@ Semua Array yang digunakan statis dengan panjang maksimum **Nmax** pada config.i
 Program utama bernama **willy.py** \
 Semua modul selain base, load, dan login pada package bersifat **opsional**. \
 Jika salah satu modul dihapus program utama tetap akan berjalan secara normal untuk fungsi lain. \
-Program ini tidak menggunakan **library CSV**.
+Program ini tidak menggunakan **library CSV**. \
+Sebagian besar program ini tidak mengikuti asumsi kevalidan input, banyak exception handler dengan blok try-except yang digunakan untuk menghandle situasi yang dapat menyebabkan program keluar.
 
 
 **Load File** \
@@ -86,4 +87,3 @@ Debug              | :white_check_mark:
 Pemberian Komentar | :x:
 Pembersihan kode   | :x:
 Demonstrasi        | :x:
-

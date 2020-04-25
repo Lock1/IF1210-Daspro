@@ -42,6 +42,8 @@ def stringCSVToArray(str1,maxCount):
         markArray = ["" for i in range(maxCount)]
         markArray[0] = "~~~"
         return markArray
+    # Mark
+    str1 = str1 + "\n"
     array = ["" for i in range(maxCount)]
     indexArray = [0 for i in range(2*maxCount)]
     counter, i = 1, 0
