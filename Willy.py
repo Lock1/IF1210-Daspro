@@ -64,7 +64,7 @@ while isLoaded:
     if pilihanMenu in ["1", "cari"]:
         searchWahana(wahana)
     elif pilihanMenu in ["2", "beli_tiket"]:
-        (user,tiket) = beliTiketUser(username,user,wahana,tiket)
+        (user,tiket) = beliTiketUser(username,gold,user,wahana,tiket)
     elif pilihanMenu in ["3", "main"]:
         (tiket,penggunaan) = bermain(username,tiket,penggunaan)
     elif pilihanMenu in ["4", "refund"]:
@@ -97,7 +97,7 @@ while isLoaded:
             elif pilihanMenu in ["F","riwayat_wahana"]:
                 riwayatWahana(penggunaan)
             elif pilihanMenu in ["G","upgrade_gold"]:
-                user = upgradeToGold(user,toGoldCost)
+                (user, gold) = upgradeToGold(gold,user,toGoldCost)
             elif pilihanMenu in ["H","topup"]:
                 user = requestTopUp(user)
             elif pilihanMenu in ["I"]:
