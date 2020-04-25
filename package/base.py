@@ -1,11 +1,6 @@
 ############################## Informasi Modul ##############################
 ### Modul untuk fungsi yang umum ###
-## Kamus
-
-
-## Spesifikasi
-
-
+## Informasi tentang per fungsi akan dijelaskan pada komentar fungsi
 #############################################################################
 
 ############################### Fungsi Dasar ################################
@@ -109,14 +104,14 @@ def loadConfig():
             defaultConfig.write("databaseFileCount=8\n")
             defaultConfig.write("Nmax=100\n")
             defaultConfig.write("toGoldCost=15000\n")
-            defaultConfig.write("menuPlayerCount=8\n")
-            defaultConfig.write("menuAdminCount=8\n")
-            defaultConfig.write("menuColumn=2\n")
-            defaultConfig.write("menuRow=4\n")
+            defaultConfig.write("menuPlayerCount=9\n")
+            defaultConfig.write("menuAdminCount=9\n")
+            defaultConfig.write("menuColumn=3\n")
+            defaultConfig.write("menuRow=3\n")
             defaultConfig.write("menuVarName=[\"cari\",\"beli_tiket\",\"main\",\"refund\",\"kritik_saran\",\"best_wahana\",\"tiket_hilang\",\"exit\"]\n")
             defaultConfig.write("menuName=[\"Cari Wahana\",\"Beli Tiket\",\"Bermain\",\"Refund\",\"Kritik dan Saran\",\"Wahana Terbaik\",\"Laporan Kehilangan\",\"Keluar\"]\n")
-            defaultConfig.write("menuAdminVarName=[\"signup\",\"cari_pemain\",\"tambah_wahana\",\"lihat_laporan\",\"tiket_pemain\",\"riwayat_wahana\",\"upgrade_gold\",\"exit\"]\n")
-            defaultConfig.write("menuAdminName=[\"Sign Up\",\"Cari Pemain\",\"Wahana Baru\",\"Lihat Kritik Saran\",\"Lihat Tiket\",\"Riwayat Wahana\",\"Upgrade ke Gold\",\"Keluar\"]\n")
+            defaultConfig.write("menuAdminVarName=[\"signup\",\"cari_pemain\",\"tambah_wahana\",\"lihat_laporan\",\"tiket_pemain\",\"riwayat_wahana\",\"upgrade_gold\",\"topup\",\"exit\"]\n")
+            defaultConfig.write("menuAdminName=[\"Sign Up\",\"Cari Pemain\",\"Wahana Baru\",\"Lihat Kritik Saran\",\"Lihat Tiket\",\"Riwayat Wahana\",\"Upgrade ke Gold\",\"Top Up Saldo\",\"Keluar\"]\n")
 
     with open("tools/config.ini") as configFile:
         for i in range(12):
@@ -233,6 +228,7 @@ menuAdminName = stringConfigToArray(config[11],menuAdminCount)
 # Hard coded configuration
 databaseColumn = [8,5,4,4,3,4,4,4]
 refundMultiplier = 0.5
+goldDiscountMultiplier = 0.5
 # [user, wahana, pembelian, penggunaan, tiket, refund, kritiksaran, kehilangan]
 
 # Pengecekan apakah konfigurasi menu* valid
