@@ -15,8 +15,8 @@
 # batasUmur {Batas umur}: integer
 #function: umurFind
 #a,b,N: integer
-#function: cariDanPrintWahana
-#function: searchWahana
+#function: cariDanPrintWahana (wahana:csv,umurFind:boolean,fungsiCek:boolean:,N:integer)
+#function: searchWahana (wahana:csv,N=NMax:integer)
 
 ## Spesifikasi
 
