@@ -82,7 +82,8 @@ Laporan Kehilangan | :white_check_mark:
 **Status : Progress**
 To Do | Status
 ----- | ------
-Debug            | :x:
-Pembersihan kode | :x:
-Demonstrasi      | :x:
-Other            | :x:
+Debug              | :white_check_mark:
+Pemberian Komentar | :x:
+Pembersihan kode   | :x:
+Demonstrasi        | :x:
+
