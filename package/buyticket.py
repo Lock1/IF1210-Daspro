@@ -46,7 +46,7 @@ def dateArrayToInteger(array):
     dateInteger = 365*array[2] + 30*array[1] + array[0]
     return dateInteger
 
-def beliTiketUser(username,user,wahana,tiket,N=Nmax):
+def beliTiketUser(username,gold,user,wahana,tiket,discountFactor=goldDiscountMultiplier,N=Nmax):
     # Penulisan interface
     beliWahanaID = input("Masukkan ID wahana: ")
     beliTanggal = stringDateToArray(input("Masukkan tanggal hari ini: "))
@@ -80,11 +80,17 @@ def beliTiketUser(username,user,wahana,tiket,N=Nmax):
 
         # Pemrosesan saldo & tiket
         if isValidUmur and isValidTinggi:
-            if (int(user[usernameIndex][6]) < (int(arrayWahana[2])*beliTiket)):
+            if (not gold) and ((int(user[usernameIndex][6]) < (int(arrayWahana[2])*beliTiket))):
+                print("Saldo Anda tidak cukup")
+                print("Silakan mengisi saldo Anda")
+            elif gold and (int(user[usernameIndex][6]) < (int(arrayWahana[2])*beliTiket*discountFactor)):
                 print("Saldo Anda tidak cukup")
                 print("Silakan mengisi saldo Anda")
             else:
-                user[usernameIndex][6] = str(int(user[usernameIndex][6]) - int(arrayWahana[2])*beliTiket)
+                if gold:
+                    user[usernameIndex][6] = str(int(int(user[usernameIndex][6]) - int(arrayWahana[2])*beliTiket*discountFactor))
+                else:
+                    user[usernameIndex][6] = str(int(int(user[usernameIndex][6]) - int(arrayWahana[2])*beliTiket))
                 newTicket = [username, beliWahanaID, str(beliTiket)]
                 tiket = appendDatabase(tiket,newTicket,N)
                 print("Selamat bersenang-senang di {}.".format(arrayWahana[1]))
