@@ -1,7 +1,7 @@
 ############################## Informasi Modul ##############################
 ### Modul untuk fungsi yang umum ###
 ## Informasi tentang per fungsi akan dijelaskan pada komentar fungsi
-<<<<<<< HEAD
+
 ## Kamus
 # function: xinput(str1:string)
 # function: intinput(str1:string)
@@ -11,8 +11,7 @@
 # function: databaseFilePath(databaseFolderPath:string,databaseFilename:string)
 # function: appendDatabase(database:csv,insertArray:array,N:integer)
 # function: isExistOnDatabase(
-=======
->>>>>>> parent of 20fcfa4... Update base.py
+
 #############################################################################
 
 ############################### Fungsi Dasar ################################
