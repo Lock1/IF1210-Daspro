@@ -1,6 +1,15 @@
 ############################## Informasi Modul ##############################
 ### Modul untuk fungsi yang umum ###
 ## Informasi tentang per fungsi akan dijelaskan pada komentar fungsi
+## Kamus
+# function: xinput(str1:string)
+# function: intinput(str1:string)
+# procedure: rawPrint(str1:string)
+# function: addBracket(str1:string)
+# function: printMenu(row:integer,column:integer,maxMenuIndex:integer,varArray: integer,namaArray:string)
+# function: databaseFilePath(databaseFolderPath:string,databaseFilename:string)
+# function: appendDatabase(database:csv,insertArray:array,N:integer)
+# function: isExistOnDatabase(
 #############################################################################
 
 ############################### Fungsi Dasar ################################
