@@ -13,7 +13,10 @@
 ## Kamus
 # batasTinggi {Batas tinggi}: integer
 # batasUmur {Batas umur}: integer
-
+#function: umurFind
+#a,b,N: integer
+#function: cariDanPrintWahana
+#function: searchWahana
 
 ## Spesifikasi
 
