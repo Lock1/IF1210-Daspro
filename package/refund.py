@@ -7,22 +7,48 @@
 # Finna Alivia Nabila / 16519125 / 24 April 2020
 
 # Tester
-#
+# Kevin Domenico Tantiyo / 16519205 / 26 April 2020
 
+######### Kamus #########
+### Argumen yang direquest oleh fungsi
+# username          : String
+# user              : 2D Matrix of strings
+# tiket             : 2D Matrix of strings
+# refund            : 2D Matrix of strings
+# wahana            : 2D Matrix of strings
+# N                 : Integer
+# refundFactor      : Float
 
-## Kamus
+### Kamus Internal
+# refundID              : String
+# refundDate            : String
+# refundTicket          : Integer
+# isTicketValid         : Boolean
+# isUsernameExist       : Boolean
+# refundUsernameIndex   : Integer
+# refundBaru            : Array of string
+# usernameExistOnUser   : Boolean
+# usernameIndex         : Integer
+# wahanaExist           : Boolean
+# wahanaIndex           : Integer
 
+### Kamus informasi yang direturn
+# user          : 2D Matrix of strings
+# tiket         : 2D Matrix of strings
+# refund        : 2D Matrix of strings
 
-
-## Spesifikasi
-
-
+###### Spesifikasi ######
+# requestRefund     : (String, 4x 2D Matrix of string, Integer, Integer) -> (3x 2D Matrix of string)
 #############################################################################
 
-####### Algoritma #######
+############################### Algoritma ################################
 from package.base import *
 
 def requestRefund(username,user,tiket,refund,wahana,N=Nmax,refundFactor=refundMultiplier):
+    # Database user digunakan untuk menambah saldo, tiket untuk mengurangi tiket
+    # refund untuk menambah log refund, dan wahana untuk mengambil harga yang wahana terkait
+
+    # Input user
     refundID = input("Masukkan ID Wahana: ")
     refundDate = input("Masukkan Tanggal Refund: ")
     refundTicket = intinput("Jumlah tiket yang di-refund: ")
@@ -51,3 +77,5 @@ def requestRefund(username,user,tiket,refund,wahana,N=Nmax,refundFactor=refundMu
 
     print()
     return (user,tiket,refund)
+
+########################### End of function ##############################

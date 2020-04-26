@@ -9,15 +9,44 @@
 # Tester
 # Tanur Rizaldi Rahardjo / 16519525 / 24 April 2020
 
+######### Kamus #########
+### Argumen yang direquest oleh fungsi
+# username          : String
+# gold              : Boolean
+# user              : 2D Matrix of strings
+# wahana            : 2D Matrix of strings
+# tiket             : 2D Matrix of strings
+# discountFactor    : Float
+# N                 : Integer
 
-## Kamus
+### Kamus Internal
+# beliWahanaID          : String
+# beliTanggal           : String        {Dikonversi ke integer}
+# beliTiket             : Integer
+# isUsernameExist       : Boolean
+# usernameIndex         : Index
+# isWahanaExist         : Boolean
+# wahanaIndex           : Index
+# userTanggalLahir      : String        {Dikonversi ke integer}
+# arrayWahana           : Array of strings
+# userUmur              : Integer
+# batasUmur             : Integer
+# isValidUmur           : Boolean
+# isValidTinggi         : Boolean
+# newTicket             : Array of strings
 
+### Kamus informasi yang direturn
+# user      : 2D Matrix of strings
+# tiket     : 2D Matrix of strings
 
-## Spesifikasi
-
-
+###### Spesifikasi ######
+# isValidDateString         : (String) -> (Boolean)
+# stringDateToArray         : (String) -> (Array of integer)
+# dateArrayToInteger        : (Array of integer) -> (Integer)
+# beliTiketUser             : (String, Boolean, 3x 2D Matrix of Strings, Integer, Integer) -> (2D Matrix of strings, 2D Matrix of strings)
 #############################################################################
-####### Algoritma #######
+
+############################### Algoritma ################################
 from package.base import *
 
 # Pengecekan string untuk mencegah ketidakvalidan tanggal
@@ -125,3 +154,5 @@ def beliTiketUser(username,gold,user,wahana,tiket,discountFactor=goldDiscountMul
 
     print()
     return (user, tiket)
+
+########################### End of function ##############################

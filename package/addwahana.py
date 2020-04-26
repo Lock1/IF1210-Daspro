@@ -7,17 +7,29 @@
 # Tanur Rizaldi Rahardjo / 16519525 / 17 April 2020
 
 # Tester
-#
+# Finna Alivia Nabila / 16519125 / 26 April 2020
 
+######### Kamus #########
+### Argumen yang direquest oleh fungsi
+# wahana    : 2D Matrix of string
+# N         : Integer
 
-## Kamus
+### Kamus Internal
+# newID             : String
+# newName           : String
+# newCost           : Integer {Dikonversi ke str ketika penyimpanan}
+# newAge            : String
+# newHeight         : Integer {Dikonversi ke str ketika penyimpanan}
+# wahanaBaru        : Array of strings
 
+### Kamus informasi yang direturn
+# wahana    : 2D Matrix of string
 
-## Spesifikasi
-
-
+###### Spesifikasi ######
+# tambahWahana  : (2D Matrix of string, Integer) -> (2D Matrix of string)
 #############################################################################
-####### Algoritma #######
+
+############################### Algoritma ################################
 from package.base import *
 
 def tambahWahana(wahana,N=Nmax):
@@ -33,8 +45,10 @@ def tambahWahana(wahana,N=Nmax):
     wahanaBaru = [newID,newName,newCost,newAge,newHeight]
     wahana = appendDatabase(wahana,wahanaBaru,N)
     print()
-    
+
     print("Info wahana telah ditambahkan!")
     print()
     return wahana
     # End of function
+
+########################### End of function ##############################
