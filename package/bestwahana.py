@@ -7,17 +7,28 @@
 # Tanur Rizaldi Rahardjo / 16519525 / 18 April 2020
 
 # Tester
-#
+# Finna Alivia Nabila / 16519125 / 26 April 2020
 
+######### Kamus #########
+### Argumen yang direquest oleh fungsi
+# pembelian       : 2D Matrix of string
+# wahana          : 2D Matrix of string
+# N               : Integer
 
-## Kamus
+### Kamus Internal
+# tiketTerjual        : 2D Matrix of (String, Integer)
+# cariWahanaID        : String
+# isExistOnWahana     : Boolean
+# wahanaIndex         : Integer
 
-
-## Spesifikasi
-
-
+###### Spesifikasi ######
+# printWahana       : (Integer, 3x Strings) -> ()
+# insertNewID       : (2D Matrix of (String, Integer); Array of (String, Integer); Integer; Integer) -> (2D Matrix of (String, Integer))
+# isIDNotInArray    : (2D Matrix of strings; Integer; 2D Matrix of (String, Integer); Integer) -> ()
+# cariBestWahana    : (2D Matrix of strings, 2D Matrix of strings, Integer) -> ()
 #############################################################################
-####### Algoritma #######
+
+############################### Algoritma ################################
 from package.base import *
 
 ## Prosedur printWahana
@@ -64,3 +75,5 @@ def cariBestWahana(pembelian,wahana,N=Nmax):
         if isExistOnWahana:
             printWahana(i+1,cariWahanaID,wahana[wahanaIndex][1],tiketTerjual[i][1])
     print()
+
+########################### End of function ##############################

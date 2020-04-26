@@ -1,5 +1,5 @@
 ############################## Informasi Modul ##############################
-# Modul load
+## Modul load
 # Desainer
 # Tanur Rizaldi Rahardjo / 16519525 / 17 April 2020
 
@@ -7,42 +7,44 @@
 # Tanur Rizaldi Rahardjo / 16519525 / 17 April 2020
 
 # Tester
-#
+# Hizkia R.             / 16519515 / 26 April 2020
 
+######### Kamus #########
+### Kamus Internal
+# containerName     : Array of strings
+# containerArray    : Array of strings
+# namaPathDatabase  : String
+# loadFileSukses    : Boolean
 
-## Kamus
-
-
-## Spesifikasi
-
-
+### Kamus informasi yang direturn
+# user              : 2D Matrix of strings
+# wahana            : 2D Matrix of strings
+# pembelian         : 2D Matrix of strings
+# penggunaan        : 2D Matrix of strings
+# tiket             : 2D Matrix of strings
+# refund            : 2D Matrix of strings
+# kritiksaran       : 2D Matrix of strings
+# kehilangan        : 2D Matrix of strings
+###### Spesifikasi ######
+# requestLoad       : (String, String, Integer) -> (8x 2D Matrix of strings) {Akan bergantung pada banyaknya file database}
+# stringCSVToArray  : (String, Integer) -> (Array of strings)
+# loadCSV           : (String, 2D Matrix of strings, Integer, Integer) -> (2D Matrix of strings)
 #############################################################################
-####### Algoritma #######
+
+############################### Algoritma ################################
 from package.base import *
 
-# Fungsi loadCSV
-"""def loadCSV(file,array,N):
-    try:
-        with open(file) as f:
-            s = csv.reader(f)
-            s.__next__() # Skip baris teratas
-            for i in range(N): # Iterasi dimulai dari baris ke 1 hingga N+1
-                tp = s.__next__()
-                array[i] = tp
-                # Mark akan diikutkan dalam insersi ke array
-                if (tp[0] == "~~~"):
-                    break
-        return array
-    except OSError:
-        raise FileNotFoundError"""
-
-# Load File tanpa library csv
+# Fungsi penggantian string csv ke array
 def stringCSVToArray(str1,maxCount):
-    if (str1 == "~~~"):
+    # Kasus ketika str1 adalah mark
+    if (str1[0:3] == "~~~"):
         markArray = ["" for i in range(maxCount)]
         markArray[0] = "~~~"
         return markArray
-    # Mark
+
+    ### Proses konversi string to csv dengan batas ","
+    ## Pencarian indeks koma
+    # Penambahan mark pada akhir str1 untuk mencegah error
     str1 = str1 + "\n"
     array = ["" for i in range(maxCount)]
     indexArray = [0 for i in range(2*maxCount)]
@@ -56,10 +58,14 @@ def stringCSVToArray(str1,maxCount):
             counter += 1
         i += 1
     array[0] = str1[0:indexArray[1]]
+
+    ## Proses slicing string menjadi array
     for j in range(1,maxCount):
          array[j] = str1[(indexArray[j]+1):indexArray[j+1]]
+
     return array
 
+# Fungsi untuk meload csv dengan exception handling
 def loadCSV(file,array,fileColumn,N):
     try:
         with open(file) as database:
@@ -110,9 +116,11 @@ def requestLoad(databaseFolderPath,databaseFileCount,N=Nmax):
     ######################################
 
     ##### Input nama file #####
+    # Penyimpanan database array ke array agar dapat diiterasi dengan mudah
     containerArray = [user, wahana, pembelian, penggunaan, tiket, refund, kritiksaran, kehilangan]
     containerName = ["User", "Daftar Wahana", "Pembelian Tiket", "Penggunaan Tiket", "Kepemilikan Tiket", "Refund Tiket", "Kritik dan Saran", "Kehilangan Tiket"]
     for i in range(databaseFileCount):
+        # Iterasi load file hingga load sukses
         namaPathDatabase = databaseFilePath(databaseFolderPath,"Masukkan nama File {:18}: ".format(containerName[i]))
         loadFileSukses = False
         while not loadFileSukses:
@@ -136,3 +144,5 @@ def requestLoad(databaseFolderPath,databaseFileCount,N=Nmax):
 
     print("File perusahaan Willy Wangky’s Chocolate Factory telah di-load.\n")
     return (user, wahana, pembelian, penggunaan, tiket, refund, kritiksaran, kehilangan)
+
+########################### End of function ##############################

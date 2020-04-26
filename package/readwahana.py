@@ -9,22 +9,30 @@
 # Tester
 # Tanur Rizaldi Rahardjo / 16519525 / 20 April 2020
 
-
 ## Kamus
 # pencarianDitemukan {Status apakah ada wahana didatabase}: boolean
 # riwayatWahanaID {ID Wahana yang akan dicari}: string
 
+######### Kamus #########
+### Argumen yang direquest oleh fungsi
+# penggunaan    : 2D Matrix of string
+# N             : Integer
 
-## Spesifikasi
+### Kamus Internal
+# riwayatWahanaID       : String
+# pencarianDitemukan    : Boolean
 
-
+###### Spesifikasi ######
+# cariDanPrintRiwayatWahana     : (2D Matrix of strings, String, Integer) -> (Boolean)
+# riwayatWahana                 : (2D Matrix of strings, Integer) -> ()
 #############################################################################
 
-####### Algoritma #######
+############################### Algoritma ################################
 from package.base import *
 
 def cariDanPrintRiwayatWahana(penggunaan,riwayatWahanaID,N):
     pencarianDitemukan = False
+    # Loop pencarian, jika ditemukan ID wahana yang sama print informasi pada baris terkait
     for i in range(N):
         if (penggunaan[i][2] == riwayatWahanaID):
             print("{:10} | {:17} | {:3}".format(penggunaan[i][1],penggunaan[i][0],penggunaan[i][2]))
@@ -32,8 +40,11 @@ def cariDanPrintRiwayatWahana(penggunaan,riwayatWahanaID,N):
     return pencarianDitemukan
 
 def riwayatWahana(penggunaan,N=Nmax):
+    # Input user untuk mencari wahana pada database penggunaan
     riwayatWahanaID = input("Masukkkan ID Wahana: ")
     pencarianDitemukan = cariDanPrintRiwayatWahana(penggunaan,riwayatWahanaID,N)
     if not pencarianDitemukan:
         print("Maaf, ID yang anda masukkan salah atau riwayat kosong")
     print()
+
+########################### End of function ##############################

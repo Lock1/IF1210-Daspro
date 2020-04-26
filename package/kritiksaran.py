@@ -9,20 +9,26 @@
 # Tester
 # Tanur Rizaldi Rahardjo / 16519525 / 23 April 2020
 
+######### Kamus #########
+### Argumen yang direquest oleh fungsi
+# username      : String
+# kritiksaran   : 2D Matrix of strings
+# N             : Integer
 
-## Kamus
-# kritikID       : String (ID wahana yang dikritik)
-# tanggalKritik  : String (Tanggal kritik dan saran diterima)
-# isiKritik      : String (Isi kritik dan saran)
-# kritikBaru     : Array kritikBaru untuk database kritiksaran
+### Kamus Internal
+# kritikID       : String           {ID wahana yang dikritik}
+# tanggalKritik  : String           {Tanggal kritik dan saran diterima}
+# isiKritik      : String           {Isi kritik dan saran}
+# kritikBaru     : Array of string  {Array kritikBaru untuk database kritiksaran}
 
+### Kamus informasi yang direturn
+# kritiksaran   : 2D Matrix of strings
 
-## Spesifikasi
-
-
+###### Spesifikasi ######
+# tulisKritikSaran  : (String, 2D Matrix of strings, Integer) -> (2D Matrix of strings)
 #############################################################################
 
-####### Algoritma #######
+############################### Algoritma ################################
 from package.base import *
 
 def tulisKritikSaran(username,kritiksaran,N=Nmax):
@@ -41,3 +47,5 @@ def tulisKritikSaran(username,kritiksaran,N=Nmax):
 
     print()
     return kritiksaran
+
+########################### End of function ##############################

@@ -19,6 +19,9 @@
 # Procedure : printMenu(Integer, Integer, Integer, Integer, Array of strings, Array of strings)
 #############################################################################
 
+
+# --------------------------- Definisi fungsi ----------------------------- #
+
 ############################### Fungsi Dasar ################################
 from hashlib import *
 ############ Fungsi I/O dan string operation ############
@@ -71,9 +74,6 @@ def databaseFilePath(databaseFolderPath,databaseFilename=""):
     return databasePath
 
 <<<<<<< Updated upstream
-=======
-## Fungsi replaceChar
-# Mengganti charFind pada string ke charReplace
 def replaceChar(string,charFind,charReplace):
     # Mark
     string = string + "\n"
@@ -269,12 +269,22 @@ def selectionSort(unsortedArray,N,secondIndex="Null"):
 
 ############################################################################
 
+# ------------------------------------------------------------------------- #
+
+
+
+
+
+
+# ---- Fungsi yang dicall & prosedur yang dijalan ketika modul diload ----- #
+
 ############################ Load config ###################################
 ### Pembacaan konfigurasi
 # Inisiasi variabel konfigurasi dengan membaca config.ini
 config = loadConfig()
 # Konfigurasi umum
-databaseFolderPath = config[0].replace("\"","")
+# databaseFolderPath = config[0].replace("\"","") # Jika tidak diperbolehkan dengan string method replace
+databaseFolderPath = replaceChar(config[0],"\"","")
 databaseFileCount = int(config[1])
 Nmax = int(config[2])
 toGoldCost = int(config[3])
@@ -287,6 +297,8 @@ menuVarName = stringConfigToArray(config[8],menuPlayerCount)
 menuName = stringConfigToArray(config[9],menuPlayerCount)
 menuAdminVarName = stringConfigToArray(config[10],menuAdminCount)
 menuAdminName = stringConfigToArray(config[11],menuAdminCount)
+############################################################################
+
 
 # Hard coded configuration
 databaseColumn = [8,5,4,4,3,4,4,4]
@@ -298,3 +310,5 @@ goldDiscountMultiplier = 0.5
 if (menuRow*menuColumn < menuPlayerCount) and (menuRow*menuColumn < menuAdminCount):
     print("Error, Konfigurasi menu tidak valid")
     exit()
+
+# ------------------------------------------------------------------------- #

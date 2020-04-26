@@ -1,5 +1,5 @@
 ############################## Informasi Modul ##############################
-# Modul login
+## Modul login
 # Desainer
 # Tanur Rizaldi Rahardjo / 16519525 / 17 April 2020
 
@@ -7,22 +7,42 @@
 # Tanur Rizaldi Rahardjo / 16519525 / 17 April 2020
 
 # Tester
-#
+# Finna Alivia Nabila / 16519125 / 26 April 2020
 
+######### Kamus #########
+### Argumen yang direquest oleh fungsi
+# user      : 2D Matrix of strings
+# N         : Integer
 
-## Kamus
+### Kamus Internal
+# isPasswordBenar           : Boolean
+# inputPassword             : String
+# inputUsername             : String
+# isPasswordInputNotValid   : Boolean
+# isUserInputNotValid       : Boolean
+# isUsernameExist           : Boolean
+# userInformationIndex      : Integer
+# role                      : String
+# status                    : String
 
+### Kamus informasi yang direturn
+# nama          : String
+# username      : String
+# admin         : Boolean
+# gold          : Boolean
 
-## Spesifikasi
-
-
+###### Spesifikasi ######
+# requestLogin  : (2D Matrix of strings, Integer) -> (String, String, Boolean, Boolean)
 #############################################################################
-####### Algoritma #######
+
+############################### Algoritma ################################
 from package.base import *
 
 def requestLogin(user,N=Nmax):
+    # Loop permintaan login
     isPasswordBenar = False
     while not isPasswordBenar:
+        # Loop untuk meminta input username & password
         inputUsername = input("Masukkan username: ")
         inputPassword = input("Masukkan password: ")
         isUserInputNotValid, isPasswordInputNotValid = (inputUsername + " ").isspace(), (inputPassword + " ").isspace()
@@ -57,3 +77,5 @@ def requestLogin(user,N=Nmax):
     print("Selamat bersenang-senang, {}!".format(nama))
     print()
     return (nama, username, admin, gold)
+
+########################### End of function ##############################
