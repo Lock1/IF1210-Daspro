@@ -58,14 +58,23 @@ def addBracket(str1):
 
 ## Prosedur printMenu
 # Menuliskan menu pada program utama
-def printMenu(row,column,maxMenuIndex,varArray,nameArray):
-    for i in range(row):
-        for j in range(column):
-            if ((i + row*j) >= maxMenuIndex):
-                rawPrint("")
-            else:
-                rawPrint("{}. {:20} {:17} ".format((i+1+row*j),nameArray[i+row*j],addBracket(varArray[i+row*j])))
-        print()
+def printMenu(row,column,maxMenuIndex,varArray,nameArray,isAdmin=False):
+    if not isAdmin:
+        for i in range(row):
+            for j in range(column):
+                if ((i + row*j) >= maxMenuIndex):
+                    rawPrint("")
+                else:
+                    rawPrint("{}. {:20} {:17} ".format((i+1+row*j),nameArray[i+row*j],addBracket(varArray[i+row*j])))
+            print()
+    else:
+        for i in range(row):
+            for j in range(column):
+                if ((i + row*j) >= maxMenuIndex):
+                    rawPrint("")
+                else:
+                    rawPrint("{}. {:20} {:17} ".format(chr(64+(i+1+row*j)),nameArray[i+row*j],addBracket(varArray[i+row*j])))
+            print()
 
 ## Fungsi databaseFilePath
 # Membuat string direktori database
