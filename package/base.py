@@ -2,16 +2,21 @@
 ### Modul untuk fungsi yang umum ###
 ## Informasi tentang per fungsi akan dijelaskan pada komentar fungsi
 
-## Kamus
-# function: xinput(str1:string)
-# function: intinput(str1:string)
-# procedure: rawPrint(str1:string)
-# function: addBracket(str1:string)
-# function: printMenu(row:integer,column:integer,maxMenuIndex:integer,varArray: integer,namaArray:string)
-# function: databaseFilePath(databaseFolderPath:string,databaseFilename:string)
-# function: appendDatabase(database:csv,insertArray:array,N:integer)
-# function: isExistOnDatabase(
-
+## Spesifikasi & list untuk fungsi dan prosedur terdefinisi pada modul base
+# Function  : xinput(String) -> (String)
+# Function  : intinput(String) -> (Integer)
+# Function  : addBracket(String) -> (String)
+# Function  : databaseFilePath(String, String) -> (String)
+# Function  : appendDatabase(2D Matrix of strings, Array of strings, Integer) -> (2D Matrix of strings)
+# Function  : replaceChar(3x String) -> (String)
+# Function  : isExistOnDatabase(2D Array of string, Integer, String, Integer, 2x Boolean, Function, String) -> (Boolean) or (Boolean, Integer)
+# Function  : loadConfig() -> (Array of strings)
+# Function  : stringConfigToArray(String) -> (Array of strings)
+# Function  : lcg(4x Integer) -> (Integer)
+# Function  : hash(String, String) -> (String)
+# Function  : selectionSort(Array of integer) -> (Array of integer)
+# Procedure : rawPrint(String)
+# Procedure : printMenu(Integer, Integer, Integer, Integer, Array of strings, Array of strings)
 #############################################################################
 
 ############################### Fungsi Dasar ################################
@@ -65,8 +70,55 @@ def databaseFilePath(databaseFolderPath,databaseFilename=""):
     databasePath = databaseFolderPath + input(databaseFilename)
     return databasePath
 
+<<<<<<< Updated upstream
+=======
+## Fungsi replaceChar
+# Mengganti charFind pada string ke charReplace
+def replaceChar(string,charFind,charReplace):
+    # Mark
+    string = string + "\n"
+    ## Alternatif 1
+    newString = ""
+    # Jika string "" dianggap seperti array dinamis, Implementasikan
+    # char newString[1000] atau semacamnya seperti pada C atau C++
+    ## Alternatif 2
+    # newString = ["" for i in range(1000)]
+    # Maka hard limit untuk fungsi ini adalah string dengan 1000 char (atau 999 untuk C dikarenakan karakter terminasi)
+    # Replace algorithm
+    i, j = 0, 0
+    while True:
+        if (string[i] == "\n"):
+            break
+        elif (string[i] == charFind) and (charReplace == ""):
+            i += 1
+            continue
+        elif (string[i] == charFind):
+            newString[j] = charReplace
+            j += 1
+        else:
+            ## Alternatif 1
+            newString = newString + string[i]
+            ## Alternatif 2
+            # newString[j] = string[i]
+            j += 1
+        i += 1
+    # Merge / join algorithm untuk alternatif 2
+    #for i in range(1000):
+    #    if (newString[i],newString[i+1],newString[i+2]) == ("","",""):
+    #        # Mengurangi iterasi tidak berguna
+    #        break
+    #    if not newString[i]:
+    #        for j in range(i,1000):
+    #            newString[i+j] = newString[i+j+1]
+    #            if (newString[i],newString[i+1],newString[i+2]) == ("","",""):
+    #                break
+    return newString
+
+
+>>>>>>> Stashed changes
 ########### Fungsi database ###########
 ## Fungsi appendDatabase
+# Digunakan untuk menambahkan informasi baru pada bagian bawah database / replace informasi dimark
 def appendDatabase(database,insertArray,N):
     for i in range(N):
         if (database[i][0] == "~~~"):
@@ -79,7 +131,7 @@ def appendDatabase(database,insertArray,N):
 ## Fungsi isExistOnDatabase
 # Digunakan untuk mengecek apakah relasi antara database[][index] dan search
 # dengan checkFunction benar, jika benar flagToBeToggled akan dinegasi dan direturn
-# Argumen tambahan replace digunakan untuk mengganti database
+# Argumen tambahan replace digunakan untuk mengganti database       # Note to self : check function dan replace belum digunakan secara maksimal
 def isExistOnDatabase(database,index,search,N,flagToBeToggled=False,indexReturn=False,checkFunction=(lambda a,b: a==b),replace="Null"):
     for i in range(N):
         if (database[i][0] == "~~~"):
