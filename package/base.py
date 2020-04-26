@@ -73,7 +73,6 @@ def databaseFilePath(databaseFolderPath,databaseFilename=""):
     databasePath = databaseFolderPath + input(databaseFilename)
     return databasePath
 
-<<<<<<< Updated upstream
 def replaceChar(string,charFind,charReplace):
     # Mark
     string = string + "\n"
@@ -115,7 +114,6 @@ def replaceChar(string,charFind,charReplace):
     return newString
 
 
->>>>>>> Stashed changes
 ########### Fungsi database ###########
 ## Fungsi appendDatabase
 # Digunakan untuk menambahkan informasi baru pada bagian bawah database / replace informasi dimark
