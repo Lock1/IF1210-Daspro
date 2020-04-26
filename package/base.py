@@ -14,6 +14,9 @@
 
 #############################################################################
 
+
+# --------------------------- Definisi fungsi ----------------------------- #
+
 ############################### Fungsi Dasar ################################
 from hashlib import *
 ############ Fungsi I/O dan string operation ############
@@ -64,6 +67,48 @@ def printMenu(row,column,maxMenuIndex,varArray,nameArray):
 def databaseFilePath(databaseFolderPath,databaseFilename=""):
     databasePath = databaseFolderPath + input(databaseFilename)
     return databasePath
+
+## Fungsi replaceChar
+def replaceChar(string,charFind,charReplace):
+    # Mark
+    string = string + "\n"
+    ## Alternatif 1
+    newString = ""
+    # Jika string "" dianggap seperti array dinamis, Implementasikan
+    # char newString[1000] atau semacamnya seperti pada C atau C++
+    ## Alternatif 2
+    # newString = ["" for i in range(1000)]
+    # Maka hard limit untuk fungsi ini adalah string dengan 1000 char (atau 999 untuk C dikarenakan karakter terminasi)
+    # Replace algorithm
+    i, j = 0, 0
+    while True:
+        if (string[i] == "\n"):
+            break
+        elif (string[i] == charFind) and (charReplace == ""):
+            i += 1
+            continue
+        elif (string[i] == charFind):
+            newString[j] = charReplace
+            j += 1
+        else:
+            ## Alternatif 1
+            newString = newString + string[i]
+            ## Alternatif 2
+            # newString[j] = string[i]
+            j += 1
+        i += 1
+    # Merge / join algorithm untuk alternatif 2
+    #for i in range(1000):
+    #    if (newString[i],newString[i+1],newString[i+2]) == ("","",""):
+    #        # Mengurangi iterasi tidak berguna
+    #        break
+    #    if not newString[i]:
+    #        for j in range(i,1000):
+    #            newString[i+j] = newString[i+j+1]
+    #            if (newString[i],newString[i+1],newString[i+2]) == ("","",""):
+    #                break
+    return newString
+
 
 ########### Fungsi database ###########
 ## Fungsi appendDatabase
@@ -217,12 +262,22 @@ def selectionSort(unsortedArray,N,secondIndex="Null"):
 
 ############################################################################
 
+# ------------------------------------------------------------------------- #
+
+
+
+
+
+
+# ---- Fungsi yang dicall & prosedur yang dijalan ketika modul diload ----- #
+
 ############################ Load config ###################################
 ### Pembacaan konfigurasi
 # Inisiasi variabel konfigurasi dengan membaca config.ini
 config = loadConfig()
 # Konfigurasi umum
-databaseFolderPath = config[0].replace("\"","")
+# databaseFolderPath = config[0].replace("\"","") # Jika tidak diperbolehkan dengan string method replace
+databaseFolderPath = replaceChar(config[0],"\"","")
 databaseFileCount = int(config[1])
 Nmax = int(config[2])
 toGoldCost = int(config[3])
@@ -235,6 +290,8 @@ menuVarName = stringConfigToArray(config[8],menuPlayerCount)
 menuName = stringConfigToArray(config[9],menuPlayerCount)
 menuAdminVarName = stringConfigToArray(config[10],menuAdminCount)
 menuAdminName = stringConfigToArray(config[11],menuAdminCount)
+############################################################################
+
 
 # Hard coded configuration
 databaseColumn = [8,5,4,4,3,4,4,4]
@@ -246,3 +303,5 @@ goldDiscountMultiplier = 0.5
 if (menuRow*menuColumn < menuPlayerCount) and (menuRow*menuColumn < menuAdminCount):
     print("Error, Konfigurasi menu tidak valid")
     exit()
+
+# ------------------------------------------------------------------------- #
