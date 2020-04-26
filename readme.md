@@ -1,21 +1,22 @@
 # Tugas Besar - Dasar Pemrograman
-**TBA**
+**WIP**
 ### Tentang Program
 - Program utama bernama **Willy.py**
 - Semua modul selain base, load, dan login pada package bersifat **opsional**.
 - Jika salah satu modul dan kode program utama memanggil fungsi yang terkait dihapus tetap akan berjalan secara normal untuk fungsi lain.
+- Database yang digunakan dalam format **.csv**.
 - Program ini tidak menggunakan **library CSV**.
 - Program mengusahakan untuk **tidak** menggunakan *built-in python method*, pada fungsi yang dijalankan.
-- Dikarenakan cukup banyak yang menggunakan *global variable*, program ini didesain untuk **tidak** menggunakan sama sekali variabel global.
+- Dikarenakan beberapa kelompok lain yang menggunakan *global variable*, program ini didesain untuk **tidak** menggunakan sama sekali variabel global.
 - Program ini meskipun hanya untuk tugas besar, didesain untuk bersifat *modular* dan *maintainable* sehingga tidak akan digunakan variabel global jika tidak diperlukan.
-- Sebagian besar program ini tidak mengikuti asumsi kevalidan input, banyak exception handler dengan blok try-except yang digunakan untuk menghandle situasi yang dapat menyebabkan program keluar.
+- Sebagian besar program ini tidak mengikuti asumsi kevalidan input, banyak *exception handler* dengan blok `try-except` yang digunakan untuk menghandle situasi yang dapat menyebabkan program keluar.
 
-### Load dan save file database.csv
-- Dikarenakan program ini tidak menggunakan library csv, user diharapkan membuat file csv baru hanya menggunakan text editor.
-- Untuk kasus file csv yang dibuat oleh excel dan program lain, sebagian besar program dapat berjalan secara normal.
-- Jika file error, terkadang excel dan program lain menyisipkan *invisible character* yang dapat mengganggu pembacaan fungsi load dan save.
+### Sistem Load dan Save Database
+- Dikarenakan program ini tidak menggunakan library csv, user diharapkan membuat file database baru hanya menggunakan text editor untuk mencegah permasalahan.
+- Untuk kasus file csv yang dibuat oleh Excel dan program lain, sebagian besar program dapat berjalan secara normal.
+- Jika file error, terkadang Excel dan program lain menyisipkan *invisible character* yang dapat mengganggu pembacaan fungsi load dan save.
 
-### Array Statis / Dinamis
+### Array Statis - Dinamis
 - Seluruh Array yang digunakan statis dengan panjang maksimum **Nmax** pada config.ini (Termasuk case dimana string operation yang menganggap string adalah char array)
 - Untuk permasalahan `string + "\n"` dianggap dinamis, pada bahasa yang memiliki sistem string adalah char of array, biasanya digunakan **Null-terminated string**, dalam kasus hal tersebut dapat gunakan karakter null sebagai penanda atau mark terminasi
 - Python tidak mensupport perilaku string sebagai array of char dalam penggunaan umum.
