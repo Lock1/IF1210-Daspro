@@ -36,7 +36,7 @@ def arrayToStringCSV(array,maxCount):
     string = ""
     # Loop pembuatan string csv
     for i in range(maxCount):
-        string = string + array[i]
+        string = string + str(array[i])
         if (i < (maxCount - 1)):
             string += ","           # "Delimiter"
     return string
