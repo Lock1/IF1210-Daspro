@@ -102,11 +102,12 @@ Upgrade Gold       | :white_check_mark:
 Best Wahana        | :white_check_mark:
 Laporan Kehilangan | :white_check_mark:
 
-## Laporan
+## Laporan dan Finishing
 **Status : Progress**
 To Do | Status
 ----- | ------
 Debug              | :white_check_mark:
 Pemberian Komentar | :white_check_mark:
 Pembersihan kode   | :white_check_mark:
+Laporan            | :white_check_mark:
 Demonstrasi        | :x:
