@@ -83,7 +83,7 @@ while isLoaded:
         print()
         print("Admin")
         print("Ketik menu yang diinginkan")
-        printMenu(menuRow,menuColumn,menuAdminCount,menuAdminVarName,menuAdminName)
+        printMenu(menuRow,menuColumn,menuAdminCount,menuAdminVarName,menuAdminName,True)
 
     # Menunggu input user
     pilihanMenu = xinput()
