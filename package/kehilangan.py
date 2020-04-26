@@ -7,17 +7,24 @@
 # Tanur Rizaldi Rahardjo / 16519525 / 17 April 2020
 
 # Tester
-#
+# Hizkia R. / 16519515 / 24 April 2020
+
+######### Kamus #########
+### Argumen yang direquest oleh fungsi
+# user      : 2D Matrix of string
+# N         : Integer
+
+### Kamus Internal
 
 
-## Kamus
+### Kamus informasi yang direturn
+# user      : 2D Matrix of string
 
-
-## Spesifikasi
-
-
+###### Spesifikasi ######
+# signUpUser        : (2D Matrix of strings, Integer) -> (2D Matrix of strings)
 #############################################################################
-####### Algoritma #######
+
+############################### Algoritma ################################
 # Digunakan Algoritma yang tidak jauh berbeda pada modul usetiket
 from package.base import *
 
@@ -47,3 +54,5 @@ def hilang(tiket,kehilangan,N=Nmax):
 
     print()
     return (tiket,kehilangan)
+
+########################### End of function ##############################

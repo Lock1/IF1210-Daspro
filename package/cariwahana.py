@@ -9,22 +9,24 @@
 # Tester
 # Tanur Rizaldi Rahardjo / 16519525 / 17 April 2020
 
+######### Kamus #########
+### Argumen yang direquest oleh fungsi
+# user      : 2D Matrix of string
+# N         : Integer
 
-## Kamus
-# batasTinggi {Batas tinggi}: integer
-# batasUmur {Batas umur}: integer
-#function: umurFind
-#a,b,N: integer
-#function: cariDanPrintWahana (wahana:csv,umurFind:boolean,fungsiCek:boolean:,N:integer)
-#function: searchWahana (wahana:csv,N=NMax:integer)
+### Kamus Internal
+# batasTinggi        : Integer   {Batas tinggi}
+# batasUmur          : Integer   {Batas umur}
+# umurFind           : String
+# N                  : Integer
+# pencarianDitemukan : Boolean
 
-## Spesifikasi
-
-
+###### Spesifikasi ######
+# cariDanPrintWahana : (2D Matrix of string, String, Function, Integer) -> (Boolean)
+# searchWahana       : (2D Matrix of string, Integer) -> ()
 #############################################################################
 
-####### Algoritma #######
-# General interface agar pengguna tahu apa yang harus diinput
+############################### Algoritma ################################
 from package.base import *
 
 def cariDanPrintWahana(wahana,umurFind,fungsiCek,N):
@@ -36,6 +38,7 @@ def cariDanPrintWahana(wahana,umurFind,fungsiCek,N):
     return pencarianDitemukan
 
 def searchWahana(wahana,N=Nmax):
+    # General interface agar pengguna tahu apa yang harus diinput
     # Menuliskan tampilan menu pencarian
     print()
     print("Jenis batasan umur : ")
@@ -47,7 +50,6 @@ def searchWahana(wahana,N=Nmax):
     print("1. Lebih dari 170 cm")
     print("2. Tanpa batasan")
     print()
-
 
     # Algoritma menyaring input
     batasUmur = intinput("Batasan umur pemain : ")
@@ -65,14 +67,14 @@ def searchWahana(wahana,N=Nmax):
 
     # Algoritma untuk menghasilkan hasil search sesuai pilihan kategori
     print("Hasil pencarian:")
-    # Pencarian
+    # Pembuatan argumen search dengan input yang dimasukkan
     if (batasUmur == 1):
         umurFind = "anak-anak"
     elif (batasUmur == 2):
         umurFind = "dewasa"
     else:
         umurFind = "semua umur"
-
+    # Pemanggilan fungsi cariDanPrintWahana dengan fungsi lambda
     if (batasTinggi == 1):
         pencarianDitemukan = cariDanPrintWahana(wahana,umurFind,(lambda a, b: a >= b),N)
     else:
@@ -82,3 +84,5 @@ def searchWahana(wahana,N=Nmax):
     if not pencarianDitemukan:
         print("Tidak ada wahana yang sesuai dengan pencarian anda.")
     print()
+
+########################### End of function ##############################

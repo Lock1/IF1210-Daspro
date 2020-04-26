@@ -1,5 +1,5 @@
 ############################## Informasi Modul ##############################
-# Modul signup
+## Modul signup
 # Desainer
 # Kevin Domenico Tantiyo / 16519205 / 18 April 2020
 
@@ -7,17 +7,33 @@
 # Kevin Domenico Tantiyo / 16519205 / 18 April 2020
 
 # Tester
-#
+# Finna Alivia Nabila / 16519125 / 26 April 2020
 
+######### Kamus #########
+### Argumen yang direquest oleh fungsi
+# user      : 2D Matrix of string
+# N         : Integer
 
-## Kamus
+### Kamus Internal
+# playerName        : String
+# playerBornDay     : String
+# playerHeight      : String
+# playerUsername    : String
+# playerPassword    : Strings
+# playerRole        : Strings
+# playerSaldo       : Strings
+# playerGold        : Strings
+# newPlayer         : Array of strings
 
+### Kamus informasi yang direturn
+# user      : 2D Matrix of string
 
-## Spesifikasi
-
-
+###### Spesifikasi ######
+# isUsernameValid   : (2D Matrix of strings, String, Integer) -> (Boolean)
+# signUpUser        : (2D Matrix of strings, Integer) -> (2D Matrix of strings)
 #############################################################################
-####### Algoritma #######
+
+############################### Algoritma ################################
 from package.base import *
 
 ## Fungsi isUsernameValid
@@ -57,3 +73,5 @@ def signUpUser(user,N=Nmax):
 
     print()
     return user
+
+########################### End of function ##############################

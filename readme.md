@@ -1,11 +1,31 @@
 # Tugas Besar - Dasar Pemrograman
-**TBA** \
-Semua Array yang digunakan statis dengan panjang maksimum **Nmax** pada config.ini \
-Program utama bernama **willy.py** \
+**TBA**
+### Tentang Program
+Program utama bernama **Willy.py** \
 Semua modul selain base, load, dan login pada package bersifat **opsional**. \
-Jika salah satu modul dihapus program utama tetap akan berjalan secara normal untuk fungsi lain. \
+Jika salah satu modul dan kode program utama memanggil fungsi yang terkait dihapus tetap akan berjalan secara normal untuk fungsi lain. \
 Program ini tidak menggunakan **library CSV**. \
+Program mengusahakan untuk **tidak** menggunakan *built-in python method*, pada fungsi yang dijalankan. \
 Sebagian besar program ini tidak mengikuti asumsi kevalidan input, banyak exception handler dengan blok try-except yang digunakan untuk menghandle situasi yang dapat menyebabkan program keluar.
+
+### Load dan save file database.csv
+Dikarenakan program ini tidak menggunakan library csv, user diharapkan membuat file csv baru hanya menggunakan text editor. \
+Untuk kasus file csv yang dibuat oleh excel dan program lain, sebagian besar program dapat berjalan secara normal. \
+Jika file error, terkadang excel dan program lain menyisipkan *invisible character* yang dapat mengganggu pembacaan fungsi load dan save.
+
+### Array Statis / Dinamis
+Seluruh Array yang digunakan statis dengan panjang maksimum **Nmax** pada config.ini (Termasuk case dimana string operation yang menganggap string adalah char array)\
+Untuk permasalahan `string + "\n"` dianggap dinamis, pada bahasa yang memiliki sistem string adalah char of array, biasanya digunakan **Null-terminated string**, dalam kasus hal tersebut dapat gunakan karakter null sebagai penanda atau mark terminasi \
+Python tidak mensupport perilaku string sebagai array of char dalam penggunaan umum. \
+Karena kendala batasan waktu, akhirnya digunakan hal tersebut untuk workaround sementara. \
+Jika memang diharuskan, seluruh string pada program ini dapat diimplementasikan sebagai array of char dan membuat implementasi sendiri sistem I/O untuk menghandle tipe data array of char ini.
+
+
+### Versi dan fitur
+Dikarenakan keterbatasan waktu deadline, untuk beberapa fitur tambahan mungkin hanya ada ketika tugas besar ini telah terkumpul. \
+Beberapa fitur yang mungkin ditambahkan adalah modularisasi lanjut beberapa fungsi, memperjelas argumen call fungsi, dan perbaikan sistem config.ini. \
+Versi 1.0 menandai ketika program telah selesai menjalani **pengumpulan laporan** yang berarti telah menjalani proses debug minimum, pemberian komentar pada sebagian besar kode, dan kode yang masih rumit. \
+Diharapkan ketika versi 1.0 minimal program dapat berjalan dengan normal dalam konstrain yang diberikan oleh spesifikasi tugas.
 
 
 **Load File** \
@@ -84,6 +104,6 @@ Laporan Kehilangan | :white_check_mark:
 To Do | Status
 ----- | ------
 Debug              | :white_check_mark:
-Pemberian Komentar | :x:
-Pembersihan kode   | :x:
+Pemberian Komentar | :white_check_mark:
+Pembersihan kode   | :white_check_mark:
 Demonstrasi        | :x:
