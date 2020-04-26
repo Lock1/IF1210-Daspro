@@ -36,7 +36,7 @@ def searchPemain(user,N=Nmax):
         print("Nama Pemain: {}".format(user[usernameIndex][0]))
         print("Tinggi Pemain: {}".format(user[usernameIndex][2]))
         print("Tanggal Lahir Pemain: {}".format(user[usernameIndex][1]))
-    else :
+    else:
         print("Pemain tidak ditemukan.")
         
     print()
