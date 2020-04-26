@@ -216,10 +216,29 @@ def stringConfigToArray(str1,maxCount):
 ###### Modul login & signup ######
 ## Fungsi hash dan lcg
 # >> Desainer & Koder : Tanur Rizaldi Rahardjo / 16519525
+# >> Tester           : Kevin Domenico Tantiyo / 16519205
 # >> Digunakan pada modul login dan signup
 # Fungsi rng menggunakan sistem linear congruence generator sederhana
 # Fungsi hash menggunakan rng untuk membuat salt
 # Random number generator sederhana dengan definisi fungsi
+
+######### Kamus #########
+### Argumen yang direquest oleh fungsi
+# st1   : String
+# st2   : String
+
+## Kamus Internal
+# hashedst1     : String
+# s             : Integer
+# salted        : String
+
+## Kamus informasi yang direturn
+# hashed : String
+
+###### Spesifikasi ######
+# lcg    : (4x Integer) -> Integer
+# hash   : (String, String) -> (String)
+
 def lcg(m,a,b,s):
     if a:
         s = (a * s + b) % m

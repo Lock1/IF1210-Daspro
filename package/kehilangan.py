@@ -15,13 +15,21 @@
 # N         : Integer
 
 ### Kamus Internal
-
+# lostUsername                : String
+# lostTime                    : String
+# lostID                      : String
+# lostTicket                  : Integer
+# isTicketValid               : Boolean
+# isUsernameExist             : Boolean
+# lostTicketIndex             : Integer
+# kehilanganBaru              : Array of strings
 
 ### Kamus informasi yang direturn
-# user      : 2D Matrix of string
+# tiket      : 2D Matrix of string
+# kehilangan : 2D Matrix of string
 
 ###### Spesifikasi ######
-# signUpUser        : (2D Matrix of strings, Integer) -> (2D Matrix of strings)
+# hilang        : (2D Matrix of strings, 2D Matrix of strings, Integer) -> (2D Matrix of strings, 2D Matrix of strings)
 #############################################################################
 
 ############################### Algoritma ################################

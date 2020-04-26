@@ -9,18 +9,14 @@
 # Tester
 # Tanur Rizaldi Rahardjo / 16519525 / 20 April 2020
 
-## Kamus
-# pencarianDitemukan {Status apakah ada wahana didatabase}: boolean
-# riwayatWahanaID {ID Wahana yang akan dicari}: string
-
 ######### Kamus #########
 ### Argumen yang direquest oleh fungsi
 # penggunaan    : 2D Matrix of string
 # N             : Integer
 
 ### Kamus Internal
-# riwayatWahanaID       : String
-# pencarianDitemukan    : Boolean
+# riwayatWahanaID       : String  {ID Wahana yang akan dicari}
+# pencarianDitemukan    : Boolean {Status apakah ada wahana didatabase}
 
 ###### Spesifikasi ######
 # cariDanPrintRiwayatWahana     : (2D Matrix of strings, String, Integer) -> (Boolean)

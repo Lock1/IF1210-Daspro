@@ -7,7 +7,7 @@
 # Tanur Rizaldi Rahardjo / 16519525 / 17 April 2020
 
 # Tester
-# Hizkia R.             / 16519515 / 26 April 2020
+# Hizkia R. / 16519515 / 26 April 2020
 
 ######### Kamus #########
 ### Kamus Internal
@@ -25,6 +25,7 @@
 # refund            : 2D Matrix of strings
 # kritiksaran       : 2D Matrix of strings
 # kehilangan        : 2D Matrix of strings
+
 ###### Spesifikasi ######
 # requestLoad       : (String, String, Integer) -> (8x 2D Matrix of strings) {Akan bergantung pada banyaknya file database}
 # stringCSVToArray  : (String, Integer) -> (Array of strings)
