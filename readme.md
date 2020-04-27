@@ -1,31 +1,32 @@
 # Tugas Besar - Dasar Pemrograman
-**WIP**
+**TBA**
+
 ### Tentang Program
 - Program utama bernama **Willy.py**
+- Seluruh file yang dikumpulkan telah diupload (Laporan, video, dan deliverable lainnya) pada folder [deliverable](/deliverable/).
 - Semua modul selain base, load, dan login pada package bersifat **opsional**.
-- Jika salah satu modul dan kode program utama memanggil fungsi yang terkait dihapus tetap akan berjalan secara normal untuk fungsi lain.
-- Database yang digunakan dalam format **.csv**.
-- Program ini tidak menggunakan **library CSV**.
-- Program mengusahakan untuk **tidak** menggunakan *built-in python method*, pada fungsi yang dijalankan.
-- Dikarenakan beberapa kelompok lain yang menggunakan *global variable*, program ini didesain untuk **tidak** menggunakan sama sekali variabel global.
-- Program ini meskipun hanya untuk tugas besar, didesain untuk bersifat *modular* dan *maintainable* sehingga tidak akan digunakan variabel global jika tidak diperlukan.
-- Sebagian besar program ini tidak mengikuti asumsi kevalidan input, banyak *exception handler* dengan blok `try-except` yang digunakan untuk menghandle situasi yang dapat menyebabkan program keluar.
+- Jika salah satu modul dan kode pada program utama memanggil fungsi yang terkait dihapus, program tetap dapat berjalan secara normal untuk fungsi lain.
+- Dikarenakan beberapa kelompok lain yang menggunakan *global variable*, program ini didesain untuk **tidak** menggunakan variabel global.
+- Program didesain untuk bersifat *modular* dan *maintainable* sehingga tidak akan digunakan variabel global jika tidak diperlukan.
+- Sebagian besar program tidak mengikuti asumsi kevalidan input, banyak *exception handler* dengan blok `try-except` yang digunakan untuk menghandle situasi yang dapat menyebabkan program keluar.
 
-### Sistem Load dan Save Database
-- Dikarenakan program ini tidak menggunakan library csv, user diharapkan membuat file database baru hanya menggunakan text editor untuk mencegah permasalahan.
-- Untuk kasus file csv yang dibuat oleh Excel dan program lain, sebagian besar program dapat berjalan secara normal.
+### Sistem Penyimpanan Database
+- Database yang digunakan dalam format **.csv**.
+- Program tidak menggunakan **library CSV** untuk membaca dan menulis database.
+- Dikarenakan program tidak menggunakan library csv, user diharapkan membuat file database baru hanya menggunakan text editor untuk mencegah permasalahan.
+- Untuk kasus file database yang dibuat oleh Excel dan program lain, sebagian besar program dapat berjalan secara normal.
 - Jika file error, terkadang Excel dan program lain menyisipkan *invisible character* yang dapat mengganggu pembacaan fungsi load dan save.
 
-### Array Statis - Dinamis
-- Seluruh Array yang digunakan statis dengan panjang maksimum **Nmax** pada config.ini (Termasuk case dimana string operation yang menganggap string adalah char array)
-- Untuk permasalahan `string + "\n"` dianggap dinamis, pada bahasa yang memiliki sistem string adalah char of array, biasanya digunakan **Null-terminated string**, dalam kasus hal tersebut dapat gunakan karakter null sebagai penanda atau mark terminasi
+### Array Statis - Dinamis dan String
+- Seluruh Array yang digunakan statis dengan panjang maksimum **Nmax** pada config.ini
+- Untuk permasalahan `string + "\n"` dianggap dinamis, pada bahasa yang memiliki sistem string adalah char of array biasanya digunakan **Null-terminated string**, dalam kasus hal tersebut dapat gunakan karakter *null* (`\0`) sebagai penanda atau mark terminasi.
 - Python tidak mensupport perilaku string sebagai array of char dalam penggunaan umum.
 - Karena kendala batasan waktu, akhirnya digunakan hal tersebut (`string + "\n"`) untuk workaround sementara.
-- Jika memang diharuskan, seluruh string pada program ini dapat diimplementasikan sebagai array of char dan membuat implementasi sendiri sistem I/O untuk menghandle tipe data array of char ini.
-
+- Jika memang diharuskan, seluruh string pada program dapat diimplementasikan sebagai array of char dan membuat implementasi sendiri sistem I/O untuk menghandle tipe data array of char.
+- Program mengusahakan untuk **tidak** menggunakan *built-in python string method*.
 
 ### Versi dan fitur
-- Dikarenakan keterbatasan waktu deadline, untuk beberapa fitur tambahan mungkin hanya ada ketika tugas besar ini telah terkumpul.
+- Dikarenakan keterbatasan waktu deadline, untuk beberapa fitur tambahan mungkin hanya ada ketika setelah tugas besar terkumpul.
 - Beberapa fitur yang mungkin ditambahkan adalah modularisasi lanjut beberapa fungsi, memperjelas argumen call fungsi, dan perbaikan sistem config.ini.
 - Versi 1.0 menandai ketika program telah selesai menjalani **pengumpulan laporan** yang berarti telah menjalani proses debug minimum, pemberian komentar pada sebagian besar kode, dan kode yang masih rumit.
 - Diharapkan ketika versi 1.0 minimal program dapat berjalan dengan normal dalam konstrain yang diberikan oleh spesifikasi tugas.
@@ -39,14 +40,13 @@
 ## Informasi Dasar
 Data | Isi
 ---- | ---
-Tahun Ajaran    | 2019
+Tahun Ajaran    | 2020
 Tanggal Mulai   | 4 April 2020
 Tanggal Selesai | 27 April 2020
 Kelas           | 05
 Dosen           | Dicky Prima Satya
 Asisten         | Yoel Susanto - 13517014
 Kelompok        | 13
-
 
 **Anggota Kelompok**
 NIM      | Nama
@@ -55,7 +55,6 @@ NIM      | Nama
 16519205 | Kevin Domenico Tantiyo
 16519515 | Hizkia Raditya Pratama Roosadi
 16519525 | Tanur Rizaldi Rahardjo
-
 
 **Dependencies**
 Komponen | Menggunakan
@@ -68,7 +67,6 @@ Database | Menggunakan
 -------- | -----------
 Nmax     | 100
 Mark     | "\~\~\~"
-
 
 ## Modul
 **Status : Done** :white_check_mark: \
@@ -103,11 +101,11 @@ Best Wahana        | :white_check_mark:
 Laporan Kehilangan | :white_check_mark:
 
 ## Laporan dan Finishing
-**Status : Progress**
+**Status : Done**
 To Do | Status
 ----- | ------
 Debug              | :white_check_mark:
 Pemberian Komentar | :white_check_mark:
 Pembersihan kode   | :white_check_mark:
 Laporan            | :white_check_mark:
-Demonstrasi        | :x:
+Demonstrasi        | :white_check_mark:
