@@ -92,7 +92,7 @@ def dateArrayToInteger(array):
     dateInteger = 365*array[2] + 30*array[1] + array[0]
     return dateInteger
 
-def beliTiketUser(username,gold,user,wahana,tiket,discountFactor=goldDiscountMultiplier,N=Nmax):
+def beliTiketUser(username,gold,user,wahana,tiket,pembelian,discountFactor=goldDiscountMultiplier,N=Nmax):
     # Penulisan interface
     beliWahanaID = input("Masukkan ID wahana: ")
     beliTanggal = input("Masukkan tanggal hari ini: ")
@@ -101,6 +101,7 @@ def beliTiketUser(username,gold,user,wahana,tiket,discountFactor=goldDiscountMul
         print()
         beliTanggal = input("Masukkan tanggal hari ini: ")
 
+    beliLogTanggal = beliTanggal
     beliTanggal = stringDateToArray(beliTanggal)
     beliTiket = intinput("Jumlah tiket yang dibeli: ")
 
@@ -145,6 +146,8 @@ def beliTiketUser(username,gold,user,wahana,tiket,discountFactor=goldDiscountMul
                     user[usernameIndex][6] = str(int(int(user[usernameIndex][6]) - int(arrayWahana[2])*beliTiket))
                 newTicket = [username, beliWahanaID, str(beliTiket)]
                 tiket = appendDatabase(tiket,newTicket,N)
+                newTicketBuyLog = [username, beliLogTanggal, beliWahanaID, str(beliTiket)]
+                pembelian = appendDatabase(pembelian,newTicketBuyLog,N)
                 print("Selamat bersenang-senang di {}.".format(arrayWahana[1]))
         else:
             print("Anda tidak memenuhi persyaratan untuk memainkan wahana ini.")
@@ -153,6 +156,6 @@ def beliTiketUser(username,gold,user,wahana,tiket,discountFactor=goldDiscountMul
         print("Maaf terdapat kesalahan pada username atau ID wahana.")
 
     print()
-    return (user, tiket)
+    return (user, tiket, pembelian)
 
 ########################### End of function ##############################

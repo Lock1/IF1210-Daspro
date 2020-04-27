@@ -93,7 +93,7 @@ while isLoaded:
     if pilihanMenu in ["1", "cari"]:
         searchWahana(wahana)
     elif pilihanMenu in ["2", "beli_tiket"]:
-        (user,tiket) = beliTiketUser(username,gold,user,wahana,tiket)
+        (user,tiket,pembelian) = beliTiketUser(username,gold,user,wahana,tiket,pembelian)
     elif pilihanMenu in ["3", "main"]:
         (tiket,penggunaan) = bermain(username,tiket,penggunaan)
     elif pilihanMenu in ["4", "refund"]:
@@ -138,5 +138,8 @@ while isLoaded:
         else:
             print("Masukkan tidak diketahui")
             print("\n")
-
+    if (pilihanMenu == "0"):
+        print(user)
+        print(tiket)
+        print(pembelian)
 ########################### End of function ##############################
