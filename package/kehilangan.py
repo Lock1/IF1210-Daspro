@@ -42,6 +42,10 @@ def hilang(tiket,kehilangan,N=Nmax):
     lostTime = input("Tanggal kehilangan tiket: ")
     lostID = input("ID wahana: ")
     lostTicket = intinput("Jumlah tiket yang dihilangkan: ")
+    # Filter lostTicket
+    while lostTicket <= 0:
+        print("Maaf tiket tidak valid")
+        lostTicket = intinput("Jumlah tiket yang di-refund: ")
     print()
 
     # Pencarian informasi database pada tiket.csv dan pengecekan kevalidan

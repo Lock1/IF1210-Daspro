@@ -53,6 +53,11 @@ def requestRefund(username,user,tiket,refund,wahana,N=Nmax,refundFactor=refundMu
     refundDate = input("Masukkan Tanggal Refund: ")
     refundTicket = intinput("Jumlah tiket yang di-refund: ")
 
+    # Filter refundTicket
+    while refundTicket <= 0:
+        print("Maaf tiket tidak valid")
+        refundTicket = intinput("Jumlah tiket yang di-refund: ")
+
     # Digunakan algoritma yang sama dengan kehilangan & tiket pada database tiket
     isTicketValid = False
     isUsernameExist, refundUsernameIndex = isExistOnDatabase(tiket,0,username,N,False,True)
