@@ -42,6 +42,10 @@ def bermain(username,tiket,penggunaan,N=Nmax):
     playID = input("Masukkan ID wahana: ")
     playTime = input("Masukkan tanggal hari ini: ")
     playTicket = intinput("Jumlah tiket yang digunakan: ")
+    # Filter playTicket
+    while playTicket <= 0:
+        print("Maaf tiket tidak valid")
+        playTicket = intinput("Jumlah tiket yang digunakan: ")
     print()
 
     # Pengecekan tiket pada tiket.csv

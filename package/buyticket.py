@@ -104,6 +104,10 @@ def beliTiketUser(username,gold,user,wahana,tiket,pembelian,discountFactor=goldD
     beliLogTanggal = beliTanggal
     beliTanggal = stringDateToArray(beliTanggal)
     beliTiket = intinput("Jumlah tiket yang dibeli: ")
+    # Filter jika beliTiket negatif atau nol
+    while (beliTiket <= 0):
+        print("Maaf tiket tidak valid")
+        beliTiket = intinput("Jumlah tiket yang dibeli: ")
 
     # Cek database user dan wahana
     (isUsernameExist, usernameIndex) = isExistOnDatabase(user,3,username,N,False,True)
@@ -144,8 +148,18 @@ def beliTiketUser(username,gold,user,wahana,tiket,pembelian,discountFactor=goldD
                     user[usernameIndex][6] = str(int(int(user[usernameIndex][6]) - int(arrayWahana[2])*beliTiket*discountFactor))
                 else:
                     user[usernameIndex][6] = str(int(int(user[usernameIndex][6]) - int(arrayWahana[2])*beliTiket))
-                newTicket = [username, beliWahanaID, str(beliTiket)]
-                tiket = appendDatabase(tiket,newTicket,N)
+                # Add search function
+                updateExistingTicket = False
+                for i in range(N):
+                    if (tiket[i][0] == "~~~"):
+                        break
+                    if (tiket[i][0] == username) and (tiket[i][1] == beliWahanaID):
+                        tiket[i][2] = str(int(tiket[i][2]) + beliTiket)
+                        updateExistingTicket = True
+                        break
+                if not updateExistingTicket:
+                    newTicket = [username, beliWahanaID, str(beliTiket)]
+                    tiket = appendDatabase(tiket,newTicket,N)
                 newTicketBuyLog = [username, beliLogTanggal, beliWahanaID, str(beliTiket)]
                 pembelian = appendDatabase(pembelian,newTicketBuyLog,N)
                 print("Selamat bersenang-senang di {}.".format(arrayWahana[1]))
