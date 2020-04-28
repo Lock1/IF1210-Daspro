@@ -2,9 +2,9 @@
 **TBA**
 
 ### Tentang Program
+- **Seluruh file** yang dikumpulkan telah diupload (Laporan, video, dan deliverable lainnya) pada folder [deliverable](/deliverable/).
+- Versi **1.0** dapat didownload pada bagian [release](https://github.com/Lock1/tbdaspro/releases/tag/v1.0). **v1.0** memiliki *source code* yang **sama persis** dengan deliverable yang dikirim pada pengumpulan tugas besar. 
 - Program utama bernama **Willy.py**
-- Seluruh file yang dikumpulkan telah diupload (Laporan, video, dan deliverable lainnya) pada folder [deliverable](/deliverable/).
-- Versi **1.0** dapat didownload pada bagian [release](https://github.com/Lock1/tbdaspro/releases/tag/v1.0). **v1.0** memiliki *source code* yang sama persis dengan deliverable yang dikirim pada pengumpulan tugas besar. 
 - Semua modul selain base, load, dan login pada package bersifat **opsional**.
 - Jika salah satu modul dan kode pada program utama memanggil fungsi yang terkait dihapus, program tetap dapat berjalan secara normal untuk fungsi lain.
 - Dikarenakan beberapa kelompok lain yang menggunakan *global variable*, program ini didesain untuk **tidak** menggunakan variabel global.
