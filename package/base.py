@@ -122,42 +122,6 @@ def replaceChar(string,charFind,charReplace):
     #                break
     return newString
 
-
-########### Fungsi database ###########
-## Fungsi appendDatabase
-# Digunakan untuk menambahkan informasi baru pada bagian bawah database / replace informasi dimark
-def appendDatabase(database,insertArray,N):
-    for i in range(N):
-        if (database[i][0] == "~~~"):
-            database[i] = insertArray
-            if (i != (N - 1)):
-                database[i+1][0] = "~~~"
-            break
-    return database
-
-## Fungsi isExistOnDatabase
-# Digunakan untuk mengecek apakah relasi antara database[][index] dan search
-# dengan checkFunction benar, jika benar flagToBeToggled akan dinegasi dan direturn
-# Argumen tambahan replace digunakan untuk mengganti database       # Note to self : check function dan replace belum digunakan secara maksimal
-def isExistOnDatabase(database,index,search,N,flagToBeToggled=False,indexReturn=False,checkFunction=(lambda a,b: a==b),replace="Null"):
-    for i in range(N):
-        if (database[i][0] == "~~~"):
-            if (search == "~~~") and indexReturn:
-                return (True,i)
-            break
-        if (checkFunction(database[i][index],search)):
-            flagToBeToggled = not flagToBeToggled
-            if indexReturn:
-                return (flagToBeToggled,i)
-            if (replace != "Null"): # To be fixed
-                database[i][index] = replace
-                return (flagToBeToggledFlag,database)
-            break
-    if indexReturn:
-        # Failure to find index
-        return (False,"Null")
-    return flagToBeToggled
-
 ############ Fungsi Config ###########
 ## Fungsi loadConfig
 # Digunakan untuk membaca file config.ini dan mengganti informasi pada file tersebut
@@ -336,5 +300,55 @@ goldDiscountMultiplier = 0.5
 if (menuRow*menuColumn < menuPlayerCount) and (menuRow*menuColumn < menuAdminCount):
     print("Error, Konfigurasi menu tidak valid")
     exit()
+
+# ------------------------------------------------------------------------- #
+
+
+
+
+
+
+
+
+
+
+# ------------- Pendefinisian fungsi database dan fungsi lain ------------- #
+# Fungsi pada bagian ini diletakkan setelah pemanggilan loadconfig dikarenakan
+# fungsi dibawah ini menggunakan default argumen yang bergantung pada variabel
+# yang terdapat pada config.ini / file konfigurasi.
+########### Fungsi database ###########
+## Fungsi appendDatabase
+# Digunakan untuk menambahkan informasi baru pada bagian bawah database / replace informasi dimark
+def appendDatabase(database,insertArray,N):
+    for i in range(N):
+        if (database[i][0] == "~~~"):
+            database[i] = insertArray
+            if (i != (N - 1)):
+                database[i+1][0] = "~~~"
+            break
+    return database
+
+## Fungsi isExistOnDatabase
+# Digunakan untuk mengecek apakah ada data yang sama antara database dengan kolom index dan search
+# Jika ada flagToBeToggled akan dinegasi dan direturn, secara default fungsi ini mereturn True ketika menemukan kecocokan.
+# Fungsi ini memiliki 2 mode return, mode default akan mengembalikan True atau False
+# berdasarkaan search ada atau tidak dan mode indexReturn untuk mengembalikan tuple (Boolean, Integer)
+# dengan boolean adalah ada tidaknya search dan integer adalah indeks pada database
+def isExistOnDatabase(database,index,search,indexReturn=False,flagToBeToggled=False,N=Nmax):
+    for i in range(N):
+        if (database[i][0] == "~~~"):
+            if (search == "~~~") and indexReturn:
+                return (True,i)
+            break
+        if (database[i][index] == search):
+            returningFlag = not flagToBeToggled
+            if indexReturn:
+                return (returningFlag,i)
+            else:
+                return returningFlag
+    if indexReturn:
+        return (False,"null")
+        # Ketika fungsi diminta untuk mode return index dan gagal menemukan
+
 
 # ------------------------------------------------------------------------- #
