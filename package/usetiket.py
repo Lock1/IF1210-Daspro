@@ -39,28 +39,19 @@ from package.base import *
 def bermain(username,tiket,penggunaan,N=Nmax):
     # Penulisan interface dan meminta input
     print()
-    playID = input("Masukkan ID wahana: ")
-    playTime = input("Masukkan tanggal hari ini: ")
-    playTicket = intinput("Jumlah tiket yang digunakan: ")
-    # Filter playTicket
-    while playTicket <= 0:
-        print("Maaf tiket tidak valid")
-        playTicket = intinput("Jumlah tiket yang digunakan: ")
+    playID = idInput("Masukkan ID wahana: ")
+    playTime = dateInput("Masukkan tanggal hari ini: ")
+    playTicket = posIntInput("Jumlah tiket yang digunakan: ")
     print()
 
-    # Pengecekan tiket pada tiket.csv
-    isTicketValid = False
-    isUsernameExist, playTicketIndex = isExistOnDatabase(tiket,0,username,N,False,True)
-    if isUsernameExist:
-        if (tiket[playTicketIndex][1] == playID) and (int(tiket[playTicketIndex][2]) >= playTicket):
-            isTicketValid = True
-            tiket[playTicketIndex][2] = str(int(tiket[playTicketIndex][2]) - playTicket)
+    # Pengupdatean jika tiket valid
+    tiket, ticketUpdated = tiketUpdate(tiket,username,playID,(lambda a, b: a - b),playTicket,True)
 
     # Penulisan informasi baru
-    if isTicketValid:
-        print("Terima kasih telah bermain.")
+    if ticketUpdated:
         penggunaanBaru = [username, playTime, playID, playTicket]
-        penggunaan = appendDatabase(penggunaan,penggunaanBaru,N)
+        penggunaan = appendDatabase(penggunaan,penggunaanBaru)
+        print("Terima kasih telah bermain.")
     else:
         print("Tiket Anda tidak valid dalam sistem kami")
 

@@ -11,6 +11,7 @@
 
 ######### Kamus #########
 ### Argumen yang direquest oleh fungsi
+############################################### [TBU]
 # username          : String
 # gold              : Boolean
 # user              : 2D Matrix of strings
@@ -40,7 +41,6 @@
 # tiket     : 2D Matrix of strings
 
 ###### Spesifikasi ######
-# isValidDateString         : (String) -> (Boolean)
 # stringDateToArray         : (String) -> (Array of integer)
 # dateArrayToInteger        : (Array of integer) -> (Integer)
 # beliTiketUser             : (String, Boolean, 3x 2D Matrix of Strings, Integer, Integer) -> (2D Matrix of strings, 2D Matrix of strings)
@@ -48,23 +48,6 @@
 
 ############################### Algoritma ################################
 from package.base import *
-
-# Pengecekan string untuk mencegah ketidakvalidan tanggal
-def isValidDateString(str1):
-    # Mark
-    str1 = str1 + "\n"
-    i = 0
-    j = 0
-    while True:
-        if (str1[i] == "\n"):
-            break
-        if (str1[i] == "/"):
-            j += 1
-        i += 1
-    if (j == 2):
-        return True
-    else:
-        return False
 
 def stringDateToArray(string):
     dateContainer = [0 for i in range(3)]
@@ -94,24 +77,15 @@ def dateArrayToInteger(array):
 
 def beliTiketUser(username,gold,user,wahana,tiket,pembelian,discountFactor=goldDiscountMultiplier,N=Nmax):
     # Penulisan interface
-    beliWahanaID = input("Masukkan ID wahana: ")
-    beliTanggal = input("Masukkan tanggal hari ini: ")
-    while not isValidDateString(beliTanggal):
-        print("Tanggal tidak valid.")
-        print()
-        beliTanggal = input("Masukkan tanggal hari ini: ")
-
-    beliLogTanggal = beliTanggal
-    beliTanggal = stringDateToArray(beliTanggal)
-    beliTiket = intinput("Jumlah tiket yang dibeli: ")
-    # Filter jika beliTiket negatif atau nol
-    while (beliTiket <= 0):
-        print("Maaf tiket tidak valid")
-        beliTiket = intinput("Jumlah tiket yang dibeli: ")
+    beliWahanaID = idInput("Masukkan ID wahana: ")
+    beliTanggal = dateInput("Masukkan tanggal hari ini: ")
+    beliLogTanggal = beliTanggal                  # Penyimpanan tanggal ke variabel baru
+    beliTanggal = stringDateToArray(beliTanggal)  # Pengkonversian tanggal ke sistem date array
+    beliTiket = posIntInput("Jumlah tiket yang dibeli: ","Maaf tiket tidak valid")
 
     # Cek database user dan wahana
-    (isUsernameExist, usernameIndex) = isExistOnDatabase(user,3,username,N,False,True)
-    (isWahanaExist, wahanaIndex) = isExistOnDatabase(wahana,0,beliWahanaID,N,False,True)
+    (isUsernameExist, usernameIndex) = isExistOnDatabase(user,3,username,True)
+    (isWahanaExist, wahanaIndex) = isExistOnDatabase(wahana,0,beliWahanaID,True)
     if isUsernameExist and isWahanaExist:
         userTanggalLahir = stringDateToArray(user[usernameIndex][1])
         arrayWahana = wahana[wahanaIndex]
@@ -137,31 +111,28 @@ def beliTiketUser(username,gold,user,wahana,tiket,pembelian,discountFactor=goldD
 
         # Pemrosesan saldo & tiket
         if isValidUmur and isValidTinggi:
-            if (not gold) and ((int(user[usernameIndex][6]) < (int(arrayWahana[2])*beliTiket))):
-                print("Saldo Anda tidak cukup")
-                print("Silakan mengisi saldo Anda")
-            elif gold and (int(user[usernameIndex][6]) < (int(arrayWahana[2])*beliTiket*discountFactor)):
-                print("Saldo Anda tidak cukup")
-                print("Silakan mengisi saldo Anda")
+            hargaWahana = int(arrayWahana[2])*beliTiket
+            saldoUser = int(user[usernameIndex][6])
+            prosesTransaksi = True
+
+            if (not gold) and (saldoUser >= hargaWahana):
+                user[usernameIndex][6] = str(int(saldoUser - hargaTiket))
+            elif gold and ((saldoUser) >= (hargaWahana*discountFactor)):
+                user[usernameIndex][6] = str(int(saldoUser - hargaTiket*discountFactor))
             else:
-                if gold:
-                    user[usernameIndex][6] = str(int(int(user[usernameIndex][6]) - int(arrayWahana[2])*beliTiket*discountFactor))
-                else:
-                    user[usernameIndex][6] = str(int(int(user[usernameIndex][6]) - int(arrayWahana[2])*beliTiket))
-                # Add search function
-                updateExistingTicket = False
-                for i in range(N):
-                    if (tiket[i][0] == "~~~"):
-                        break
-                    if (tiket[i][0] == username) and (tiket[i][1] == beliWahanaID):
-                        tiket[i][2] = str(int(tiket[i][2]) + beliTiket)
-                        updateExistingTicket = True
-                        break
+                print("Saldo Anda tidak cukup")
+                print("Silakan mengisi saldo Anda")
+                prosesTransaksi = False
+
+            if prosesTransaksi:
+                # Cari tiket jika ada pada database dan tambah jika ada
+                tiket, updateExistingTicket = tiketUpdate(tiket,username,beliWahanaID,(lambda a, b: a + b),beliTiket)
+                # Jika tidak ada, tambahan tiket baru
                 if not updateExistingTicket:
                     newTicket = [username, beliWahanaID, str(beliTiket)]
-                    tiket = appendDatabase(tiket,newTicket,N)
+                    tiket = appendDatabase(tiket,newTicket)
                 newTicketBuyLog = [username, beliLogTanggal, beliWahanaID, str(beliTiket)]
-                pembelian = appendDatabase(pembelian,newTicketBuyLog,N)
+                pembelian = appendDatabase(pembelian,newTicketBuyLog)
                 print("Selamat bersenang-senang di {}.".format(arrayWahana[1]))
         else:
             print("Anda tidak memenuhi persyaratan untuk memainkan wahana ini.")
@@ -169,6 +140,7 @@ def beliTiketUser(username,gold,user,wahana,tiket,pembelian,discountFactor=goldD
     else:
         print("Maaf terdapat kesalahan pada username atau ID wahana.")
 
+    # Returning print
     print()
     return (user, tiket, pembelian)
 
