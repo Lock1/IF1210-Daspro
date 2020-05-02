@@ -26,10 +26,10 @@
 from package.base import *
 from package.save import *
 
-def exitSequence(saveArray,databaseFolderPath,databaseFileCount):
+def exitSequence(saveArray,dbFolderPath=databaseFolderPath,dbFileCount=databaseFileCount):
     userInput = input("Apakah anda mau melakukan penyimpanan file yang sudah dilakukan (Y/N) ? ")
     if userInput in ["y","Y"]:
-        databaseSave(saveArray,databaseFolderPath,databaseFileCount)
+        databaseSave(saveArray)
     print("See you later!")
     exit()
 

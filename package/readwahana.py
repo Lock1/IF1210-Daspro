@@ -26,7 +26,7 @@
 ############################### Algoritma ################################
 from package.base import *
 
-def cariDanPrintRiwayatWahana(penggunaan,riwayatWahanaID,N):
+def cariDanPrintRiwayatWahana(penggunaan,riwayatWahanaID,N=Nmax):
     pencarianDitemukan = False
     # Loop pencarian, jika ditemukan ID wahana yang sama print informasi pada baris terkait
     for i in range(N):
@@ -37,8 +37,8 @@ def cariDanPrintRiwayatWahana(penggunaan,riwayatWahanaID,N):
 
 def riwayatWahana(penggunaan,N=Nmax):
     # Input user untuk mencari wahana pada database penggunaan
-    riwayatWahanaID = input("Masukkkan ID Wahana: ")
-    pencarianDitemukan = cariDanPrintRiwayatWahana(penggunaan,riwayatWahanaID,N)
+    riwayatWahanaID = idInput("Masukkkan ID Wahana: ")
+    pencarianDitemukan = cariDanPrintRiwayatWahana(penggunaan,riwayatWahanaID)
     if not pencarianDitemukan:
         print("Maaf, ID yang anda masukkan salah atau riwayat kosong")
     print()

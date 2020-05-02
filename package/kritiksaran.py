@@ -34,15 +34,15 @@ from package.base import *
 def tulisKritikSaran(username,kritiksaran,N=Nmax):
     # Input ketiga parameter kritik dan saran baru
     # Asumsi semua input valid
-    kritikID = input("Masukkan ID Wahana: ")
-    tanggalKritik = input("Masukkan tanggal pelaporan: ")
+    kritikID = idInput("Masukkan ID Wahana: ")
+    tanggalKritik = dateInput("Masukkan tanggal pelaporan: ")
     isiKritik = input("Kritik/saran Anda: ")
 
     # Menyimpan ketiga parameter ke satu array
     kritikBaru = [username, tanggalKritik, kritikID, isiKritik]
 
     # Menulis array tersebut ke row baru didatabase
-    kritiksaran = appendDatabase(kritiksaran,kritikBaru,N)
+    kritiksaran = appendDatabase(kritiksaran,kritikBaru)
     print("Kritik dan saran Anda kami terima")
 
     print()

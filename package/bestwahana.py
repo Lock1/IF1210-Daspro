@@ -70,7 +70,7 @@ def cariBestWahana(pembelian,wahana,N=Nmax):
     # Pencarian Nama berdasarkan 3 ID teratas
     for i in range(3):
         cariWahanaID = tiketTerjual[i][0]
-        isExistOnWahana, wahanaIndex = isExistOnDatabase(wahana,0,cariWahanaID,N,False,True)
+        isExistOnWahana, wahanaIndex = isExistOnDatabase(wahana,0,cariWahanaID,True)
         if isExistOnWahana:
             printWahana(i+1,cariWahanaID,wahana[wahanaIndex][1],tiketTerjual[i][1])
     print()

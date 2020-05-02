@@ -30,7 +30,7 @@ def searchPemain(user,N=Nmax):
     # Input username
     searchUsername = input("Masukkan username: ")
     # Pencarian username pada database, jika ada minta indeks username terkait
-    (usernameExist, usernameIndex) = isExistOnDatabase(user,3,searchUsername,N,False,True)
+    (usernameExist, usernameIndex) = isExistOnDatabase(user,3,searchUsername,True)
     if usernameExist:
         # Pengeprintan informasi username yang dicari
         print("Nama Pemain: {}".format(user[usernameIndex][0]))
@@ -38,7 +38,7 @@ def searchPemain(user,N=Nmax):
         print("Tanggal Lahir Pemain: {}".format(user[usernameIndex][1]))
     else:
         print("Pemain tidak ditemukan.")
-        
+
     print()
 
 ########################### End of function ##############################
