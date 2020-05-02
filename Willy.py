@@ -139,8 +139,8 @@ while isLoaded:
             print("Masukkan tidak diketahui")
             print("\n")
     # Debugging purpose
-    if (pilihanMenu == "0"):
+    """if (pilihanMenu == "0"):
         print(pembelian)
         print(user)
-        print(tiket)
+        print(tiket)"""
 ########################### End of function ##############################

@@ -111,13 +111,13 @@ def beliTiketUser(username,gold,user,wahana,tiket,pembelian,discountFactor=goldD
 
         # Pemrosesan saldo & tiket
         if isValidUmur and isValidTinggi:
-            hargaWahana = int(arrayWahana[2])*beliTiket
+            hargaTiket = int(arrayWahana[2])*beliTiket
             saldoUser = int(user[usernameIndex][6])
             prosesTransaksi = True
 
-            if (not gold) and (saldoUser >= hargaWahana):
+            if (not gold) and (saldoUser >= hargaTiket):
                 user[usernameIndex][6] = str(int(saldoUser - hargaTiket))
-            elif gold and ((saldoUser) >= (hargaWahana*discountFactor)):
+            elif gold and ((saldoUser) >= (hargaTiket*discountFactor)):
                 user[usernameIndex][6] = str(int(saldoUser - hargaTiket*discountFactor))
             else:
                 print("Saldo Anda tidak cukup")

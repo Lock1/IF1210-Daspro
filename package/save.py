@@ -46,8 +46,8 @@ def databaseSave(containerArray,dbFolderPath=databaseFolderPath,dbFileCount=data
     containerLabel = ["Nama,Tanggal_Lahir,Tinggi_Badan,Username,Password,Role,Saldo,Gold\n","ID_Wahana,Nama_Wahana,Harga_Tiket,Batasan_Umur,Batasan_Tinggi\n","Username,Tanggal_Pembelian,ID_Wahana,Jumlah_Tiket\n","Username,Tanggal_Penggunaan,ID_Wahana,Jumlah_Tiket\n","Username,ID_Wahana,Jumlah_Tiket\n","Username,Tanggal_Refund,ID_Wahana,Jumlah_Tiket\n","Username,Tanggal_Kritik,ID_Wahana,Isi_Kritik\n","Username,Tanggal_Kehilangan,ID_Wahana,Jumlah_Tiket\n"]
     containerName = ["User", "Daftar Wahana", "Pembelian Tiket", "Penggunaan Tiket", "Kepemilikan Tiket", "Refund Tiket", "Kritik dan Saran", "Kehilangan Tiket"]
     # Loop untuk penyimpanan dengan exception handle ketika file tidak bisa dibuka
-    for i in range(dbFileCount=databaseFileCount):
-        databasePath = databaseFilePath(dbFolderPath=databaseFolderPath,"Masukkan nama File {:18}: ".format(containerName[i]))
+    for i in range(dbFileCount):
+        databasePath = databaseFilePath(dbFolderPath,"Masukkan nama File {:18}: ".format(containerName[i]))
         openFileSuccess = False
         # Exception handling
         while not openFileSuccess:
