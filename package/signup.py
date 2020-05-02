@@ -39,21 +39,23 @@ from package.base import *
 ## Fungsi isUsernameValid
 # Digunakan untuk mengecek apakah username sudah ada didatabase
 # Jika sudah ada, return False
-def isUsernameValid(user,username,N):
-    isValid = True
-    isValid = isExistOnDatabase(user,3,username,N,isValid)
+def isUsernameValid(user,username,N=Nmax):
+    # Pemanggilan fungsi isExistOnDatabase mode default
+    # Jika ada username yang sama pada database, negasi True pada isExistOnDatabase menjadi False / menjadi tidak Valid
+    # Jika tidak ada yang sama, negasi not exist on database menjadi True
+    isValid = not isExistOnDatabase(user,3,username)
     return isValid
 
 def signUpUser(user,N=Nmax):
     # Penulisan interface dan input data
     print()
     playerName = input("Masukkan nama pemain: ")                                   # Nama
-    playerBornDay = input("Masukkan tanggal lahir pemain (DD/MM/YYYY): ")          # Tanggal Lahir
-    playerHeight = input("Masukkan tinggi badan pemain (cm): ")                    # Tinggi
+    playerBornDay = dateInput("Masukkan tanggal lahir pemain (DD/MM/YYYY): ")      # Tanggal Lahir
+    playerHeight = str(posIntInput("Masukkan tinggi badan pemain (cm): "))         # Tinggi
     playerUsername = input("Masukkan username pemain: ")                           # Username
 
     # Pengecekan username
-    while not isUsernameValid(user,playerUsername,N):
+    while not isUsernameValid(user,playerUsername):
         playerUsername = input("Username sudah digunakan, masukan username lain: ")
 
     # Penulisan interface lanjutan
@@ -67,10 +69,11 @@ def signUpUser(user,N=Nmax):
 
     # Penulisan informasi baru
     newPlayer = [playerName, playerBornDay, playerHeight, playerUsername, playerPassword, playerRole, playerSaldo, playerGold]
-    user = appendDatabase(user,newPlayer,N)
+    user = appendDatabase(user,newPlayer)
+
+    # Returning print
     print()
     print("Selamat menjadi pemain, {}. Selamat bermain.".format(playerName))
-
     print()
     return user
 

@@ -29,7 +29,7 @@
 ############################### Algoritma ################################
 from package.base import *
 
-def cariDanPrintWahana(wahana,umurFind,fungsiCek,N):
+def cariDanPrintWahana(wahana,umurFind,fungsiCek,N=Nmax):
     pencarianDitemukan = False
     for i in range(N):
         if (wahana[i][3] == umurFind) and fungsiCek(int(wahana[i][4]),170):
@@ -52,17 +52,15 @@ def searchWahana(wahana,N=Nmax):
     print()
 
     # Algoritma menyaring input
-    batasUmur = intinput("Batasan umur pemain : ")
-    if (batasUmur not in [1,2,3]):
-        while (batasUmur not in [1,2,3]):
-            print("Batasan umur tidak valid!")
-            batasUmur = intinput("Batasan umur pemain: ")
+    batasUmur = posIntInput("Batasan umur pemain : ")
+    while (batasUmur not in [1,2,3]):
+        print("Batasan umur tidak valid!")
+        batasUmur = posIntInput("Batasan umur pemain: ")
 
-    batasTinggi = intinput("Batasan tinggi badan : ")
-    if (batasTinggi not in [1,2]):
-        while (batasTinggi not in [1,2]):
-            print("Batasan tinggi tidak valid! ")
-            batasTinggi = intinput("Batasan tinggi pemain: ")
+    batasTinggi = posIntInput("Batasan tinggi badan : ")
+    while (batasTinggi not in [1,2]):
+        print("Batasan tinggi tidak valid! ")
+        batasTinggi = posIntInput("Batasan tinggi pemain: ")
     print()
 
     # Algoritma untuk menghasilkan hasil search sesuai pilihan kategori
@@ -74,11 +72,12 @@ def searchWahana(wahana,N=Nmax):
         umurFind = "dewasa"
     else:
         umurFind = "semua umur"
+
     # Pemanggilan fungsi cariDanPrintWahana dengan fungsi lambda
     if (batasTinggi == 1):
-        pencarianDitemukan = cariDanPrintWahana(wahana,umurFind,(lambda a, b: a >= b),N)
+        pencarianDitemukan = cariDanPrintWahana(wahana,umurFind,(lambda a, b: a >= b))
     else:
-        pencarianDitemukan = cariDanPrintWahana(wahana,umurFind,(lambda a, b: True),N)
+        pencarianDitemukan = cariDanPrintWahana(wahana,umurFind,(lambda a, b: True))
 
     # Penulisan ketika tidak ada data yang ditemukan
     if not pencarianDitemukan:

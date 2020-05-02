@@ -24,7 +24,7 @@
 ############################### Algoritma ################################
 from package.base import *
 
-def cariDanPrintTiket(tiket,wahana,findUsername,N):
+def cariDanPrintTiket(tiket,wahana,findUsername,N=Nmax):
     pencarianDitemukan = False
     # Penyimpanan sementara
     wahanaIDList = ["" for i in range(N)]
@@ -33,27 +33,30 @@ def cariDanPrintTiket(tiket,wahana,findUsername,N):
     # Pencarian tiket dengan username "findUsername" pada database tiket
     for i in range(N):
         if (tiket[i][0] == findUsername):
-            if (not pencarianDitemukan):
-                print("Riwayat:")
             wahanaIDList[j] = tiket[i][1]
             wahanaTiketList[j] = tiket[i][2]
             pencarianDitemukan = True
             j += 1
     # Pengeprintan terbalik dengan pada array sementara
-    while (j >= 0):
-        (isWahanaExist, wahanaIndex) = isExistOnDatabase(wahana,0,wahanaIDList[j],N,False,True)
-        if isWahanaExist:
-            print("{:6} | {:30} | {}".format(wahanaIDList[j],wahana[wahanaIndex][1],wahanaTiketList[j]))
-        j -= 1
+    if pencarianDitemukan:
+        # j adalah nilai panjang array efektif wahanaIDList
+        # Indeks j juga diikutkan dalam pencarian namun isExistOnDatabase akan mengeluarkan
+        # pencarian kosong.
+        print("Riwayat:")
+        while (j >= 0):
+            (isWahanaExist, wahanaIndex) = isExistOnDatabase(wahana,0,wahanaIDList[j],True)
+            if isWahanaExist:
+                print("{:6} | {:30} | {}".format(wahanaIDList[j],wahana[wahanaIndex][1],wahanaTiketList[j]))
+            j -= 1
     return pencarianDitemukan
 
 def adminReadTicket(tiket,wahana,N=Nmax):
     # Input user
     findUsername = input("Masukkan username: ")
     # Pencarian dan pengeprintan tiket terkait
-    searchFound = cariDanPrintTiket(tiket,wahana,findUsername,N)
+    searchFound = cariDanPrintTiket(tiket,wahana,findUsername)
     if not searchFound:
-        print("Pencarian tidak ditemukan")
+        print("Username {} tidak memiliki tiket.".format(findUsername))
     print()
 
 ########################### End of function ##############################

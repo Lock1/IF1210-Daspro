@@ -9,7 +9,7 @@
 # Function  : databaseFilePath(String, String) -> (String)
 # Function  : appendDatabase(2D Matrix of strings, Array of strings, Integer) -> (2D Matrix of strings)
 # Function  : replaceChar(3x String) -> (String)
-# Function  : isExistOnDatabase(2D Array of string, Integer, String, Integer, 2x Boolean, Function, String) -> (Boolean) or (Boolean, Integer)
+# Function  : isExistOnDatabase(2D Matrix of string, Integer, String, Integer, 2x Boolean, Function, String) -> (Boolean) or (Boolean, Integer)  [TBU]
 # Function  : loadConfig() -> (Array of strings)
 # Function  : stringConfigToArray(String) -> (Array of strings)
 # Function  : lcg(4x Integer) -> (Integer)
@@ -17,33 +17,136 @@
 # Function  : selectionSort(Array of integer) -> (Array of integer)
 # Procedure : rawPrint(String)
 # Procedure : printMenu(Integer, Integer, Integer, Integer, Array of strings, Array of strings)
+# [TBU] replaceColumn
+# Function : isValidDateString(String) -> (Boolean)
+# [TBU] dateInput()
+# [TBU] idInput()
+# [TBU] validator
+# [TBU] tiketUpdate
 #############################################################################
 
+# Inisiasi dasar
+from hashlib import *
+capitalCharList = ['' for i in range(26)]
+numberCharList = ['' for i in range(10)]
+
+for i in range(26):
+    capitalCharList[i] = chr(i+65)
+
+for i in range(10):
+    numberCharList[i] = chr(i+48)
 
 # --------------------------- Definisi fungsi ----------------------------- #
 
 ############################### Fungsi Dasar ################################
-from hashlib import *
+
+############ Fungsi validasi ###########
+# Pengecekan string untuk mencegah ketidakvalidan tanggal
+def isValidDateString(str1):
+    # Mark
+    str1 = str1 + "\n"
+    i, j = 0, 0
+    while True:
+        if (str1[i] == "\n"):
+            break
+        if (str1[i] == "/"):
+            j += 1
+        i += 1
+    if (j == 2):
+        return True
+    else:
+        return False
+
+# Pengecekan string ID Wahana
+def isValidIDString(str1):
+    # Mark
+    str1 = str1 + "\n"
+    i = 0
+    while True:
+        if (str1[i] == "\n"):
+            break
+        if (i < 3) and (str1[i] not in capitalCharList):
+            break
+        if (i >= 3) and (str1[i] not in numberCharList):
+            break
+        i += 1
+    if (i == 6):
+        return True
+    else:
+        return False
+
+# Pengecekan kevalidan umur
+def isValidAgeString(str1):
+    if (str1 in ["semua umur","dewasa","anak-anak"]):
+        return True
+    else:
+        return False
+
 ############ Fungsi I/O dan string operation ############
 ## Fungsi xinput()
 # xinput digunakan untuk input user dengan penambahan sebuah string >>> didepannya
 def xinput(str1=""):
-    if not(str1 == ""):
+    if str1:
         print(str1)
     print(">>> ",end="")
     n = input()
     return n
 
-## Fungsi intinput
-# Meminta input integer secara paksa
+## Fungsi posIntInput
+# Meminta input integer positif secara paksa
 # Jika tidak integer, input akan diulangi
-def intinput(str1=""):
+def posIntInput(str1="",errorMsg=""):
     while True:
         n = input(str1)
         try:
-            return int(n)
+            if (int(n) > 0):
+                return int(n)
         except ValueError:
-            print("Masukan tidak diketahui")
+            if errorMsg:
+                print(errorMsg)
+            else:
+                print("Masukan tidak diketahui")
+
+## Fungsi dateInput
+# Meminta input tanggal dengan penulisan yang valid
+# Format spesifikasi "dd/mm/yyyy"
+def dateInput(str1=""):
+    while True:
+        date = input(str1)
+        if isValidDateString(date):
+            return date
+        else:
+            print("Tanggal tidak valid.")
+
+## Fungsi idInput
+# Meminta input wahana ID dengan pengecekan
+# Format wahana ID, AAANNN dengan A adalah huruf kapital dan N adalah angka
+def idInput(str1=""):
+    if str1:
+        stringToPrint = str1
+    else:
+        stringToPrint = "Masukkan ID Wahana: "
+    while True:
+        id = input(stringToPrint)
+        if isValidIDString(id):
+            return id
+        else:
+            print("ID Wahana tidak valid.")
+
+## Fungsi umurInput
+# Meminta input umur dengan pengecekan
+def umurInput(str1=""):
+    while True:
+        age = input(str1)
+        if isValidAgeString(age):
+            return age
+        else:
+            print("Umur tidak valid.")
+            print("Tuliskan salah satu batasan umur berikut:")
+            print("1. semua umur")
+            print("2. dewasa")
+            print("3. anak-anak")
+
 
 ## Prosedur rawPrint
 # Menuliskan tulisan dilayar tanpa endline ("\n")
@@ -123,40 +226,6 @@ def replaceChar(string,charFind,charReplace):
     return newString
 
 
-########### Fungsi database ###########
-## Fungsi appendDatabase
-# Digunakan untuk menambahkan informasi baru pada bagian bawah database / replace informasi dimark
-def appendDatabase(database,insertArray,N):
-    for i in range(N):
-        if (database[i][0] == "~~~"):
-            database[i] = insertArray
-            if (i != (N - 1)):
-                database[i+1][0] = "~~~"
-            break
-    return database
-
-## Fungsi isExistOnDatabase
-# Digunakan untuk mengecek apakah relasi antara database[][index] dan search
-# dengan checkFunction benar, jika benar flagToBeToggled akan dinegasi dan direturn
-# Argumen tambahan replace digunakan untuk mengganti database       # Note to self : check function dan replace belum digunakan secara maksimal
-def isExistOnDatabase(database,index,search,N,flagToBeToggled=False,indexReturn=False,checkFunction=(lambda a,b: a==b),replace="Null"):
-    for i in range(N):
-        if (database[i][0] == "~~~"):
-            if (search == "~~~") and indexReturn:
-                return (True,i)
-            break
-        if (checkFunction(database[i][index],search)):
-            flagToBeToggled = not flagToBeToggled
-            if indexReturn:
-                return (flagToBeToggled,i)
-            if (replace != "Null"): # To be fixed
-                database[i][index] = replace
-                return (flagToBeToggledFlag,database)
-            break
-    if indexReturn:
-        # Failure to find index
-        return (False,"Null")
-    return flagToBeToggled
 
 ############ Fungsi Config ###########
 ## Fungsi loadConfig
@@ -336,5 +405,89 @@ goldDiscountMultiplier = 0.5
 if (menuRow*menuColumn < menuPlayerCount) and (menuRow*menuColumn < menuAdminCount):
     print("Error, Konfigurasi menu tidak valid")
     exit()
+
+# ------------------------------------------------------------------------- #
+
+
+
+
+
+
+
+
+
+
+# ------------- Pendefinisian fungsi database dan fungsi lain ------------- #
+# Fungsi pada bagian ini diletakkan setelah pemanggilan loadconfig dikarenakan
+# fungsi dibawah ini menggunakan default argumen yang bergantung pada variabel
+# yang terdapat pada config.ini / file konfigurasi.
+########### Fungsi database ###########
+## Fungsi appendDatabase
+# Digunakan untuk menambahkan informasi baru pada bagian bawah database / replace informasi dimark
+def appendDatabase(database,insertArray,N=Nmax):
+    for i in range(N):
+        if (database[i][0] == "~~~"):
+            database[i] = insertArray
+            if (i != (N - 1)):
+                database[i+1][0] = "~~~"
+            break
+    return database
+
+## Fungsi isExistOnDatabase
+# Digunakan untuk mengecek apakah ada data yang sama antara
+# database dengan kolom index dan search, jika ada return True
+# Fungsi ini memiliki 2 mode return, mode default akan mengembalikan True atau False
+# berdasarkaan search ada atau tidak dan mode indexReturn untuk mengembalikan tuple (Boolean, Integer)
+# dengan boolean adalah ada tidaknya search dan integer adalah indeks pada database
+def isExistOnDatabase(database,searchColumnIndex,search,indexReturn=False,N=Nmax):
+    for i in range(N):
+        if (database[i][0] == "~~~"):
+            if (search == "~~~") and indexReturn:
+                return (True,i)
+            break
+        if (database[i][searchColumnIndex] == search):
+            if indexReturn:
+                return (True,i)
+            else:
+                return True
+    if indexReturn:
+        return (False,"null")
+        # Ketika fungsi diminta untuk mode return index dan gagal menemukan
+    # Jika tidak ada data yang sama, kembalikan false
+    return False
+
+## Fungsi replaceColumn
+# Fungsi replaceColumn digunakan untuk mengganti informasi pada kolom tertentu
+# Semua database digunakan Matrix of String, dan replaceColumn akan mengharuskan
+# konversi non string ke string.
+# replaceArray = [replaceColumnIndex,newColumn] -> Single Mode
+# replaceArray = [[Array of Integer], [Array of Strings]] -> Multi Mode
+def replaceColumn(database,dataRowIndex,replaceArray,multi=False,multiLength=0):
+    # Jika digunakan tipe single
+    if (not multi):
+        database[dataRowIndex][replaceArray[0]] = str(replaceArray[1])
+    # Mode multi
+    else:
+        for i in range(multiLength):
+            database[dataRowIndex][replaceArray[0][i]] = str(replaceArray[1][i])
+    return database
+
+## Fungsi tiketUpdate
+# Digunakan untuk mengupdate database tiket
+def tiketUpdate(tiket,username,wahanaID,operator,tiketOperan,ticketGreaterThan=False,N=Nmax):
+    updateExistingTicket = False
+    for i in range(N):
+        if (tiket[i][0] == "~~~"):
+            break
+        if (tiket[i][0] == username) and (tiket[i][1] == wahanaID):
+            updateExistingTicket = True
+            if (ticketGreaterThan) and (int(tiket[i][2]) >= tiketOperan):
+                tiket[i][2] = str(operator(int(tiket[i][2]), tiketOperan))
+            elif (not ticketGreaterThan):
+                tiket[i][2] = str(operator(int(tiket[i][2]), tiketOperan))
+            else:
+                updateExistingTicket = False
+            break
+    return (tiket, updateExistingTicket)
 
 # ------------------------------------------------------------------------- #

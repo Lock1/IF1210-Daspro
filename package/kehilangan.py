@@ -39,25 +39,16 @@ from package.base import *
 def hilang(tiket,kehilangan,N=Nmax):
     # Interface
     lostUsername = input("Masukkan username: ")
-    lostTime = input("Tanggal kehilangan tiket: ")
-    lostID = input("ID wahana: ")
-    lostTicket = intinput("Jumlah tiket yang dihilangkan: ")
-    # Filter lostTicket
-    while lostTicket <= 0:
-        print("Maaf tiket tidak valid")
-        lostTicket = intinput("Jumlah tiket yang di-refund: ")
+    lostTime = dateInput("Tanggal kehilangan tiket: ")
+    lostID = idInput("ID wahana: ")
+    lostTicket = posIntInput("Jumlah tiket yang dihilangkan: ")
     print()
 
     # Pencarian informasi database pada tiket.csv dan pengecekan kevalidan
-    isTicketValid = False
-    isUsernameExist, lostTicketIndex = isExistOnDatabase(tiket,0,lostUsername,N,False,True)
-    if isUsernameExist:
-        if (tiket[lostTicketIndex][1] == lostID) and (int(tiket[lostTicketIndex][2]) >= lostTicket):
-            isTicketValid = True
-            tiket[lostTicketIndex][2] = str(int(tiket[lostTicketIndex][2]) - lostTicket)
+    tiket, ticketUpdated = tiketUpdate(tiket,lostUsername,lostID,(lambda a, b: a - b),lostTicket,True)
 
     # Penulisan informasi baru pada database kehilangan
-    if isTicketValid:
+    if ticketUpdated:
         kehilanganBaru = [lostUsername, lostTime, lostID, lostTicket]
         kehilangan = appendDatabase(kehilangan,kehilanganBaru,N)
         print("Laporan kehilangan tiket Anda telah direkam.")

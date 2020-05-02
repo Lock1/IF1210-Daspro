@@ -15,10 +15,11 @@
 # N         : Integer
 
 ### Kamus Internal
-# balanceUsername   : String
-# addBalance        : Integer
-# usernameExist     : Boolean
-# usernameIndex     : Integer
+# balanceUsername      : String
+# addBalance           : Integer
+# isUsernameExist      : Boolean
+# usernameTopUpIndex   : Integer
+# newBalance           : Integer
 
 ### Kamus informasi yang direturn
 # user      : 2D Matrix of string
@@ -33,17 +34,19 @@ from package.base import *
 def requestTopUp(user,N=Nmax):
     # Input informasi yang dibutuhkan
     balanceUsername = input("Masukkan username: ")
-    addBalance = intinput("Masukkan saldo yang di-top up: ")
+    addBalance = posIntInput("Masukkan saldo yang di-top up: ")
+
     # Pencarian username pada database user
-    (usernameExist, usernameIndex) = isExistOnDatabase(user,3,balanceUsername,N,False,True)
-    if usernameExist:
+    isUsernameExist, usernameTopUpIndex = isExistOnDatabase(user,3,balanceUsername,True)
+    if isUsernameExist:
         # Penggantian saldo ketika ditemukan username
-        balance = int(user[usernameIndex][6]) + addBalance
-        user[usernameIndex][6] = str(balance)
-        print("Top up berhasil. Saldo {} bertambah menjadi {}".format(user[usernameIndex][0], balance))
+        newBalance = int(user[usernameTopUpIndex][6]) + addBalance
+        user = replaceColumn(user,usernameTopUpIndex,[6,newBalance])
+        print("Top up berhasil. Saldo {} bertambah menjadi {}".format(user[usernameTopUpIndex][0], newBalance))
     else:
         print("Maaf username {} tidak ditemukan".format(balanceUsername))
 
+    # Returning print
     print()
     return user
 

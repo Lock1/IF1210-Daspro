@@ -26,7 +26,8 @@
 ############################### Algoritma ################################
 from package.base import *
 
-def sortKritikSaran(kritiksaran,N):
+# [TBU]
+def sortKritikSaran(kritiksaran,N=Nmax):
     # Sorting dengan insertion sort pada praktikum
     for i in range(N):
         for j in range(i-1,-1,-1):
@@ -37,7 +38,7 @@ def sortKritikSaran(kritiksaran,N):
     return kritiksaran
 
 def printKritikSaran(kritiksaran,N=Nmax):
-    (placeholder,markIndex) = isExistOnDatabase(kritiksaran,0,"~~~",N,False,True)
+    (placeholder,markIndex) = isExistOnDatabase(kritiksaran,0,"~~~",True)
     kritiksaran = sortKritikSaran(kritiksaran,markIndex)
     print("Kritik dan saran:")
     for i in range(markIndex):

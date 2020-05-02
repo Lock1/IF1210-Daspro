@@ -106,10 +106,10 @@ while isLoaded:
         (tiket,kehilangan) = hilang(tiket,kehilangan)
     elif pilihanMenu in ["8","save"]:
         saveArray = [user, wahana, pembelian, penggunaan, tiket, refund, kritiksaran, kehilangan]
-        databaseSave(saveArray,databaseFolderPath,databaseFileCount)
+        databaseSave(saveArray)
     elif pilihanMenu in ["9", "exit"]:
         saveArray = [user, wahana, pembelian, penggunaan, tiket, refund, kritiksaran, kehilangan]
-        exitSequence(saveArray,databaseFolderPath,databaseFileCount)
+        exitSequence(saveArray)
     else:
         # Switch tambahan untuk isAdmin
         if isAdmin:
@@ -140,5 +140,7 @@ while isLoaded:
             print("\n")
     # Debugging purpose
     """if (pilihanMenu == "0"):
-        print(pembelian)"""
+        print(pembelian)
+        print(user)
+        print(tiket)"""
 ########################### End of function ##############################
