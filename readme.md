@@ -3,13 +3,16 @@
 
 ### Tentang Program
 - **Seluruh file** yang dikumpulkan telah diupload (Laporan, video, dan deliverable lainnya) pada folder [deliverable](/deliverable/).
-- Versi **1.0** dapat didownload pada bagian [release](https://github.com/Lock1/tbdaspro/releases/tag/v1.0). **v1.0** memiliki *source code* yang **sama persis** dengan deliverable yang dikirim pada pengumpulan tugas besar. 
+- Versi **1.0** dapat didownload pada bagian [release](https://github.com/Lock1/tbdaspro/releases/tag/v1.0). **v1.0** memiliki *source code* yang **sama persis** dengan deliverable yang dikirim pada pengumpulan tugas besar.
 - Program utama bernama **Willy.py**
 - Semua modul selain base, load, dan login pada package bersifat **opsional**.
 - Jika salah satu modul dan kode pada program utama memanggil fungsi yang terkait dihapus, program tetap dapat berjalan secara normal untuk fungsi lain.
+
+### Style kode
+- Pada program ini, diminimalisir penggunakan kode *one-line* yang biasanya digunakan pada python.
 - Dikarenakan beberapa kelompok lain yang menggunakan *global variable*, program ini didesain untuk **tidak** menggunakan variabel global.
 - Program didesain untuk bersifat *modular* dan *maintainable* sehingga tidak akan digunakan variabel global jika tidak diperlukan.
-- Sebagian besar program tidak mengikuti asumsi kevalidan input, banyak *exception handler* dengan blok `try-except` yang digunakan untuk menghandle situasi yang dapat menyebabkan program keluar.
+- Program ini menggunakan *exception handler* pada I/O yang digunakan untuk mencegah situasi yang menyebabkan program *crash*.
 
 ### Sistem Penyimpanan Database
 - Database yang digunakan dalam format **.csv**.
