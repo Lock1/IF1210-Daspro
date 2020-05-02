@@ -1,6 +1,6 @@
 # Tugas Besar - Dasar Pemrograman
-**TBA**
-**Current Version : 1.1**
+**TBA** \
+**Current Version : 1.1** \
 Changelog
 - **Rework** pada sistem *read-write* database tiket
 - **Remove** fitur replace dan flagToggle pada fungsi isExistOnDatabase
@@ -8,7 +8,7 @@ Changelog
 - Fix interaksi antar modul tiket
 - Penambahan filter pada setiap input
 
-## Release
+### Release
 [v1.0](https://github.com/Lock1/tbdaspro/releases/tag/v1.0) \
 [v1.1](https://github.com/Lock1/tbdaspro/releases/tag/v1.1)  
 
