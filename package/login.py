@@ -48,7 +48,7 @@ def requestLogin(user,N=Nmax):
         isUserInputNotValid, isPasswordInputNotValid = (inputUsername + " ").isspace(), (inputPassword + " ").isspace()
         # Diperlukan pengecekan karena hash() tidak memiliki handler untuk karakter spasi,
         # dan karakter spasi dianggap bukanlah karakter yang valid untuk password
-        while (isUserInputNotValid) and (isPasswordInputNotValid):
+        while (isUserInputNotValid) or (isPasswordInputNotValid):
             print()
             print("Masukkan tidak valid")
             inputUsername = input("Masukkan username: ")
