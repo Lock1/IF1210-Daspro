@@ -31,10 +31,11 @@
 ############################### Algoritma ################################
 from package.base import *
 
-def tulisKritikSaran(username,kritiksaran,N=Nmax):
+def tulisKritikSaran(username,kritiksaran,wahana,N=Nmax):
     # Input ketiga parameter kritik dan saran baru
-    # Asumsi semua input valid
     kritikID = idInput("Masukkan ID Wahana: ")
+    while not isExistOnDatabase(wahana,0,kritikID):
+        kritikID = idInput("ID tidak ada pada database, masukkan ID valid: ")
     tanggalKritik = dateInput("Masukkan tanggal pelaporan: ")
     isiKritik = input("Kritik/saran Anda: ")
 
