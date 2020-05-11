@@ -451,7 +451,7 @@ def isExistOnDatabase(database,searchColumnIndex,search,indexReturn=False,N=Nmax
             else:
                 return True
     if indexReturn:
-        return (False,"null")
+        return (False,-1)
         # Ketika fungsi diminta untuk mode return index dan gagal menemukan
     # Jika tidak ada data yang sama, kembalikan false
     return False
