@@ -37,8 +37,7 @@ def tambahWahana(wahana,N=Nmax):
     print("Masukkan Informasi Wahana yang ditambahkan:")
     newID = idInput("Masukkan ID Wahana: ")
     while isExistOnDatabase(wahana,0,newID):
-        print("ID sudah terdaftar, masukkan ID lain")
-        newID = idInput("Masukkan ID Wahana: ")
+        newID = idInput("ID sudah terdaftar, masukkan ID lain: ")
 
     newName = input("Masukkan Nama Wahana: ")
     newCost = str(posIntInput("Masukkan Harga Tiket: "))
