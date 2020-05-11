@@ -32,7 +32,7 @@
 ############################### Algoritma ################################
 from package.base import *
 
-def upgradeToGold(gold,user,upgradeGoldCost,N=Nmax):
+def upgradeToGold(gold,username,user,upgradeGoldCost,N=Nmax):
     # Interface
     upgradeUsername = input("Masukkan username yang ingin di-upgrade: ")
     print()
@@ -44,7 +44,8 @@ def upgradeToGold(gold,user,upgradeGoldCost,N=Nmax):
         if (int(user[upgradeIndex][6]) >= upgradeGoldCost):
             user[upgradeIndex][6] = str(int(user[upgradeIndex][6]) - upgradeGoldCost) # SALDO DECREASE
             user[upgradeIndex][7] = "1"
-            gold = True    # Fix sementara edge case ketika admin self ugprade. Untuk fix, tambahkan request username login dan cek
+            if (upgradeUsername == username):
+                gold = True
             print("Akun anda telah diupgrade.")
         elif (int(user[upgradeIndex][6]) >= upgradeGoldCost) and (user[upgradeIndex][7] == "1"):
             print("Username {} sudah memiliki Gold membership".format(upgradeUsername))

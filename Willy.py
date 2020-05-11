@@ -126,7 +126,7 @@ while isLoaded:
             elif pilihanMenu in ["F","riwayat_wahana"]:
                 riwayatWahana(penggunaan)
             elif pilihanMenu in ["G","upgrade_gold"]:
-                (user, gold) = upgradeToGold(gold,user,toGoldCost)
+                (user, gold) = upgradeToGold(gold,username,user,toGoldCost)
             elif pilihanMenu in ["H","topup"]:
                 user = requestTopUp(user)
             elif pilihanMenu in ["I"]:
