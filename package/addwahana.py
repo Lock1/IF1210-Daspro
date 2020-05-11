@@ -36,6 +36,10 @@ def tambahWahana(wahana,N=Nmax):
     # Meminta input user
     print("Masukkan Informasi Wahana yang ditambahkan:")
     newID = idInput("Masukkan ID Wahana: ")
+    while isExistOnDatabase(wahana,0,newID):
+        print("ID sudah terdaftar, masukkan ID lain")
+        newID = idInput("Masukkan ID Wahana: ")
+
     newName = input("Masukkan Nama Wahana: ")
     newCost = str(posIntInput("Masukkan Harga Tiket: "))
     newAge = umurInput("Batasan umur: ")
