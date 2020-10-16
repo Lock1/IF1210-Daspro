@@ -1,5 +1,4 @@
 # Tugas Besar - Dasar Pemrograman
-**TBA** \
 **Current Version : 1.1** \
 Changelog
 - **Rework** pada sistem *read-write* database tiket
